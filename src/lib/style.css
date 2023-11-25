@@ -1,0 +1,29 @@
+@font-face {
+    font-family: Tenso-Slab;
+    src: url("/type/exljbris/Tenso Slab/03-Tenso-Slab-Regular_42_ik.otf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a, a:visited {
+    color: #832064;
+    border-bottom: 2px solid #832064;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+body {
+    font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background: #dedede;
+}
+
+.brand {
+    font-weight: normal;
+    font-family: Tenso-Slab, serif;
+}
