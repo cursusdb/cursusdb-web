@@ -11,7 +11,7 @@
     <title>CursusDB - NoSQL At Scale</title>
 </svelte:head>
 
-<figure>
+<br/><br/><figure>
     <h2>NoSQL At Scale </h2>
     <hr/>
     <h1>CursusDB is </h1><RollingText time={2250} texts={['Distributed', 'JSON & SQL Based', 'Blazing Fast', 'Open Source', 'Secure']}/>
@@ -22,6 +22,9 @@
     <h3>Setting Up Cluster</h3>
     <p>First download the latest version of the CursusDB cluster from <a href="/downloads">Here</a> for your operating system.</p>
     <p>Once downloaded Cursus will expect an initial database user to be created upon first start up.</p>
+    <Prism language="bash" code={`
+./cursus
+`}/>
     <img style="filter: invert(1);" src="docs/cluster-setup0.png" /><br/><br/>
     <img style="filter: invert(1);" src="docs/cluster-setup1.png" />
 

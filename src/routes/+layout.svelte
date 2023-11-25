@@ -19,7 +19,7 @@
 </footer>
 <style>
     main {
-        padding: 20px;
+        padding: 60px 20px;
         min-height: calc(100vh - 60px - 40px);
         width: calc(100% - 40px);
     }

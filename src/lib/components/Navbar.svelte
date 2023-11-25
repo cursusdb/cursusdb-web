@@ -10,7 +10,7 @@
     <h2 on:click={() => navigate("./")} class="brand"> CursusDB</h2>
 
     <ul>
-        <li>Documentation</li>
+        <li on:click={() => navigate("/documentation")}>Documentation</li>
         <li on:click={() => navigate("/downloads")}>Downloads</li>
     </ul>
 </nav>
@@ -18,6 +18,9 @@
 
 <style>
     nav {
+        z-index: 1000;
+        position: fixed;
+        top: 0;
         height: 60px;
         width: calc(100% - 40px);
         background: black;
