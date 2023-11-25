@@ -14,7 +14,7 @@
 <figure>
     <h2>NoSQL At Scale </h2>
     <hr/>
-    <h1>CursusDB is </h1><RollingText />
+    <h1>CursusDB is </h1><RollingText time={2250} texts={['Distributed', 'JSON & SQL Based', 'Blazing Fast', 'Open Source', 'Secure']}/>
 </figure>
 
 <section>
