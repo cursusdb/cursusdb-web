@@ -21,11 +21,13 @@
     main {
         padding: 60px 20px;
         min-height: calc(100vh - 60px - 40px);
+        display: block;
         width: calc(100% - 40px);
     }
 
     footer {
         width: 100%;
+        text-shadow: 1px 1px rgba(0,0,0,0.2);
         background: #2f2f2f;
         height: 100px;
     }

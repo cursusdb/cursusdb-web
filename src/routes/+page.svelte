@@ -1,7 +1,6 @@
 <script>
     import RollingText from "$lib/components/RollingText.svelte";
     import Prism from "$lib/components/Prism.svelte";
-
 </script>
 
 <svelte:head>
@@ -16,82 +15,40 @@
     <hr/>
     <h1>CursusDB is </h1><RollingText time={2250} texts={['Distributed', 'JSON & SQL Based', 'Blazing Fast', 'Open Source', 'Secure']}/>
 </figure>
+<br/>
+<section>
+    <h1>SQL Like</h1>
+    <Prism language="sql" code={`
+select * from users where firstName == 'Alex' && age > 28;
+`}/>
+</section>
 
 <section>
-    <h2>Getting Started</h2><br/>
-    <h3>Setting Up Cluster</h3>
-    <p>First download the latest version of the CursusDB cluster from <a href="/downloads">Here</a> for your operating system.</p>
-    <p>Once downloaded Cursus will expect an initial database user to be created upon first start up.</p>
-    <Prism language="bash" code={`
-./cursus
+    <h1>JSON based</h1>
+    <Prism language="sql" code={`
+insert into users({"name": "John", "last": "Josh", "age": 28, "tags": ["tag1", "tag2"]});
 `}/>
-    <img style="filter: invert(1);" src="docs/cluster-setup0.png" /><br/><br/>
-    <img style="filter: invert(1);" src="docs/cluster-setup1.png" />
+</section>
 
-    <p>Now you'll have a .cursusconfig yaml file.</p>
-    <Prism language="yaml" code={`
-nodes: []
-tls-cert: ""
-tls-key: ""
-tls: false
-port: 7681
-users:
-    - DX8EAQL/gAABDAEQAABO/4AAAwh1c2VybmFtZQZzdHJpbmcMBgAEYWxleAhwYXNzd29yZAZzdHJpbmcMCAAGcGFkdWxhCnBlcm1pc3Npb24Gc3RyaW5nDAQAAlJX
-`} header=".cursusconfig"/>
+<section>
+    <h1>Easily integratable</h1>
+    <Prism language="javascript" code={`
+import cursusdb from 'cursusdb-node'
 
-    <p>Your initial user has <strong>RW</strong> which is READWRITE permissions.  You can see in your .cursusconfig that you have a serialized user which is encoded to be stored securely and taking up little room.</p>
+// cluster host, cluster port, db user username, db user password, tls enabled
+cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (cluster) => {
+    const results = await cursusdb.Query("select * from users;")
 
-    <p>You can choose to start your cluster with tls disabled but it is recommended for connections to be secure.</p>
+    console.log(results)
 
-    <p>The <strong>tls-cert</strong> and <strong>tls-key</strong> values can be populated with the location of your tls key and cert.  You must also make sure to set <strong>tls</strong> to <strong>true</strong></p>
+    // Close whenever
+    cursusdb.Close()
 
-    <p>As the cluster states you must setup at-least one node to use the database system.</p>
-    <p>To do that let's have a look below:</p>
-    <p>Say I want to start a node locally.</p>
-    <Prism language="yaml" code={`
-nodes:
-    - 0.0.0.0:7682
-tls-cert: ""
-tls-key: ""
-tls: false
-port: 7681
-users:
-    - DX8EAQL/gAABDAEQAABO/4AAAwh1c2VybmFtZQZzdHJpbmcMBgAEYWxleAhwYXNzd29yZAZzdHJpbmcMCAAGcGFkdWxhCnBlcm1pc3Npb24Gc3RyaW5nDAQAAlJX
-`} header=".cursusconfig"/>
+}).catch((err) => {
+    console.log(err)
+})
 
-    <p>You might be thinking ok, but what about the node I don't have it yet.</p>
-    <p>Not to worry.  You can download the <strong>curode</strong> which is the Cursus cluster node from <a href="/downloads">Here</a></p>
-
-    <p>Once downloaded simply run</p>
-    <Prism language="bash" code={`
-./curode
 `}/>
-    <p>OR</p>
-    <Prism language="bash" code={`
-./curode -port=YOURPORT
-`}/>
-
-    <p>Once your node is running, now you can start your cluster.</p>
-
-    <Prism language="bash" code={`
-./cursus
-`}/>
-    <p>OR</p>
-    <Prism language="bash" code={`
-./cursus -port=YOURPORT
-`}/>
-    <img style="filter: invert(1);" src="docs/cluster-setup2.png" />
-    <p>Cursus is a parallel type database in regards to distribution.  What that means is you can add multiple nodes and Cursus will query them all simutanuously.</p>
-
-    <h3>Connecting To Cluster</h3>
-
-    <h4>Connect via client package</h4>
-    <h4>Node.js</h4>
-    <a href="https://www.npmjs.com/package/cursusdb-node">https://www.npmjs.com/package/cursusdb-node</a>
-
-    <br/><br/>
-    <h4>Connect via curush (CursusDB Shell Program)</h4>
-    <a href="/downloads">Download curush</a>
 </section>
 
 <style>
@@ -104,6 +61,7 @@ users:
         width: calc(100% - 40px);
         background: #f5d327;
         text-shadow: 1px 1px rgba(255,255,255,0.4);
+
     }
 
     figure hr {
@@ -121,24 +79,32 @@ users:
     }
 
     section {
-        max-width: 980px;
-        padding: 20px;
+        margin-top: 20px!important;
         margin: 0 auto;
-        text-shadow: 1px 1px rgba(255,255,255,0.4);
-        width: calc(100% - 40px);
-        padding-bottom: 40px;
-    }
-
-    section img {
-        border: 4px solid rgba(255,255,255,0.1);
         width: 100%;
+        max-width: 980px;
+        background: rgb(255,226,201);
+        background: linear-gradient(90deg, rgba(255,226,201,1) 0%, rgba(255,185,253,1) 59%, rgba(252,193,69,1) 100%);
+        text-shadow: 1px 1px rgba(255,255,255,0.4);
         border-radius: 5px;
+        color: rgba(0,0,0,0.8);
     }
 
-    section p {
-        line-height: 1.4em;
-        padding-bottom: 10px;
-        padding-top: 10px;
+    section h1 {
+        height: 50px;
+        line-height: 60px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
+    @media only screen and (max-width: 500px) {
+        figure h2 {
+            font-size: 14px;
+        }
+
+        figure h1 {
+            margin-right: 5px;
+            font-size: 16px!important;
+        }
+    }
 </style>

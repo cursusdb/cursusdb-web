@@ -21,3 +21,12 @@
 {#key index}
     <h1 transition:slide>{texts[index]}</h1>
 {/key}
+
+<style>
+    @media only screen and (max-width: 500px) {
+
+        h1 {
+            font-size: 16px !important;
+        }
+    }
+</style>

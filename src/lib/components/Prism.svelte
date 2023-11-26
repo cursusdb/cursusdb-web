@@ -27,7 +27,10 @@
             // load the proper Prisim support tool, like Python requires "prism-python.js" to modify the raw code so that
             // Prisim can render it properly.
             switch (language) {
-
+                case "javascript":
+                    lang_module = "https://prismjs.com/components/prism-javascript.js"
+                    langJS = true;
+                    break
                 case "json":
                     lang_module = "https://prismjs.com/components/prism-json.js"
                     langJS = true;
