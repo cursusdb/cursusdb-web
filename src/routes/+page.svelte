@@ -93,8 +93,8 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
         margin: 0 auto;
         width: 100%;
         max-width: 980px;
-        background: rgb(255,226,201);
-        background: linear-gradient(90deg, rgba(255,226,201,1) 0%, rgba(255,185,253,1) 59%, rgba(252,193,69,1) 100%);
+        background: rgb(255,238,224);
+        background: linear-gradient(90deg, rgba(255,238,224,1) 0%, rgba(235,210,255,1) 43%, rgba(233,255,237,1) 68%, rgba(245,211,39,1) 100%);
         text-shadow: 1px 1px rgba(255,255,255,0.4);
         border-radius: 5px;
         color: rgba(0,0,0,0.8);
