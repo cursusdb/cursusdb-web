@@ -58,4 +58,16 @@
     nav ul li:hover {
         color: #332d42;
     }
+
+    @media only screen and (max-width: 430px) {
+        nav ul li {
+            font-size: 12px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        .brand {
+            font-size: 16px;
+        }
+    }
 </style>

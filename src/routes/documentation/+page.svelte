@@ -2,7 +2,11 @@
     import RollingText from "$lib/components/RollingText.svelte";
     import Prism from "$lib/components/Prism.svelte";
     import {onMount} from "svelte";
-    let searchInput
+    let searchInput // search bind
+    let clientWidth // user client width
+    let showAside = false // show aside bool
+    import { slide } from 'svelte/transition';
+    import { quintOut } from 'svelte/easing';
 
 
     function searchKey(event) {
@@ -12,6 +16,7 @@
             return false
         }
     }
+
 </script>
 
 <svelte:head>
@@ -21,18 +26,23 @@
     <title>Documentation - CursusDB</title>
 </svelte:head>
 
-<svelte:window on:keydown={(e) => searchKey(e)} />
+<svelte:window bind:innerWidth={clientWidth} on:keydown={(e) => searchKey(e)} />
 
-<aside>
+{#if clientWidth > 746 || showAside}
+<aside transition:slide={{ delay: 250, duration: 300, easing: quintOut, axis: 'x' }}>
     <input bind:this={searchInput} type="search" placeholder="search docs.. CTRL+f" />
     <ul>
         <li>Getting Started</li>
         <!--        <li>Query Language</li>-->
     </ul>
 </aside>
+{/if}
 
 <main>
-    <article>
+    <article style={`${clientWidth < 746 ? "padding: 0;" : "padding-left: 240px;"}`}>
+        {#if clientWidth < 746 }
+            <button class="aside-btn" on:click={() => showAside ? showAside = false : showAside = true}><img src="aside-toggle.png" /></button>
+        {/if}
         <h1>Getting Started</h1><br/>
         <h3>Setting Up Cluster</h3>
         <p>First download the latest version of the CursusDB cluster from <a href="/downloads">Here</a> for your operating system.</p>
@@ -212,7 +222,7 @@ users:
 
     article {
         padding: 20px;
-        padding-left:  240px;
+        max-width: 1080px;
     }
 
     aside {
@@ -221,6 +231,7 @@ users:
         height: calc(100vh - 80px);
         position: sticky;
         bottom: 0;
+        background: #f1f1f1;
         z-index: 999;
         top: 60px;
         left: 0;
@@ -266,5 +277,23 @@ users:
 
     aside ul li:last-child {
         border: none;
+    }
+
+    .aside-btn {
+        z-index: 1000;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        background: #ffd13b;
+        outline: none;
+        border: none;
+        padding: 8px;
+        cursor: pointer;
+    }
+
+    .aside-btn img {
+        opacity: 0.74;
+        margin-top: 7px;
+        width: 22px;
     }
 </style>
