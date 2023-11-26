@@ -93,7 +93,9 @@ users:
         <p>OR</p>
         <Prism language="bash" code={`
 ./cursus -port=YOURPORT
-`}/>
+`}/><br/>
+
+
         <h3>Starting Node</h3>
         <p>You can choose to start your node with a different port than whats in .curodeconfig using --port flag.</p>
         <img style="filter: invert(1);" src="docs/cluster-setup3.png" /><br/>
@@ -124,7 +126,72 @@ users:
         <p>coming soon.</p>
         <br/><br/>
 
+        <br/><h2>TLS Cert with Certbot</h2>
+        <p><strong>Ubuntu Example</strong></p>
+        <p>If you have any Certbot packages installed using an OS package manager like apt, ect, you should remove them before installing the Certbot snap.  This ensures that when you run the command certbot the snap is used rather than the installation from your OS package manager.</p>
 
+<Prism language="bash" code={`
+sudo apt-get remove certbot
+`}/><br/>
+        <p>OR</p>
+<Prism language="bash" code={`
+sudo dnf remove certbot
+`}/><br/>
+        <p>OR</p>
+
+<Prism language="bash" code={`
+sudo yum remove certbot
+`}/><br/>
+        <p>Then install certbox</p>
+        <Prism language="bash" code={`
+sudo snap install --classic certbot
+`}/><br/>
+        <p>Run the following in your command line to ensure that the certbot command can be run.</p>
+        <Prism language="bash" code={`
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+`}/><br/>
+        <p><strong>Note: Certbot requires ports 80 and 443</strong></p>
+
+        <p>Setup cert for FQDN example <strong>cluster-0.example.com</strong></p>
+        <Prism language="bash" code={`
+sudo certbot certonly --standalone -d cluster-0.example.com
+`}/><br/><br/>
+        <Prism language="bash" code={`
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Requesting a certificate for cluster-0.example.com
+
+Successfully received certificate.
+Certificate is saved at: /etc/letsencrypt/live/cluster-0.example.com/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/cluster-0.example.com/privkey.pem
+This certificate expires on 2024-02-24.
+These files will be updated when the certificate renews.
+Certbot has set up a scheduled task to automatically renew this certificate in the background.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+If you like Certbot, please consider supporting our work by:
+* Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+* Donating to EFF:                    https://eff.org/donate-le
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+`} header="Certbot response"/>
+
+
+        <p>Now with your cert and key ready you can setup your <strong>.cursusconfig</strong> and or <strong>.curodeconfig</strong></p>
+        <Prism language="yaml" code={`
+nodes:
+    - 0.0.0.0:7682
+tls-cert: "/etc/letsencrypt/live/cluster-0.example.com/fullchain.pem"
+tls-key: "/etc/letsencrypt/live/cluster-0.example.com/privkey.pem"
+tls: true
+port: 7681
+users:
+    - DX8EAQL/gAABDAEQAABO/4AAAwh1c2VybmFtZQZzdHJpbmcMBgAEYWxleAhwYXNzd29yZAZzdHJpbmcMCAAGcGFkdWxhCnBlcm1pc3Npb24Gc3RyaW5nDAQAAlJX
+`} header=".cursusconfig"/>
+
+        <p>Now when your cluster is secured with TLS every attempt to connect with Curush or a native package you must make sure to enable TLS.</p>
+
+        <Prism language="bash" code={`
+ ./curush --host=X --port=X --tls=true
+`}/><br/>
     </article>
 </main>
 
