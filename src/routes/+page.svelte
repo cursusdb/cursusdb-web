@@ -49,7 +49,17 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
 })
 
 `}/>
+    <footer>
+        <div class="left">
+            <a href="https://www.npmjs.com/package/cursusdb-node">https://www.npmjs.com/package/cursusdb-node</a>
+        </div>
+
+        <div class="right">
+            More client packages coming for Go, C#, and Java
+        </div>
+    </footer>
 </section>
+
 
 <style>
     figure {
@@ -97,6 +107,18 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
         padding-right: 10px;
     }
 
+    section footer {
+        height: 40px;
+        line-height: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow: hidden
+    }
+
+    section footer div {
+        display: inline-block;
+    }
+
     @media only screen and (max-width: 500px) {
         figure h2 {
             font-size: 14px;
@@ -105,6 +127,10 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
         figure h1 {
             margin-right: 5px;
             font-size: 16px!important;
+        }
+
+        section footer div {
+            font-size: 12px
         }
     }
 </style>
