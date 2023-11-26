@@ -14,6 +14,7 @@
         <li><a href="https://github.com/cursusdb">Github</a></li>
         <li><a href="https://linkedin.com/company/cursusdb">Linkedin</a></li>
         <li><a href="">YouTube</a></li>
+        <li><a href="mailto:product@cursusdb.com">Contact</a></li>
     </ul>
 
 </footer>
@@ -29,7 +30,7 @@
         width: 100%;
         text-shadow: 1px 1px rgba(0,0,0,0.2);
         background: #151515;
-        height: 100px;
+        height: auto;
     }
 
     footer p {
@@ -41,16 +42,15 @@
     }
 
     footer ul {
-        width: 188px;
+        max-width: 268px;
+        width: 100%;
         margin: 0 auto;
         height: 40px;
         list-style: none;
     }
 
     footer ul li {
-        text-align: center;
-        padding-right: 10px;
-        padding-left: 10px;
+        padding: 10px;
         float: left;
         font-size: 12px;
     }

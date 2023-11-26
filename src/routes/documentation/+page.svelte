@@ -1,6 +1,17 @@
 <script>
     import RollingText from "$lib/components/RollingText.svelte";
     import Prism from "$lib/components/Prism.svelte";
+    import {onMount} from "svelte";
+    let searchInput
+
+
+    function searchKey(event) {
+        if (event.ctrlKey && event.key === 'f') {
+            event.preventDefault()
+            searchInput.focus()
+            return false
+        }
+    }
 </script>
 
 <svelte:head>
@@ -10,16 +21,19 @@
     <title>Documentation - CursusDB</title>
 </svelte:head>
 
+<svelte:window on:keydown={(e) => searchKey(e)} />
+
 <aside>
+    <input bind:this={searchInput} type="search" placeholder="search docs.. CTRL+f" />
     <ul>
         <li>Getting Started</li>
-<!--        <li>Query Language</li>-->
+        <!--        <li>Query Language</li>-->
     </ul>
 </aside>
 
 <main>
     <article>
-        <h1>Getting Started</h1>
+        <h1>Getting Started</h1><br/>
         <h3>Setting Up Cluster</h3>
         <p>First download the latest version of the CursusDB cluster from <a href="/downloads">Here</a> for your operating system.</p>
         <p>Once downloaded Cursus will expect an initial database user and key to be created upon first start up.</p>
@@ -80,20 +94,40 @@ users:
         <Prism language="bash" code={`
 ./cursus -port=YOURPORT
 `}/>
+        <h3>Starting Node</h3>
+        <p>You can choose to start your node with a different port than whats in .curodeconfig using --port flag.</p>
+        <img style="filter: invert(1);" src="docs/cluster-setup3.png" /><br/>
+
+
+        <p>Then when we start cluster</p>
         <img style="filter: invert(1);" src="docs/cluster-setup2.png" />
         <p>Cursus is a parallel type database in regards to distribution.  What that means is you can add multiple nodes and Cursus will query them all simutanuously.</p>
 
-        <h3>Starting Node</h3>
-        <img style="filter: invert(1);" src="docs/cluster-setup3.png" /><br/>
-        <h3>Connecting To Cluster</h3>
 
-        <h4>Connect via client package</h4>
+
+        <h3>Connecting To Cluster</h3><br/>
+
+        <h4>Connect via client package</h4><br/>
         <h4>Node.js</h4>
         <a href="https://www.npmjs.com/package/cursusdb-node">https://www.npmjs.com/package/cursusdb-node</a>
 
         <br/><br/>
         <h4>Connect via curush (CursusDB Shell Program)</h4>
         <a href="/downloads">Download curush</a>
+
+        <p>Cursus is a parallel type database in regards to distribution.  What that means is you can add multiple nodes and Cursus will query them all simutanuously.</p>
+
+        <br/><br/><h3>Connecting To Cluster</h3>
+
+        <h4>Connect via client package</h4><br/>
+        <h4>Node.js</h4>
+        <a href="https://www.npmjs.com/package/cursusdb-node">https://www.npmjs.com/package/cursusdb-node</a>
+
+        <br/><br/>
+        <h4>Connect via curush (CursusDB Shell Program)</h4>
+        <a href="/downloads">Download curush</a>
+
+
     </article>
 </main>
 
@@ -114,30 +148,41 @@ users:
 
     article {
         padding: 20px;
+        padding-left:  240px;
     }
 
     aside {
-        -webkit-border-bottom-right-radius: 5px;
-        -moz-border-radius-bottomright: 5px;
-        border-bottom-right-radius: 5px;
-        background: white;
         padding: 20px;
         width: 200px;
-        min-height: 100px;
-        max-height: calc(100vh - 60px);
+        height: calc(100vh - 80px);
         position: sticky;
-        z-index: 1000;
+        bottom: 0;
+        z-index: 999;
         top: 60px;
         left: 0;
         margin-left: -20px;
         margin-right: 20px;
         margin-bottom: 20px;
         float: left;
-        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        border-right: 1px solid rgba(0,0,0,0.2);
     }
 
     aside ul {
         list-style: none;
+    }
+
+    aside input[type="search"] {
+        border: 4px solid rgba(0,0,0,0.2);
+        padding: 5px;
+        width: calc(100% - 10px);
+        font-size: 12px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    aside input[type="search"]:focus {
+        border: 4px solid rgba(0,0,0,0.4);
+        outline: none;
     }
 
     img {
@@ -156,6 +201,6 @@ users:
     }
 
     aside ul li:last-child {
-       border: none;
+        border: none;
     }
 </style>
