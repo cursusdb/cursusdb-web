@@ -106,26 +106,23 @@ users:
 
 
         <h3>Connecting To Cluster</h3><br/>
+        <h4>Connect via curush (CursusDB Shell Program)</h4>
+        <p><a href="/downloads">Download curush</a></p>
 
-        <h4>Connect via client package</h4><br/>
+        <p><strong>Connect via native client package:</strong></p>
+
         <h4>Node.js</h4>
         <a href="https://www.npmjs.com/package/cursusdb-node">https://www.npmjs.com/package/cursusdb-node</a>
-
         <br/><br/>
-        <h4>Connect via curush (CursusDB Shell Program)</h4>
-        <a href="/downloads">Download curush</a>
-
-        <p>Cursus is a parallel type database in regards to distribution.  What that means is you can add multiple nodes and Cursus will query them all simutanuously.</p>
-
-        <br/><br/><h3>Connecting To Cluster</h3>
-
-        <h4>Connect via client package</h4><br/>
-        <h4>Node.js</h4>
-        <a href="https://www.npmjs.com/package/cursusdb-node">https://www.npmjs.com/package/cursusdb-node</a>
-
+        <h4>Python</h4>
+        <p>coming soon.</p>
+        <h4>Java</h4>
+        <p>coming soon.</p>
+        <h4>GO</h4>
+        <p>coming soon.</p>
+        <h4>C#</h4>
+        <p>coming soon.</p>
         <br/><br/>
-        <h4>Connect via curush (CursusDB Shell Program)</h4>
-        <a href="/downloads">Download curush</a>
 
 
     </article>
