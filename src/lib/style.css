@@ -9,8 +9,8 @@
 }
 
 a, a:visited {
-    color: #832064;
-    border-bottom: 2px solid #832064;
+    color: rgb(96,45,208);
+    border-bottom: 2px solid rgb(96,45,208);
     text-decoration: none;
 }
 

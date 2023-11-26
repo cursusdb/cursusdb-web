@@ -28,7 +28,7 @@
     footer {
         width: 100%;
         text-shadow: 1px 1px rgba(0,0,0,0.2);
-        background: #2f2f2f;
+        background: #151515;
         height: 100px;
     }
 

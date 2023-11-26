@@ -7,9 +7,10 @@
 </script>
 
 <nav>
-    <h2 on:click={() => navigate("./")} class="brand"> CursusDB</h2>
+    <h2 on:click={() => navigate("./")} class="brand"><img src="cursusdb.png" width="32" /> CursusDB</h2>
 
     <ul>
+        <li on:click={() => navigate("https://github.com/cursusdb")}>Git</li>
         <li on:click={() => navigate("/documentation")}>Documentation</li>
         <li on:click={() => navigate("/downloads")}>Downloads</li>
     </ul>
@@ -23,11 +24,17 @@
         top: 0;
         height: 60px;
         width: calc(100% - 40px);
-        background: black;
-        color: white;
+        background: #ffd13b;
+        color: #332d42;
         line-height: 60px;
         padding-left: 20px;
         padding-right: 20px;
+    }
+
+    .brand img {
+        float: left;
+        margin-top: 12px;
+        margin-right: 5px
     }
 
     nav h2 {
@@ -41,7 +48,7 @@
     }
 
     nav ul li {
-        color: rgba(255,255,255,0.8);
+        color: #4f4564;
         padding-left: 10px;
         padding-right: 10px;
         display: inline-block;
@@ -49,6 +56,6 @@
     }
 
     nav ul li:hover {
-        color: rgba(255,255,255,1);
+        color: #332d42;
     }
 </style>

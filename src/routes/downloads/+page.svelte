@@ -9,15 +9,15 @@
     <h2>Downloads</h2><br/>
     <div>
         <h3>Cursus - CursusDB Cluster</h3><br/>
-        <a href="">Linux amd64</a> <a href="">Linux amd64</a>
+        <p>Coming soon</p>
     </div>
    <div>
        <h3>Curode - CursusDB Cluster Node</h3><br/>
-       <a href="">Linux amd64</a> <a href="">Linux amd64</a>
+       <p>Coming soon</p>
    </div>
    <div>
        <h3>Curush - CursusDB Cluster Shell</h3><br/>
-       <a href="">Linux amd64</a> <a href="">Linux amd64</a>
+       <p>Coming soon</p>
 
        <br/><br/>
    </div>

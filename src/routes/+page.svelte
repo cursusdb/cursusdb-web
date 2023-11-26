@@ -63,13 +63,10 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
 
 <style>
     figure {
-        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
         max-width: 980px;
-        border-radius: 10px;
         padding: 20px;
         margin: 0 auto;
         width: calc(100% - 40px);
-        background: #f5d327;
         text-shadow: 1px 1px rgba(255,255,255,0.4);
 
     }
@@ -93,15 +90,16 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
         margin: 0 auto;
         width: 100%;
         max-width: 980px;
-        background: rgb(255,238,224);
-        background: linear-gradient(90deg, rgba(255,238,224,1) 0%, rgba(235,210,255,1) 43%, rgba(233,255,237,1) 68%, rgba(245,211,39,1) 100%);
-        text-shadow: 1px 1px rgba(255,255,255,0.4);
+        background: rgb(96,45,208);
+        background: linear-gradient(180deg, rgba(96,45,208,1) 0%, rgba(56,21,159,1) 100%);
+        text-shadow: 1px 1px rgba(0,0,0,0.4);
         border-radius: 5px;
-        color: rgba(0,0,0,0.8);
+        color: rgba(255,255,255,0.92)
     }
 
     section h1 {
         height: 50px;
+        font-size: 16px;
         line-height: 60px;
         padding-left: 10px;
         padding-right: 10px;
@@ -113,6 +111,11 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
         padding-left: 10px;
         padding-right: 10px;
         overflow: hidden
+    }
+
+    section a, section a:visited {
+        color: #ffd13b;
+        border-bottom-color: #ffd13b;;
     }
 
     section footer div {

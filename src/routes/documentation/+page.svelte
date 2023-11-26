@@ -119,7 +119,7 @@ users:
         -webkit-border-bottom-right-radius: 5px;
         -moz-border-radius-bottomright: 5px;
         border-bottom-right-radius: 5px;
-        background: #f1f1f1;
+        background: white;
         padding: 20px;
         width: 200px;
         min-height: 100px;
@@ -128,6 +128,7 @@ users:
         z-index: 1000;
         top: 60px;
         left: 0;
+        margin-left: -20px;
         margin-right: 20px;
         margin-bottom: 20px;
         float: left;
@@ -136,6 +137,11 @@ users:
 
     aside ul {
         list-style: none;
+    }
+
+    img {
+        width: 100%;
+        max-width: 500px;
     }
 
     aside ul li {
