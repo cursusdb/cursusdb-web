@@ -22,12 +22,11 @@
         <h1>Getting Started</h1>
         <h3>Setting Up Cluster</h3>
         <p>First download the latest version of the CursusDB cluster from <a href="/downloads">Here</a> for your operating system.</p>
-        <p>Once downloaded Cursus will expect an initial database user to be created upon first start up.</p>
+        <p>Once downloaded Cursus will expect an initial database user and key to be created upon first start up.</p>
         <Prism language="bash" code={`
 ./cursus
 `}/>
-        <img style="filter: invert(1);" src="docs/cluster-setup0.png" /><br/><br/>
-        <img style="filter: invert(1);" src="docs/cluster-setup1.png" />
+        <img style="filter: invert(1);" src="docs/cluster-setup0.png" /><br/>
 
         <p>Now you'll have a .cursusconfig yaml file.</p>
         <Prism language="yaml" code={`
@@ -84,6 +83,8 @@ users:
         <img style="filter: invert(1);" src="docs/cluster-setup2.png" />
         <p>Cursus is a parallel type database in regards to distribution.  What that means is you can add multiple nodes and Cursus will query them all simutanuously.</p>
 
+        <h3>Starting Node</h3>
+        <img style="filter: invert(1);" src="docs/cluster-setup3.png" /><br/>
         <h3>Connecting To Cluster</h3>
 
         <h4>Connect via client package</h4>
@@ -141,7 +142,7 @@ users:
 
     img {
         width: 100%;
-        max-width: 500px;
+        max-width: 600px;
     }
 
     aside ul li {
