@@ -22,11 +22,71 @@
     {#if binaries}
         <div>
             <h3>Cursus - CursusDB Cluster</h3><br/>
-            <p>Coming soon</p>
+            <strong>v1.1.0 Stable</strong><br/><br/>
+            <h3>Windows</h3><br/>
+            <ul>
+                <li><a href="https://downloads.cursusdb.com/cursus/v1.1.0/windows/386/cursus-v1.1.0-x86.zip">https://downloads.cursusdb.com/cursus/v1.1.0/windows/386/cursus-v1.1.0-x86.zip</a></li>
+                <li><a href="https://downloads.cursusdb.com/cursus/v1.1.0/windows/arm64/cursus-v1.1.0-x64.zip">https://downloads.cursusdb.com/cursus/v1.1.0/windows/arm64/cursus-v1.1.0-x64.zip</a></li>
+                <li><a href="https://downloads.cursusdb.com/cursus/v1.1.0/windows/amd64/cursus-v1.1.0-x64.zip">https://downloads.cursusdb.com/cursus/v1.1.0/windows/amd64/cursus-v1.1.0-x64.zip</a></li>
+            </ul><br/>
+
+            <h3>Linux</h3><br/>
+            <ul>
+                <li><a href="https://downloads.cursusdb.com/cursus/v1.1.0/linux/386/cursus-v1.1.0-386.tar.gz">https://downloads.cursusdb.com/cursus/v1.1.0/linux/386/cursus-v1.1.0-386.tar.gz</a></li>
+                <li><a href="https://downloads.cursusdb.com/cursus/v1.1.0/linux/arm64/cursus-v1.1.0-arm64.tar.gz">https://downloads.cursusdb.com/cursus/v1.1.0/linux/arm64/cursus-v1.1.0-arm64.tar.gz</a></li>
+                <li><a href="https://downloads.cursusdb.com/cursus/v1.1.0/linux/amd64/cursus-v1.1.0-amd64.tar.gz">https://downloads.cursusdb.com/cursus/v1.1.0/linux/amd64/cursus-v1.1.0-amd64.tar.gz</a></li>
+                <li><a href="https://downloads.cursusdb.com/cursus/v1.1.0/linux/arm/cursus-v1.1.0-arm.tar.gz">hhttps://downloads.cursusdb.com/cursus/v1.1.0/linux/arm/cursus-v1.1.0-arm.tar.gz</a></li>
+            </ul><br/>
+
+
+            <h3>Mac OS / Darwin</h3><br/>
+            <ul>
+                <li><a href="https://downloads.cursusdb.com/cursus/v1.1.0/macos-darwin/arm64/cursus-v1.1.0-arm64.tar.gz">https://downloads.cursusdb.com/cursus/v1.1.0/macos-darwin/arm64/cursus-v1.1.0-arm64.tar.gz</a></li>
+                <li><a href="https://downloads.cursusdb.com/cursus/v1.1.0/macos-darwin/amd64/cursus-v1.1.0-amd64.tar.gz">https://downloads.cursusdb.com/cursus/v1.1.0/macos-darwin/amd64/cursus-v1.1.0-amd64.tar.gz</a></li>
+            </ul><br/>
+
+            <h3>FreeBSD</h3><br/>
+            <ul>
+                <li><a href="https://downloads.cursusdb.com/cursus/v1.1.0/freebsd/386/cursus-v1.1.0-386.tar.gz">https://downloads.cursusdb.com/curush/v1.1.0/freebsd/386/cursus-v1.1.0-386.tar.gz</a></li>
+                <li><a href="https://downloads.cursusdb.com/cursus/v1.1.0/freebsd/amd64/cursus-v1.1.0-amd64.tar.gz">https://downloads.cursusdb.com/curush/v1.1.0/freebsd/amd64/cursus-v1.1.0-amd64.tar.gz</a></li>
+                <li><a href="https://downloads.cursusdb.com/cursus/v1.1.0/freebsd/arm/cursus-v1.1.0-arm.tar.gz">https://downloads.cursusdb.com/curush/v1.1.0/freebsd/amd64/cursus-v1.1.0-arm.tar.gz</a></li>
+            </ul><br/>
+
+            <br/><br/>
         </div>
        <div>
            <h3>Curode - CursusDB Cluster Node</h3><br/>
-           <p>Coming soon</p>
+           <strong>v1.1.0 Stable</strong><br/><br/>
+           <h3>Windows</h3><br/>
+           <ul>
+               <li><a href="https://downloads.cursusdb.com/curode/v1.1.0/windows/386/curode-v1.1.0-x86.zip">https://downloads.cursusdb.com/curode/v1.1.0/windows/386/curode-v1.1.0-x86.zip</a></li>
+               <li><a href="https://downloads.cursusdb.com/curode/v1.1.0/windows/arm64/curode-v1.1.0-x64.zip">https://downloads.cursusdb.com/curode/v1.1.0/windows/arm64/curode-v1.1.0-x64.zip</a></li>
+               <li><a href="https://downloads.cursusdb.com/curode/v1.1.0/windows/amd64/curode-v1.1.0-x64.zip">https://downloads.cursusdb.com/curode/v1.1.0/windows/amd64/curode-v1.1.0-x64.zip</a></li>
+           </ul><br/>
+
+           <h3>Linux</h3><br/>
+           <ul>
+               <li><a href="https://downloads.cursusdb.com/curode/v1.1.0/linux/386/curode-v1.1.0-386.tar.gz">https://downloads.cursusdb.com/curush/v1.1.0/linux/386/curode-v1.1.0-386.tar.gz</a></li>
+               <li><a href="https://downloads.cursusdb.com/curode/v1.1.0/linux/arm64/curode-v1.1.0-arm64.tar.gz">https://downloads.cursusdb.com/curush/v1.1.0/linux/arm64/curode-v1.1.0-arm64.tar.gz</a></li>
+               <li><a href="https://downloads.cursusdb.com/curode/v1.1.0/linux/amd64/curode-v1.1.0-amd64.tar.gz">https://downloads.cursusdb.com/curush/v1.1.0/linux/amd64/curode-v1.1.0-amd64.tar.gz</a></li>
+               <li><a href="https://downloads.cursusdb.com/curode/v1.1.0/linux/arm/curode-v1.1.0-arm.tar.gz">https://downloads.cursusdb.com/curush/v1.1.0/linux/amd64/curode-v1.1.0-arm.tar.gz</a></li>
+           </ul><br/>
+
+
+           <h3>Mac OS / Darwin</h3><br/>
+           <ul>
+               <li><a href="https://downloads.cursusdb.com/curode/v1.1.0/macos-darwin/arm64/curode-v1.1.0-arm64.tar.gz">https://downloads.cursusdb.com/curush/v1.1.0/macos-darwin/arm64/curode-v1.1.0-arm64.tar.gz</a></li>
+               <li><a href="https://downloads.cursusdb.com/curode/v1.1.0/macos-darwin/amd64/curode-v1.1.0-amd64.tar.gz">https://downloads.cursusdb.com/curush/v1.1.0/macos-darwin/amd64/curode-v1.1.0-amd64.tar.gz</a></li>
+           </ul><br/>
+
+           <h3>FreeBSD</h3><br/>
+           <ul>
+               <li><a href="https://downloads.cursusdb.com/curode/v1.1.0/freebsd/386/curode-v1.1.0-386.tar.gz">https://downloads.cursusdb.com/curush/v1.1.0/freebsd/386/curode-v1.1.0-386.tar.gz</a></li>
+               <li><a href="https://downloads.cursusdb.com/curode/v1.1.0/freebsd/amd64/curode-v1.1.0-amd64.tar.gz">https://downloads.cursusdb.com/curush/v1.1.0/freebsd/amd64/curode-v1.1.0-amd64.tar.gz</a></li>
+               <li><a href="https://downloads.cursusdb.com/curode/v1.1.0/freebsd/arm/curode-v1.1.0-arm.tar.gz">https://downloads.cursusdb.com/curush/v1.1.0/freebsd/amd64/curode-v1.1.0-arm.tar.gz</a></li>
+           </ul><br/>
+
+           <br/><br/>
        </div>
        <div>
            <h3>Curush - CursusDB Cluster Shell</h3><br/>
