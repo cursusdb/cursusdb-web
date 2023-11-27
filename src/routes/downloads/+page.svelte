@@ -117,7 +117,7 @@
                <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/macos-darwin/amd64/curush-${currentVersionCurush}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurush}/macos-darwin/amd64/curush-${currentVersionCurush}-amd64.tar.gz`}</a></li>
            </ul><br/>
 
-           <h3>Linux</h3><br/>
+           <h3>FreeBSD</h3><br/>
            <ul>
                <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/freebsd/386/curush-${currentVersionCurush}-386.tar.gz`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurush}/freebsd/386/curush-${currentVersionCurush}-386.tar.gz`}</a></li>
                <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/freebsd/amd64/curush-${currentVersionCurush}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurush}/freebsd/amd64/curush-${currentVersionCurush}-amd64.tar.gz`}</a></li>
