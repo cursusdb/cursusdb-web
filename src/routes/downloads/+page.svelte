@@ -141,6 +141,9 @@
 
     section div ul li {
         padding: 10px;
+        word-wrap: break-word;
+        overflow: hidden;
+        line-height: 1.7em;
         border-bottom: 1px solid rgba(0,0,0,0.12);
     }
 
