@@ -40,6 +40,7 @@
         <li><a href="#connecting-to-cluster">Connecting To Cluster</a></li>
         <li><a href="#tls-with-certbot">Setup TLS With Certbot</a></li>
         <li><a href="#query-language">Query Language</a></li>
+        <li><a href="#adding-database-users">Adding Database Users</a></li>
     </ul>
 </aside>
 {/if}
@@ -267,6 +268,18 @@ update 1 in users where age >= 28 set name = 'Josie';
 update * in users where age > 24 && name == 'Alex' set name = 'Josie', age = 52;
 update n, n..
 ect..
+`}/><br/>
+
+        <br/><h2 id="adding-database-users">Adding Database Users</h2>
+        <p>CursusDB has 2 permissions R(read) and (RW). RW can select, insert, delete, update and add new users whereas users with just R can only read.</p>
+        <Prism language="sql" code={`
+new user YOURUSERNAME, YOURPASSWORD, RW;
+`}/><br/>
+
+        <p>Using a client like curush the CursusDB Shell Program.</p>
+
+        <Prism language="bash" code={`
+curush> new user someusername, somepassword, RW;
 `}/><br/>
     </article>
 </main>
