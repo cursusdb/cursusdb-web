@@ -108,6 +108,7 @@
 
     ul.dl-tabs {
         list-style: none;
+        margin-bottom: 1px;
     }
 
     ul.dl-tabs li {
@@ -129,7 +130,12 @@
     section div {
         padding: 20px;
         background: white;
-        border-radius: 5px;
+        -webkit-border-bottom-right-radius: 5px;
+        -webkit-border-bottom-left-radius: 5px;
+        -moz-border-radius-bottomright: 5px;
+        -moz-border-radius-bottomleft: 5px;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
         margin-top: -1px;
     }
 
