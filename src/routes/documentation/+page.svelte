@@ -5,6 +5,7 @@
     let searchInput // search bind
     let clientWidth // user client width
     let showAside = false // show aside bool
+    let articleBind; // bind article to get inner data
     import { slide } from 'svelte/transition';
     import { quintOut } from 'svelte/easing';
 
@@ -16,6 +17,7 @@
             return false
         }
     }
+
 
 </script>
 
@@ -30,7 +32,7 @@
 
 {#if clientWidth > 746 || showAside}
 <aside transition:slide={{ delay: 250, duration: 300, easing: quintOut, axis: 'x' }}>
-    <input bind:this={searchInput} type="search" placeholder="search docs.. CTRL+f" />
+<!--    <input on:change|preventDefault={(e) => doSearch(e)} bind:this={searchInput} type="search" placeholder="search docs.. CTRL+f" />-->
     <ul>
         <li><a href="#getting-started">Getting Started</a></li>
         <li><a href="#setting-up-cluster">Setting Up Cluster</a></li>
@@ -43,7 +45,7 @@
 {/if}
 
 <main>
-    <article style={`${clientWidth < 746 ? "padding-left: 0;" : "padding-left: 240px;"}`}>
+    <article style={`${clientWidth < 746 ? "padding-left: 0;" : "padding-left: 240px;"}`} bind:this={articleBind}>
         {#if clientWidth < 746 }
             <button class="aside-btn" on:click={() => showAside ? showAside = false : showAside = true}><img src="aside-toggle.png" /></button>
         {/if}
