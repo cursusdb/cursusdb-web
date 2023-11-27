@@ -41,6 +41,7 @@
         <li><a href="#tls-with-certbot">Setup TLS With Certbot</a></li>
         <li><a href="#query-language">Query Language</a></li>
         <li><a href="#adding-database-users">Adding Database Users</a></li>
+        <li><a href="#removing-database-users">Removing Database Users</a></li>
     </ul>
 </aside>
 {/if}
@@ -280,6 +281,12 @@ new user YOURUSERNAME, YOURPASSWORD, RW;
 
         <Prism language="bash" code={`
 curush> new user someusername, somepassword, RW;
+`}/><br/>
+
+        <br/><h2 id="removing-database-users">Removing Database Users</h2>
+       <p>RW permission is required and the username of the user you'd like to remove from accessing your CursusDB cluster.</p>
+        <Prism language="sql" code={`
+delete user USERNAME;
 `}/><br/>
     </article>
 </main>
