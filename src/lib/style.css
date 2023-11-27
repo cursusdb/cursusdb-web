@@ -35,3 +35,7 @@ left {
     font-weight: normal;
     font-family: Tenso-Slab, serif;
 }
+
+pre[class*='language-'][data-language]::before {
+    display: none!important
+}

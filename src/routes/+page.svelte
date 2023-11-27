@@ -55,7 +55,7 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
         </div>
 
         <div class="right">
-            More client packages coming for Go, C#, and Java
+            <a href="https://cursusdb.com/downloads">More Native Client Packages</a>
         </div>
     </footer>
 </section>

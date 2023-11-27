@@ -145,6 +145,13 @@
                 <li><a href="https://github.com/cursusdb/cursusdb-node">https://github.com/cursusdb/cursusdb-node</a></li>
             </ul>
         </div>
+
+        <div>
+            <h3>CursusDB GO Native Client Github Repository</h3><br/>
+            <ul>
+                <li><a href="https://github.com/cursusdb/cursusdb-go">https://github.com/cursusdb/cursusdb-go</a></li>
+            </ul>
+        </div>
     {/if}
 </section>
 
