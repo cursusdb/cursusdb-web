@@ -1,10 +1,13 @@
 <script>
     let binaries = true; // viewing binary list
+    let currentVersionCursus = "v1.1.0"
+    let currentVersionCurode = "v1.1.0"
+    let currentVersionCurush = "v1.0.1"
 </script>
 <svelte:head>
     <meta name="keywords" content="database, dbms, json database, object database, document database, opensource database, distributed database">
     <meta name="author" content="CursusDB" />
-    <meta name="description" content="CursusDB is an open source scalable distributed in-memory JSON based database with SQL like queries.  Try CursusDB today!">
+    <meta name="description" content="CursusDB is an open source scalable distributed in-memory JSON object type database with SQL like queries.  Try CursusDB today!">
     <title>Downloads - CursusDB</title>
 </svelte:head>
 
@@ -22,102 +25,103 @@
     {#if binaries}
         <div>
             <h3>Cursus - CursusDB Cluster</h3><br/>
-            <strong>v1.1.0 Stable</strong><br/><br/>
+            <strong>{currentVersionCursus} Stable</strong><br/><br/>
             <h3>Windows</h3><br/>
             <ul>
-                <li><a href="https://downloads.cursusdb.com/cursus/v1.1.0/windows/386/cursus-v1.1.0-x86.zip">https://downloads.cursusdb.com/cursus/v1.1.0/windows/386/cursus-v1.1.0-x86.zip</a></li>
-                <li><a href="https://downloads.cursusdb.com/cursus/v1.1.0/windows/arm64/cursus-v1.1.0-x64.zip">https://downloads.cursusdb.com/cursus/v1.1.0/windows/arm64/cursus-v1.1.0-x64.zip</a></li>
-                <li><a href="https://downloads.cursusdb.com/cursus/v1.1.0/windows/amd64/cursus-v1.1.0-x64.zip">https://downloads.cursusdb.com/cursus/v1.1.0/windows/amd64/cursus-v1.1.0-x64.zip</a></li>
+                <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/windows/386/cursus-${currentVersionCursus}-x86.zip`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/windows/386/cursus-${currentVersionCursus}-x86.zip`}</a></li>
+                <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/windows/arm64/cursus-${currentVersionCursus}-x64.zip`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/windows/arm64/cursus-${currentVersionCursus}-x64.zip`}</a></li>
+                <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/windows/amd64/cursus-${currentVersionCursus}-x64.zip`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/windows/amd64/cursus-${currentVersionCursus}-x64.zip`}</a></li>
             </ul><br/>
 
             <h3>Linux</h3><br/>
             <ul>
-                <li><a href="https://downloads.cursusdb.com/cursus/v1.1.0/linux/386/cursus-v1.1.0-386.tar.gz">https://downloads.cursusdb.com/cursus/v1.1.0/linux/386/cursus-v1.1.0-386.tar.gz</a></li>
-                <li><a href="https://downloads.cursusdb.com/cursus/v1.1.0/linux/arm64/cursus-v1.1.0-arm64.tar.gz">https://downloads.cursusdb.com/cursus/v1.1.0/linux/arm64/cursus-v1.1.0-arm64.tar.gz</a></li>
-                <li><a href="https://downloads.cursusdb.com/cursus/v1.1.0/linux/amd64/cursus-v1.1.0-amd64.tar.gz">https://downloads.cursusdb.com/cursus/v1.1.0/linux/amd64/cursus-v1.1.0-amd64.tar.gz</a></li>
-                <li><a href="https://downloads.cursusdb.com/cursus/v1.1.0/linux/arm/cursus-v1.1.0-arm.tar.gz">hhttps://downloads.cursusdb.com/cursus/v1.1.0/linux/arm/cursus-v1.1.0-arm.tar.gz</a></li>
+                <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/linux/386/cursus-${currentVersionCursus}-386.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/linux/386/cursus-${currentVersionCursus}-386.tar.gz`}</a></li>
+                <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/linux/arm64/cursus-${currentVersionCursus}-arm64.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/linux/arm64/cursus-${currentVersionCursus}-arm64.tar.gz`}</a></li>
+                <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/linux/amd64/cursus-${currentVersionCursus}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/linux/amd64/cursus-${currentVersionCursus}-amd64.tar.gz`}</a></li>
+                <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/linux/arm/cursus-${currentVersionCursus}-arm.tar.gz"`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/linux/arm/cursus-${currentVersionCursus}-arm.tar.gz`}</a></li>
             </ul><br/>
 
 
             <h3>Mac OS / Darwin</h3><br/>
             <ul>
-                <li><a href="https://downloads.cursusdb.com/cursus/v1.1.0/macos-darwin/arm64/cursus-v1.1.0-arm64.tar.gz">https://downloads.cursusdb.com/cursus/v1.1.0/macos-darwin/arm64/cursus-v1.1.0-arm64.tar.gz</a></li>
-                <li><a href="https://downloads.cursusdb.com/cursus/v1.1.0/macos-darwin/amd64/cursus-v1.1.0-amd64.tar.gz">https://downloads.cursusdb.com/cursus/v1.1.0/macos-darwin/amd64/cursus-v1.1.0-amd64.tar.gz</a></li>
+                <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/macos-darwin/arm64/cursus-${currentVersionCursus}-arm64.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/macos-darwin/arm64/cursus-${currentVersionCursus}-arm64.tar.gz`}</a></li>
+                <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/macos-darwin/amd64/cursus-${currentVersionCursus}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/macos-darwin/amd64/cursus-${currentVersionCursus}-amd64.tar.gz`}</a></li>
             </ul><br/>
 
             <h3>FreeBSD</h3><br/>
             <ul>
-                <li><a href="https://downloads.cursusdb.com/cursus/v1.1.0/freebsd/386/cursus-v1.1.0-386.tar.gz">https://downloads.cursusdb.com/curush/v1.1.0/freebsd/386/cursus-v1.1.0-386.tar.gz</a></li>
-                <li><a href="https://downloads.cursusdb.com/cursus/v1.1.0/freebsd/amd64/cursus-v1.1.0-amd64.tar.gz">https://downloads.cursusdb.com/curush/v1.1.0/freebsd/amd64/cursus-v1.1.0-amd64.tar.gz</a></li>
-                <li><a href="https://downloads.cursusdb.com/cursus/v1.1.0/freebsd/arm/cursus-v1.1.0-arm.tar.gz">https://downloads.cursusdb.com/curush/v1.1.0/freebsd/amd64/cursus-v1.1.0-arm.tar.gz</a></li>
+                <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/freebsd/386/cursus-${currentVersionCursus}-386.tar.gz`}>{`https://downloads.cursusdb.com/curush/${currentVersionCursus}/freebsd/386/cursus-${currentVersionCursus}-386.tar.gz`}</a></li>
+                <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/freebsd/amd64/cursus-${currentVersionCursus}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/curush/${currentVersionCursus}/freebsd/amd64/cursus-${currentVersionCursus}-amd64.tar.gz`}</a></li>
+                <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/freebsd/arm/cursus-${currentVersionCursus}-arm.tar.gz`}>{`https://downloads.cursusdb.com/curush/${currentVersionCursus}/freebsd/amd64/cursus-${currentVersionCursus}-arm.tar.gz`}</a></li>
             </ul><br/>
 
             <br/><br/>
         </div>
        <div>
            <h3>Curode - CursusDB Cluster Node</h3><br/>
-           <strong>v1.1.0 Stable</strong><br/><br/>
+<!--           only stable releases-->
+           <strong>{currentVersionCursus} Stable</strong><br/><br/>
            <h3>Windows</h3><br/>
            <ul>
-               <li><a href="https://downloads.cursusdb.com/curode/v1.1.0/windows/386/curode-v1.1.0-x86.zip">https://downloads.cursusdb.com/curode/v1.1.0/windows/386/curode-v1.1.0-x86.zip</a></li>
-               <li><a href="https://downloads.cursusdb.com/curode/v1.1.0/windows/arm64/curode-v1.1.0-x64.zip">https://downloads.cursusdb.com/curode/v1.1.0/windows/arm64/curode-v1.1.0-x64.zip</a></li>
-               <li><a href="https://downloads.cursusdb.com/curode/v1.1.0/windows/amd64/curode-v1.1.0-x64.zip">https://downloads.cursusdb.com/curode/v1.1.0/windows/amd64/curode-v1.1.0-x64.zip</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/windows/386/curode-${currentVersionCurode}-x86.zip`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCurode}/windows/386/curode-${currentVersionCurode}-x86.zip`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/windows/arm64/curode-${currentVersionCurode}-x64.zip`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCurode}/windows/arm64/curode-${currentVersionCurode}-x64.zip`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/windows/amd64/curode-${currentVersionCurode}-x64.zip`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCurode}/windows/amd64/curode-${currentVersionCurode}-x64.zip`}</a></li>
            </ul><br/>
 
            <h3>Linux</h3><br/>
            <ul>
-               <li><a href="https://downloads.cursusdb.com/curode/v1.1.0/linux/386/curode-v1.1.0-386.tar.gz">https://downloads.cursusdb.com/curush/v1.1.0/linux/386/curode-v1.1.0-386.tar.gz</a></li>
-               <li><a href="https://downloads.cursusdb.com/curode/v1.1.0/linux/arm64/curode-v1.1.0-arm64.tar.gz">https://downloads.cursusdb.com/curush/v1.1.0/linux/arm64/curode-v1.1.0-arm64.tar.gz</a></li>
-               <li><a href="https://downloads.cursusdb.com/curode/v1.1.0/linux/amd64/curode-v1.1.0-amd64.tar.gz">https://downloads.cursusdb.com/curush/v1.1.0/linux/amd64/curode-v1.1.0-amd64.tar.gz</a></li>
-               <li><a href="https://downloads.cursusdb.com/curode/v1.1.0/linux/arm/curode-v1.1.0-arm.tar.gz">https://downloads.cursusdb.com/curush/v1.1.0/linux/amd64/curode-v1.1.0-arm.tar.gz</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/linux/386/curode-${currentVersionCurode}-386.tar.gz`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurode}/linux/386/curode-${currentVersionCurode}-386.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/linux/arm64/curode-${currentVersionCurode}-arm64.tar.gz`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurode}/linux/arm64/curode-${currentVersionCurode}-arm64.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/linux/amd64/curode-${currentVersionCurode}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurode}/linux/amd64/curode-${currentVersionCurode}-amd64.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/linux/arm/curode-${currentVersionCurode}-arm.tar.gz`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurode}/linux/amd64/curode-${currentVersionCurode}-arm.tar.gz`}</a></li>
            </ul><br/>
 
 
            <h3>Mac OS / Darwin</h3><br/>
            <ul>
-               <li><a href="https://downloads.cursusdb.com/curode/v1.1.0/macos-darwin/arm64/curode-v1.1.0-arm64.tar.gz">https://downloads.cursusdb.com/curush/v1.1.0/macos-darwin/arm64/curode-v1.1.0-arm64.tar.gz</a></li>
-               <li><a href="https://downloads.cursusdb.com/curode/v1.1.0/macos-darwin/amd64/curode-v1.1.0-amd64.tar.gz">https://downloads.cursusdb.com/curush/v1.1.0/macos-darwin/amd64/curode-v1.1.0-amd64.tar.gz</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/macos-darwin/arm64/curode-${currentVersionCurode}-arm64.tar.gz`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurode}/macos-darwin/arm64/curode-${currentVersionCurode}-arm64.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/macos-darwin/amd64/curode-${currentVersionCurode}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurode}/macos-darwin/amd64/curode-${currentVersionCurode}-amd64.tar.gz`}</a></li>
            </ul><br/>
 
            <h3>FreeBSD</h3><br/>
            <ul>
-               <li><a href="https://downloads.cursusdb.com/curode/v1.1.0/freebsd/386/curode-v1.1.0-386.tar.gz">https://downloads.cursusdb.com/curush/v1.1.0/freebsd/386/curode-v1.1.0-386.tar.gz</a></li>
-               <li><a href="https://downloads.cursusdb.com/curode/v1.1.0/freebsd/amd64/curode-v1.1.0-amd64.tar.gz">https://downloads.cursusdb.com/curush/v1.1.0/freebsd/amd64/curode-v1.1.0-amd64.tar.gz</a></li>
-               <li><a href="https://downloads.cursusdb.com/curode/v1.1.0/freebsd/arm/curode-v1.1.0-arm.tar.gz">https://downloads.cursusdb.com/curush/v1.1.0/freebsd/amd64/curode-v1.1.0-arm.tar.gz</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/freebsd/386/curode-${currentVersionCurode}-386.tar.gz`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurode}/freebsd/386/curode-${currentVersionCurode}-386.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/freebsd/amd64/curode-${currentVersionCurode}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurode}/freebsd/amd64/curode-${currentVersionCurode}-amd64.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/freebsd/arm/curode-${currentVersionCurode}-arm.tar.gz`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurode}/freebsd/amd64/curode-${currentVersionCurode}-arm.tar.gz`}</a></li>
            </ul><br/>
 
            <br/><br/>
        </div>
        <div>
            <h3>Curush - CursusDB Cluster Shell</h3><br/>
-           <strong>v1.0.1 Stable</strong><br/><br/>
+           <strong>{currentVersionCurush} Stable</strong><br/><br/>
            <h3>Windows</h3><br/>
            <ul>
-               <li><a href="https://downloads.cursusdb.com/curush/v1.0.1/windows/386/curush-v1.0.1-x86.zip">https://downloads.cursusdb.com/curush/v1.0.1/windows/386/curush-v1.0.1-x86.zip</a></li>
-               <li><a href="https://downloads.cursusdb.com/curush/v1.0.1/windows/arm64/curush-v1.0.1-x64.zip">https://downloads.cursusdb.com/curush/v1.0.1/windows/arm64/curush-v1.0.1-x64.zip</a></li>
-               <li><a href="https://downloads.cursusdb.com/curush/v1.0.1/windows/amd64/curush-v1.0.1-x64.zip">https://downloads.cursusdb.com/curush/v1.0.1/windows/amd64/curush-v1.0.1-x64.zip</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/windows/386/curush-${currentVersionCurush}-x86.zip`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCurush}/windows/386/curush-${currentVersionCurush}-x86.zip`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/windows/arm64/curush-${currentVersionCurush}-x64.zip`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCurush}/windows/arm64/curush-${currentVersionCurush}-x64.zip`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/windows/amd64/curush-${currentVersionCurush}-x64.zip`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCurush}/windows/amd64/curush-${currentVersionCurush}-x64.zip`}</a></li>
            </ul><br/>
 
            <h3>Linux</h3><br/>
            <ul>
-               <li><a href="https://downloads.cursusdb.com/curush/v1.0.1/linux/386/curush-v1.0.1-386.tar.gz">https://downloads.cursusdb.com/curush/v1.0.1/linux/386/curush-v1.0.1-386.tar.gz</a></li>
-               <li><a href="https://downloads.cursusdb.com/curush/v1.0.1/linux/arm64/curush-v1.0.1-arm64.tar.gz">https://downloads.cursusdb.com/curush/v1.0.1/linux/arm64/curush-v1.0.1-arm64.tar.gz</a></li>
-               <li><a href="https://downloads.cursusdb.com/curush/v1.0.1/linux/amd64/curush-v1.0.1-amd64.tar.gz">https://downloads.cursusdb.com/curush/v1.0.1/linux/amd64/curush-v1.0.1-amd64.tar.gz</a></li>
-               <li><a href="https://downloads.cursusdb.com/curush/v1.0.1/linux/arm/curush-v1.0.1-arm.tar.gz">https://downloads.cursusdb.com/curush/v1.0.1/linux/amd64/curush-v1.0.1-arm.tar.gz</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/linux/386/curush-${currentVersionCurush}-386.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCurush}/linux/386/curush-${currentVersionCurush}-386.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/linux/arm64/curush-${currentVersionCurush}-arm64.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCurush}/linux/arm64/curush-${currentVersionCurush}-arm64.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/linux/amd64/curush-${currentVersionCurush}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCurush}/linux/amd64/curush-${currentVersionCurush}-amd64.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/linux/arm/curush-${currentVersionCurush}-arm.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCurush}/linux/amd64/curush-${currentVersionCurush}-arm.tar.gz`}</a></li>
            </ul><br/>
 
 
            <h3>Mac OS / Darwin</h3><br/>
            <ul>
-               <li><a href="https://downloads.cursusdb.com/curush/v1.0.1/macos-darwin/arm64/curush-v1.0.1-arm64.tar.gz">https://downloads.cursusdb.com/curush/v1.0.1/macos-darwin/arm64/curush-v1.0.1-arm64.tar.gz</a></li>
-               <li><a href="https://downloads.cursusdb.com/curush/v1.0.1/macos-darwin/amd64/curush-v1.0.1-amd64.tar.gz">https://downloads.cursusdb.com/curush/v1.0.1/macos-darwin/amd64/curush-v1.0.1-amd64.tar.gz</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/macos-darwin/arm64/curush-${currentVersionCurush}-arm64.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCurush}/macos-darwin/arm64/curush-${currentVersionCurush}-arm64.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/macos-darwin/amd64/curush-${currentVersionCurush}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCurush}/macos-darwin/amd64/curush-${currentVersionCurush}-amd64.tar.gz`}</a></li>
            </ul><br/>
 
            <h3>Linux</h3><br/>
            <ul>
-               <li><a href="https://downloads.cursusdb.com/curush/v1.0.1/freebsd/386/curush-v1.0.1-386.tar.gz">https://downloads.cursusdb.com/curush/v1.0.1/freebsd/386/curush-v1.0.1-386.tar.gz</a></li>
-               <li><a href="https://downloads.cursusdb.com/curush/v1.0.1/freebsd/amd64/curush-v1.0.1-amd64.tar.gz">https://downloads.cursusdb.com/curush/v1.0.1/freebsd/amd64/curush-v1.0.1-amd64.tar.gz</a></li>
-               <li><a href="https://downloads.cursusdb.com/curush/v1.0.1/freebsd/arm/curush-v1.0.1-arm.tar.gz">https://downloads.cursusdb.com/curush/v1.0.1/freebsd/amd64/curush-v1.0.1-arm.tar.gz</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/freebsd/386/curush-${currentVersionCurush}-386.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCurush}/freebsd/386/curush-${currentVersionCurush}-386.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/freebsd/amd64/curush-${currentVersionCurush}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCurush}/freebsd/amd64/curush-${currentVersionCurush}-amd64.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/freebsd/arm/curush-${currentVersionCurush}-arm.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCurush}/freebsd/amd64/curush-${currentVersionCurush}-arm.tar.gz`}</a></li>
            </ul><br/>
 
            <br/><br/>
