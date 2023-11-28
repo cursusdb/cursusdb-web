@@ -1,7 +1,7 @@
 <script>
     let binaries = true; // viewing binary list
-    let currentVersionCursus = "v1.4.1"
-    let currentVersionCurode = "v1.4.1"
+    let currentVersionCursus = "v1.4.2"
+    let currentVersionCurode = "v1.4.2"
     let currentVersionCurush = "v1.0.1"
 </script>
 <svelte:head>
