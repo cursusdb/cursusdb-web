@@ -7,7 +7,7 @@
 </script>
 
 <nav>
-    <h2 on:click={() => navigate("./")} class="brand"><img src="cursusdb.png" width="28" /> CursusDB</h2>
+    <h2 on:click={() => navigate("./")} class="brand"><img style="filter: invert(1)" src="cursusv4-white.png" width="28" /> CursusDB</h2>
 
     <ul>
         <li on:click={() => navigate("https://github.com/cursusdb")}>Git</li>
@@ -33,7 +33,8 @@
 
     .brand img {
         float: left;
-        margin-top: 14px;
+        opacity: 0.84;
+        margin-top: 16px;
         margin-right: 5px
     }
 
