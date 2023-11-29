@@ -4,9 +4,9 @@
 </script>
 
 <svelte:head>
-    <meta name="keywords" content="database, dbms, json database, object database, document database, opensource database, distributed database">
+    <meta name="keywords" content="database, dbms, document type database, object database, document database, opensource database, distributed database, document dbms, sql like no-sql">
     <meta name="author" content="CursusDB" />
-    <meta name="description" content="CursusDB is an open source scalable distributed in-memory JSON object type database with SQL like queries.  Try CursusDB today!">
+    <meta name="description" content="CursusDB is an open source scalable distributed in-memory document type database with SQL like queries.  Try CursusDB today!">
     <title>CursusDB - NoSQL At Scale</title>
 </svelte:head>
 

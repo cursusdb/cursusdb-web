@@ -7,7 +7,7 @@
 <svelte:head>
     <meta name="keywords" content="database, dbms, json database, object database, document database, opensource database, distributed database">
     <meta name="author" content="CursusDB" />
-    <meta name="description" content="CursusDB is an open source scalable distributed in-memory JSON object type database with SQL like queries.  Try CursusDB today!">
+    <meta name="description" content="CursusDB is an open source scalable distributed in-memory JSON document type database with SQL like queries.  Download CursusDB for free today!">
     <title>Downloads - CursusDB</title>
 </svelte:head>
 

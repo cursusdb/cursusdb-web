@@ -22,7 +22,7 @@
 </script>
 
 <svelte:head>
-    <meta name="keywords" content="database, dbms, json database, object database, document database, opensource database, distributed database">
+    <meta name="keywords" content="database, dbms, document type database, object database, document database, opensource database, distributed database, document dbms, sql like no-sql">
     <meta name="author" content="CursusDB" />
     <meta name="description" content="The CursusDB documentation.  Learn how to setup and starting using CursusDB.">
     <title>Documentation - CursusDB</title>
