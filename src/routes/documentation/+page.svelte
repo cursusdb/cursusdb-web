@@ -236,6 +236,7 @@ users:
 `}/><br/>
 
         <br/><h3 id="query-language">Query Language</h3>
+        <h4>CDQL - Cursus Document Query Language</h4><br/>
         <p>CursusDB's Query Language is very similar to that of SQL but some slight modifications.</p>
 
         <p><strong>Pointers</strong></p>
