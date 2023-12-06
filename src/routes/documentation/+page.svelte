@@ -50,7 +50,7 @@
 <main>
     <article style={`${clientWidth < 746 ? "padding-left: 0;" : "padding-left: 240px;"}`} bind:this={articleBind}>
         {#if clientWidth < 746 }
-            <button class="aside-btn" on:click={() => showAside ? showAside = false : showAside = true}><img src="aside-toggle.png" /></button>
+            <button class="aside-btn" on:click={() => showAside ? showAside = false : showAside = true}><img style="filter: invert(1)" src="aside-toggle.png" /></button>
         {/if}
         <h1>CursusDB Documentation</h1><br/>
         <h2 id="getting-started">Getting Started</h2><br/>
@@ -415,15 +415,17 @@ delete user USERNAME;
         position: fixed;
         top: 0px;
         left: 0px;
-        background: #ffd13b;
+        background: black;
         outline: none;
         border: none;
-        padding: 8px;
+        padding: 9px;
+        padding-right: 11px;
+
         cursor: pointer;
     }
 
     .aside-btn img {
-        opacity: 0.74;
+        opacity: 0.90;
         margin-top: 7px;
         width: 22px;
     }
