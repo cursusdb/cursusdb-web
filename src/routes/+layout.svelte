@@ -1,6 +1,14 @@
 <script>
     import "$lib/style.css"
     import Navbar from "$lib/components/Navbar.svelte";
+    import {onMount} from "svelte";
+    import {currentVersionCursus, currentVersionCurode,currentVersionCurush} from '$lib/stores.js'
+
+    onMount(function() {
+        currentVersionCursus.set("v1.5.2")
+        currentVersionCurode.set("v1.5.2")
+        currentVersionCurush.set("v1.0.1")
+    })
 </script>
 
 <Navbar />
@@ -13,7 +21,8 @@
     <ul>
         <li><a href="https://github.com/cursusdb">Github</a></li>
         <li><a href="https://linkedin.com/company/cursusdb">Linkedin</a></li>
-        <li><a href="">YouTube</a></li>
+        <li><a href="https://www.facebook.com/cursusdb">Facebook</a></li>
+        <li><a href="https://x.com/cursusdb">X</a></li>
         <li><a href="mailto:product@cursusdb.com">Contact</a></li>
     </ul>
 
@@ -28,9 +37,14 @@
 
     footer {
         width: 100%;
-        text-shadow: 1px 1px rgba(0,0,0,0.2);
-        background: #151515;
+        text-shadow: 1px 1px rgba(11, 10, 16, 0.2);
+        background: rgb(44, 41, 59);
         height: auto;
+    }
+
+    footer a, a:visited {
+        color: #ffd13b;
+        border-color: #ffd13b;
     }
 
     footer p {
@@ -42,7 +56,7 @@
     }
 
     footer ul {
-        max-width: 268px;
+        max-width: 288px;
         width: 100%;
         margin: 0 auto;
         height: 40px;
@@ -53,5 +67,14 @@
         padding: 10px;
         float: left;
         font-size: 12px;
+    }
+
+    @media only screen and (max-width: 430px) {
+        footer ul {
+            max-width: 268px;
+        }
+        footer ul li {
+            font-size: 11px!important;
+        }
     }
 </style>

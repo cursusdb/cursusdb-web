@@ -1,8 +1,7 @@
 <script>
+    import {currentVersionCursus, currentVersionCurode, currentVersionCurush} from '$lib/stores.js'
+
     let binaries = true; // viewing binary list
-    let currentVersionCursus = "v1.5.2"
-    let currentVersionCurode = "v1.5.2"
-    let currentVersionCurush = "v1.0.1"
 </script>
 <svelte:head>
     <meta name="keywords" content="database, dbms, json database, object database, document database, opensource database, distributed database">
@@ -26,34 +25,34 @@
         <div>
             <p>Files are hosted on our regional CDN for high availability and speed.</p><br/>
             <h2>Cursus - CursusDB Cluster</h2><br/>
-            <p>{currentVersionCursus} Stable</p><br/><br/>
+            <p>{$currentVersionCursus} Stable</p><br/><br/>
             <h3>Windows</h3><br/>
             <ul>
-                <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/windows/386/cursus-${currentVersionCursus}-x86.zip`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/windows/386/cursus-${currentVersionCursus}-x86.zip`}</a></li>
-                <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/windows/arm64/cursus-${currentVersionCursus}-x64.zip`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/windows/arm64/cursus-${currentVersionCursus}-x64.zip`}</a></li>
-                <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/windows/amd64/cursus-${currentVersionCursus}-x64.zip`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/windows/amd64/cursus-${currentVersionCursus}-x64.zip`}</a></li>
+                <li><a href={`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/windows/386/cursus-${$currentVersionCursus}-x86.zip`}>{`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/windows/386/cursus-${$currentVersionCursus}-x86.zip`}</a></li>
+                <li><a href={`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/windows/arm64/cursus-${$currentVersionCursus}-x64.zip`}>{`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/windows/arm64/cursus-${$currentVersionCursus}-x64.zip`}</a></li>
+                <li><a href={`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/windows/amd64/cursus-${$currentVersionCursus}-x64.zip`}>{`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/windows/amd64/cursus-${$currentVersionCursus}-x64.zip`}</a></li>
             </ul><br/>
 
             <h3>Linux</h3><br/>
             <ul>
-                <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/linux/386/cursus-${currentVersionCursus}-386.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/linux/386/cursus-${currentVersionCursus}-386.tar.gz`}</a></li>
-                <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/linux/arm64/cursus-${currentVersionCursus}-arm64.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/linux/arm64/cursus-${currentVersionCursus}-arm64.tar.gz`}</a></li>
-                <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/linux/amd64/cursus-${currentVersionCursus}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/linux/amd64/cursus-${currentVersionCursus}-amd64.tar.gz`}</a></li>
-                <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/linux/arm/cursus-${currentVersionCursus}-arm.tar.gz"`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/linux/arm/cursus-${currentVersionCursus}-arm.tar.gz`}</a></li>
+                <li><a href={`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/linux/386/cursus-${$currentVersionCursus}-386.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/linux/386/cursus-${$currentVersionCursus}-386.tar.gz`}</a></li>
+                <li><a href={`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/linux/arm64/cursus-${$currentVersionCursus}-arm64.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/linux/arm64/cursus-${$currentVersionCursus}-arm64.tar.gz`}</a></li>
+                <li><a href={`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/linux/amd64/cursus-${$currentVersionCursus}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/linux/amd64/cursus-${$currentVersionCursus}-amd64.tar.gz`}</a></li>
+                <li><a href={`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/linux/arm/cursus-${$currentVersionCursus}-arm.tar.gz"`}>{`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/linux/arm/cursus-${$currentVersionCursus}-arm.tar.gz`}</a></li>
             </ul><br/>
 
 
             <h3>Mac OS / Darwin</h3><br/>
             <ul>
-                <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/macos-darwin/arm64/cursus-${currentVersionCursus}-arm64.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/macos-darwin/arm64/cursus-${currentVersionCursus}-arm64.tar.gz`}</a></li>
-                <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/macos-darwin/amd64/cursus-${currentVersionCursus}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/macos-darwin/amd64/cursus-${currentVersionCursus}-amd64.tar.gz`}</a></li>
+                <li><a href={`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/macos-darwin/arm64/cursus-${$currentVersionCursus}-arm64.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/macos-darwin/arm64/cursus-${$currentVersionCursus}-arm64.tar.gz`}</a></li>
+                <li><a href={`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/macos-darwin/amd64/cursus-${$currentVersionCursus}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/macos-darwin/amd64/cursus-${$currentVersionCursus}-amd64.tar.gz`}</a></li>
             </ul><br/>
 
             <h3>FreeBSD</h3><br/>
             <ul>
-                <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/freebsd/386/cursus-${currentVersionCursus}-386.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/freebsd/386/cursus-${currentVersionCursus}-386.tar.gz`}</a></li>
-                <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/freebsd/amd64/cursus-${currentVersionCursus}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/freebsd/amd64/cursus-${currentVersionCursus}-amd64.tar.gz`}</a></li>
-                <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/freebsd/arm/cursus-${currentVersionCursus}-arm.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/freebsd/arm/cursus-${currentVersionCursus}-arm.tar.gz`}</a></li>
+                <li><a href={`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/freebsd/386/cursus-${$currentVersionCursus}-386.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/freebsd/386/cursus-${$currentVersionCursus}-386.tar.gz`}</a></li>
+                <li><a href={`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/freebsd/amd64/cursus-${$currentVersionCursus}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/freebsd/amd64/cursus-${$currentVersionCursus}-amd64.tar.gz`}</a></li>
+                <li><a href={`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/freebsd/arm/cursus-${$currentVersionCursus}-arm.tar.gz`}>{`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/freebsd/arm/cursus-${$currentVersionCursus}-arm.tar.gz`}</a></li>
             </ul><br/>
 
             <br/><br/>
@@ -61,68 +60,68 @@
        <div>
            <h2>Curode - CursusDB Cluster Node</h2><br/>
 <!--           only stable releases-->
-           <p>{currentVersionCursus} Stable</p><br/><br/>
+           <p>{$currentVersionCursus} Stable</p><br/><br/>
            <h3>Windows</h3><br/>
            <ul>
-               <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/windows/386/curode-${currentVersionCurode}-x86.zip`}>{`https://downloads.cursusdb.com/curode/${currentVersionCurode}/windows/386/curode-${currentVersionCurode}-x86.zip`}</a></li>
-               <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/windows/arm64/curode-${currentVersionCurode}-x64.zip`}>{`https://downloads.cursusdb.com/curode/${currentVersionCurode}/windows/arm64/curode-${currentVersionCurode}-x64.zip`}</a></li>
-               <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/windows/amd64/curode-${currentVersionCurode}-x64.zip`}>{`https://downloads.cursusdb.com/curode/${currentVersionCurode}/windows/amd64/curode-${currentVersionCurode}-x64.zip`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/windows/386/curode-${$currentVersionCurode}-x86.zip`}>{`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/windows/386/curode-${$currentVersionCurode}-x86.zip`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/windows/arm64/curode-${$currentVersionCurode}-x64.zip`}>{`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/windows/arm64/curode-${$currentVersionCurode}-x64.zip`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/windows/amd64/curode-${$currentVersionCurode}-x64.zip`}>{`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/windows/amd64/curode-${$currentVersionCurode}-x64.zip`}</a></li>
            </ul><br/>
 
            <h3>Linux</h3><br/>
            <ul>
-               <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/linux/386/curode-${currentVersionCurode}-386.tar.gz`}>{`https://downloads.cursusdb.com/curode/${currentVersionCurode}/linux/386/curode-${currentVersionCurode}-386.tar.gz`}</a></li>
-               <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/linux/arm64/curode-${currentVersionCurode}-arm64.tar.gz`}>{`https://downloads.cursusdb.com/curode/${currentVersionCurode}/linux/arm64/curode-${currentVersionCurode}-arm64.tar.gz`}</a></li>
-               <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/linux/amd64/curode-${currentVersionCurode}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/curode/${currentVersionCurode}/linux/amd64/curode-${currentVersionCurode}-amd64.tar.gz`}</a></li>
-               <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/linux/arm/curode-${currentVersionCurode}-arm.tar.gz`}>{`https://downloads.cursusdb.com/curode/${currentVersionCurode}/linux/tar/curode-${currentVersionCurode}-arm.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/linux/386/curode-${$currentVersionCurode}-386.tar.gz`}>{`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/linux/386/curode-${$currentVersionCurode}-386.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/linux/arm64/curode-${$currentVersionCurode}-arm64.tar.gz`}>{`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/linux/arm64/curode-${$currentVersionCurode}-arm64.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/linux/amd64/curode-${$currentVersionCurode}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/linux/amd64/curode-${$currentVersionCurode}-amd64.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/linux/arm/curode-${$currentVersionCurode}-arm.tar.gz`}>{`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/linux/tar/curode-${$currentVersionCurode}-arm.tar.gz`}</a></li>
            </ul><br/>
 
 
            <h3>Mac OS / Darwin</h3><br/>
            <ul>
-               <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/macos-darwin/arm64/curode-${currentVersionCurode}-arm64.tar.gz`}>{`https://downloads.cursusdb.com/curode/${currentVersionCurode}/macos-darwin/arm64/curode-${currentVersionCurode}-arm64.tar.gz`}</a></li>
-               <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/macos-darwin/amd64/curode-${currentVersionCurode}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/curode/${currentVersionCurode}/macos-darwin/amd64/curode-${currentVersionCurode}-amd64.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/macos-darwin/arm64/curode-${$currentVersionCurode}-arm64.tar.gz`}>{`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/macos-darwin/arm64/curode-${$currentVersionCurode}-arm64.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/macos-darwin/amd64/curode-${$currentVersionCurode}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/macos-darwin/amd64/curode-${$currentVersionCurode}-amd64.tar.gz`}</a></li>
            </ul><br/>
 
            <h3>FreeBSD</h3><br/>
            <ul>
-               <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/freebsd/386/curode-${currentVersionCurode}-386.tar.gz`}>{`https://downloads.cursusdb.com/curode/${currentVersionCurode}/freebsd/386/curode-${currentVersionCurode}-386.tar.gz`}</a></li>
-               <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/freebsd/amd64/curode-${currentVersionCurode}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/curode/${currentVersionCurode}/freebsd/amd64/curode-${currentVersionCurode}-amd64.tar.gz`}</a></li>
-               <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/freebsd/arm/curode-${currentVersionCurode}-arm.tar.gz`}>{`https://downloads.cursusdb.com/curode/${currentVersionCurode}/freebsd/arm/curode-${currentVersionCurode}-arm.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/freebsd/386/curode-${$currentVersionCurode}-386.tar.gz`}>{`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/freebsd/386/curode-${$currentVersionCurode}-386.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/freebsd/amd64/curode-${$currentVersionCurode}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/freebsd/amd64/curode-${$currentVersionCurode}-amd64.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/freebsd/arm/curode-${$currentVersionCurode}-arm.tar.gz`}>{`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/freebsd/arm/curode-${$currentVersionCurode}-arm.tar.gz`}</a></li>
            </ul><br/>
 
            <br/><br/>
        </div>
        <div>
            <h2>Curush - CursusDB Cluster Shell</h2><br/>
-           <p>{currentVersionCurush} Stable</p><br/><br/>
+           <p>{$currentVersionCurush} Stable</p><br/><br/>
            <h3>Windows</h3><br/>
            <ul>
-               <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/windows/386/curush-${currentVersionCurush}-x86.zip`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurush}/windows/386/curush-${currentVersionCurush}-x86.zip`}</a></li>
-               <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/windows/arm64/curush-${currentVersionCurush}-x64.zip`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurush}/windows/arm64/curush-${currentVersionCurush}-x64.zip`}</a></li>
-               <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/windows/amd64/curush-${currentVersionCurush}-x64.zip`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurush}/windows/amd64/curush-${currentVersionCurush}-x64.zip`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/windows/386/curush-${$currentVersionCurush}-x86.zip`}>{`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/windows/386/curush-${$currentVersionCurush}-x86.zip`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/windows/arm64/curush-${$currentVersionCurush}-x64.zip`}>{`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/windows/arm64/curush-${$currentVersionCurush}-x64.zip`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/windows/amd64/curush-${$currentVersionCurush}-x64.zip`}>{`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/windows/amd64/curush-${$currentVersionCurush}-x64.zip`}</a></li>
            </ul><br/>
 
            <h3>Linux</h3><br/>
            <ul>
-               <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/linux/386/curush-${currentVersionCurush}-386.tar.gz`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurush}/linux/386/curush-${currentVersionCurush}-386.tar.gz`}</a></li>
-               <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/linux/arm64/curush-${currentVersionCurush}-arm64.tar.gz`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurush}/linux/arm64/curush-${currentVersionCurush}-arm64.tar.gz`}</a></li>
-               <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/linux/amd64/curush-${currentVersionCurush}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurush}/linux/amd64/curush-${currentVersionCurush}-amd64.tar.gz`}</a></li>
-               <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/linux/arm/curush-${currentVersionCurush}-arm.tar.gz`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurush}/linux/arm/curush-${currentVersionCurush}-arm.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/linux/386/curush-${$currentVersionCurush}-386.tar.gz`}>{`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/linux/386/curush-${$currentVersionCurush}-386.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/linux/arm64/curush-${$currentVersionCurush}-arm64.tar.gz`}>{`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/linux/arm64/curush-${$currentVersionCurush}-arm64.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/linux/amd64/curush-${$currentVersionCurush}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/linux/amd64/curush-${$currentVersionCurush}-amd64.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/linux/arm/curush-${$currentVersionCurush}-arm.tar.gz`}>{`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/linux/arm/curush-${$currentVersionCurush}-arm.tar.gz`}</a></li>
            </ul><br/>
 
 
            <h3>Mac OS / Darwin</h3><br/>
            <ul>
-               <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/macos-darwin/arm64/curush-${currentVersionCurush}-arm64.tar.gz`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurush}/macos-darwin/arm64/curush-${currentVersionCurush}-arm64.tar.gz`}</a></li>
-               <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/macos-darwin/amd64/curush-${currentVersionCurush}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurush}/macos-darwin/amd64/curush-${currentVersionCurush}-amd64.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/macos-darwin/arm64/curush-${$currentVersionCurush}-arm64.tar.gz`}>{`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/macos-darwin/arm64/curush-${$currentVersionCurush}-arm64.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/macos-darwin/amd64/curush-${$currentVersionCurush}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/macos-darwin/amd64/curush-${$currentVersionCurush}-amd64.tar.gz`}</a></li>
            </ul><br/>
 
            <h3>FreeBSD</h3><br/>
            <ul>
-               <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/freebsd/386/curush-${currentVersionCurush}-386.tar.gz`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurush}/freebsd/386/curush-${currentVersionCurush}-386.tar.gz`}</a></li>
-               <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/freebsd/amd64/curush-${currentVersionCurush}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurush}/freebsd/amd64/curush-${currentVersionCurush}-amd64.tar.gz`}</a></li>
-               <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/freebsd/arm/curush-${currentVersionCurush}-arm.tar.gz`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurush}/freebsd/arm/curush-${currentVersionCurush}-arm.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/freebsd/386/curush-${$currentVersionCurush}-386.tar.gz`}>{`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/freebsd/386/curush-${$currentVersionCurush}-386.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/freebsd/amd64/curush-${$currentVersionCurush}-amd64.tar.gz`}>{`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/freebsd/amd64/curush-${$currentVersionCurush}-amd64.tar.gz`}</a></li>
+               <li><a href={`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/freebsd/arm/curush-${$currentVersionCurush}-arm.tar.gz`}>{`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/freebsd/arm/curush-${$currentVersionCurush}-arm.tar.gz`}</a></li>
            </ul><br/>
 
            <br/><br/>

@@ -2,10 +2,12 @@
     import RollingText from "$lib/components/RollingText.svelte";
     import Prism from "$lib/components/Prism.svelte";
     import {onMount} from "svelte";
+    import {currentVersionCursus, currentVersionCurode, currentVersionCurush} from '$lib/stores.js'
+
     let searchInput // search bind
     let clientWidth // user client width
     let showAside = false // show aside bool
-    let articleBind; // bind article to get inner data
+
     import { slide } from 'svelte/transition';
     import { quintOut } from 'svelte/easing';
 
@@ -48,7 +50,7 @@
 {/if}
 
 <main>
-    <article style={`${clientWidth < 746 ? "padding-left: 0;" : "padding-left: 240px;"}`} bind:this={articleBind}>
+    <article style={`${clientWidth < 746 ? "padding-left: 0;" : "padding-left: 240px;"}`} >
         {#if clientWidth < 746 }
             <button class="aside-btn" on:click={() => showAside ? showAside = false : showAside = true}><img style="filter: invert(1)" src="aside-toggle.png" /></button>
         {/if}
@@ -60,21 +62,23 @@
         <h4>Ubuntu amd64 example</h4>
         <p><strong>Cursus</strong> - CursusDB Cluster</p>
         <Prism language="bash" code={`
-wget https://downloads.cursusdb.com/cursus/v1.2.1/linux/amd64/cursus-v1.2.1-amd64.tar.gz
-tar -xzvf cursus-v1.2.1-amd64.tar.gz
+wget https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/linux/amd64/cursus-${$currentVersionCursus}-amd64.tar.gz
+tar -xzvf cursus-${$currentVersionCursus}-amd64.tar.gz
 `}/>
 
         <p><strong>Curode</strong> - CursusDB Cluster Node</p>
         <Prism language="bash" code={`
-wget https://downloads.cursusdb.com/curode/v1.2.1/linux/amd64/curode-v1.2.1-amd64.tar.gz
-tar -xzvf curode-v1.2.1-amd64.tar.gz
+wget https://downloads.cursusdb.com/curode/${$currentVersionCurode}/linux/amd64/curode-${$currentVersionCurode}-amd64.tar.gz
+tar -xzvf curode-${$currentVersionCursus}-amd64.tar.gz
 `}/>
 
         <p><strong>Curush</strong> - CursusDB Cluster Shell</p>
         <Prism language="bash" code={`
-wget https://downloads.cursusdb.com/curode/v1.2.1/linux/amd64/curush-v1.0.1-amd64.tar.gz
-tar -xzvf curode-v1.0.1-amd64.tar.gz
+wget https://downloads.cursusdb.com/curush/${$currentVersionCurush}/linux/amd64/curush-${$currentVersionCurush}-amd64.tar.gz
+tar -xzvf curode-${$currentVersionCurush}-amd64.tar.gz
+
 `}/>
+        <p><small>Whats shown above are latest stable versions of all software!</small></p>
         <p>On windows download the .exe's and run them through Powershell or CMD.</p>
         <h3 id="setting-up-cluster">Setting Up Cluster</h3>
         <p>First download the latest version of the CursusDB cluster from <a href="/downloads">Here</a> for your operating system.</p>
@@ -415,7 +419,7 @@ delete user USERNAME;
         position: fixed;
         top: 0px;
         left: 0px;
-        background: black;
+        background: rgb(33, 30, 49);
         outline: none;
         border: none;
         padding: 9px;
@@ -426,8 +430,8 @@ delete user USERNAME;
 
     .aside-btn img {
         opacity: 0.90;
-        margin-top: 7px;
-        width: 22px;
+        margin-top: 10px;
+        width: 16px;
     }
 
     article ul {
