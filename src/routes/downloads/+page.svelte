@@ -24,8 +24,9 @@
 
     {#if binaries}
         <div>
-            <h3>Cursus - CursusDB Cluster</h3><br/>
-            <strong>{currentVersionCursus} Stable</strong><br/><br/>
+            <p>Files are hosted on our regional CDN for high availability and speed.</p><br/>
+            <h2>Cursus - CursusDB Cluster</h2><br/>
+            <p>{currentVersionCursus} Stable</p><br/><br/>
             <h3>Windows</h3><br/>
             <ul>
                 <li><a href={`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/windows/386/cursus-${currentVersionCursus}-x86.zip`}>{`https://downloads.cursusdb.com/cursus/${currentVersionCursus}/windows/386/cursus-${currentVersionCursus}-x86.zip`}</a></li>
@@ -58,9 +59,9 @@
             <br/><br/>
         </div>
        <div>
-           <h3>Curode - CursusDB Cluster Node</h3><br/>
+           <h2>Curode - CursusDB Cluster Node</h2><br/>
 <!--           only stable releases-->
-           <strong>{currentVersionCursus} Stable</strong><br/><br/>
+           <p>{currentVersionCursus} Stable</p><br/><br/>
            <h3>Windows</h3><br/>
            <ul>
                <li><a href={`https://downloads.cursusdb.com/curode/${currentVersionCurode}/windows/386/curode-${currentVersionCurode}-x86.zip`}>{`https://downloads.cursusdb.com/curode/${currentVersionCurode}/windows/386/curode-${currentVersionCurode}-x86.zip`}</a></li>
@@ -93,8 +94,8 @@
            <br/><br/>
        </div>
        <div>
-           <h3>Curush - CursusDB Cluster Shell</h3><br/>
-           <strong>{currentVersionCurush} Stable</strong><br/><br/>
+           <h2>Curush - CursusDB Cluster Shell</h2><br/>
+           <p>{currentVersionCurush} Stable</p><br/><br/>
            <h3>Windows</h3><br/>
            <ul>
                <li><a href={`https://downloads.cursusdb.com/curush/${currentVersionCurush}/windows/386/curush-${currentVersionCurush}-x86.zip`}>{`https://downloads.cursusdb.com/curush/${currentVersionCurush}/windows/386/curush-${currentVersionCurush}-x86.zip`}</a></li>
@@ -235,6 +236,10 @@
     }
 
 
+    div h2 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid  rgba(0,0,0,0.12);
+    }
 
 
 </style>
