@@ -7,7 +7,7 @@
 </script>
 
 <nav>
-    <h2 on:click={() => navigate("./")} class="brand"><img src="cursusv7.png" width="32" /> CursusDB</h2>
+    <h2 on:click={() => navigate("./")} class="brand"><img src="cursusv7.svg" width="32" /> CursusDB</h2>
 
     <ul>
         <li on:click={() => navigate("https://github.com/cursusdb")}>Git</li>
