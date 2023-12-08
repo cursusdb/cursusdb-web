@@ -13,7 +13,7 @@
 <br/><br/><figure>
     <h2>NoSQL At Scale </h2>
     <hr/>
-    <h1>CursusDB is </h1><RollingText time={2250} texts={['Distributed', 'JSON & SQL Based', 'Blazing Fast', 'Open Source', 'Secure']}/>
+    <h1>CursusDB is </h1><RollingText time={2250} texts={['Distributed', 'SQL Like', 'Blazing Fast', 'Open Source', 'Secure by default', 'JSON friendly']}/>
 </figure>
 <br/>
 <section>
@@ -91,11 +91,9 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
         margin: 0 auto;
         width: 100%;
         max-width: 980px;
-        background: rgb(63,144,175);
-        background: linear-gradient(90deg, rgba(63,144,175,1) 0%, rgba(103,202,239,1) 100%);
-        text-shadow: 1px 1px rgba(0,0,0,0.4);
+        background: #CDCDCD;
+        text-shadow: 1px 1px rgba(255,255,255,0.38);
         border-radius: 5px;
-        color: rgba(255,255,255,0.92)
     }
 
     section h1 {
@@ -104,6 +102,7 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
         font-weight: lighter;
         font-size: 18px;
         line-height: 40px;
+        text-shadow: 1px 1px rgba(255,255,255,0.38);
         padding-left: 10px;
         padding-right: 10px;
     }
@@ -118,7 +117,7 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
 
     section a, section a:visited {
         color: #2C293B;
-        text-shadow: 1px 1px rgba(255,255,255,0.28);
+        text-shadow: 1px 1px rgba(255,255,255,0.38);
         border-bottom-color: #2C293B;;
     }
 
