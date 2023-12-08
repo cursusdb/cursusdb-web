@@ -158,8 +158,7 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
     section footer {
         min-height: 40px;
         line-height: 30px;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding: 10px;
         background: #fcfcfc;
         overflow: hidden
     }
@@ -172,6 +171,7 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
 
     section footer div {
         display: inline-block;
+        padding-top: 3px;
         border-radius: 5px;
     }
 
@@ -195,14 +195,25 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
             font-size: 12px
         }
 
+        section footer {
+            padding: 0;
+        }
+
         section footer div {
             display: block!important;
             float: left!important;
             border-bottom: 1px solid lightgray;
             margin-bottom: -1px;
+            border-radius: 0;
+            padding-top: 8px!important;
             padding: 5px;
             text-align: left;
             width: 100%;
+        }
+
+        section footer div a {
+            text-decoration: none;
+            border: none;
         }
     }
 </style>
