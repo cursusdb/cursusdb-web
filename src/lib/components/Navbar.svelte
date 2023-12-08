@@ -37,13 +37,13 @@
     nav img {
         float: left;
         width: 42px;
-        margin-top: 10px;
+        margin-top: 8px;
         margin-right: 10px;
         filter: invert(1);
     }
 
     nav h2 {
-        font-size: 18px;
+        font-size: 22px;
         cursor: pointer;
         float: left;
     }
@@ -72,9 +72,8 @@
             padding-right: 5px;
         }
 
-        .brand img {
-            margin-top: 18px;
-            width: 28px;
+        nav img {
+            margin-top: 10px;
         }
 
         h2.brand {
