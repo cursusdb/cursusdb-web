@@ -21,13 +21,29 @@
     <Prism language="sql" code={`
 select * from users where firstName == 'Alex' && age > 28;
 `}/>
+    <footer>
+        <p>CursusDB has an SQL like query language called CDQL(Cursus Document Query Language)</p>
+    </footer>
 </section>
 
 <section>
-    <h1>JSON based</h1>
+    <h1>JSON insertion</h1>
     <Prism language="sql" code={`
 insert into users({"name": "John", "last": "Josh", "age": 28, "tags": ["tag1", "tag2"]});
 `}/>
+    <footer>
+        <p>CursusDB takes JSON type document data which us easier, no?</p>
+    </footer>
+</section>
+
+<section>
+    <h1>One cluster to rule all the nodes.</h1>
+    <Prism language="sql" code={`
+insert into users({"email!": "jdoe@example.com","firstName": "Doe", "lastName": "John", "age": 28, "tags": ["tech", "news"]});
+`}/>
+    <footer>
+        <p>Regardless the query a CursusDB cluster will query all configured commodity nodes in parallel at the same time tackling multiple parts of your stored collections simultaneously.  On insertion uniqueness can be kept using the <strong>!</strong> symbol at the end of your desired key to be unique.</p>
+    </footer>
 </section>
 
 <section>
@@ -60,6 +76,11 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
     </footer>
 </section>
 
+<div class="end">
+    <p>Getting a cluster setup shouldn't<br/> take more than 20 minutes!</p>
+    <button>Read the docs!</button>
+</div>
+
 
 <style>
     figure {
@@ -69,6 +90,29 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
         width: calc(100% - 40px);
         text-shadow: 1px 1px rgba(255,255,255,0.4);
 
+    }
+
+    .end {
+        padding: 10px;
+        border: 1px solid lightgray;
+        border-radius: 5px;
+        margin-top: 40px!important;
+        overflow: hidden;
+        width: 100%;
+        max-width: 300px;
+        font-size: 18px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .end button {
+        background: #2C293B;
+        padding: 10px 30px;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        margin-top: 10px;
+        color: white;
     }
 
     figure hr {
@@ -87,6 +131,7 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
     }
 
     section {
+        display: block;
         margin-top: 20px!important;
         margin: 0 auto;
         width: 100%;
@@ -108,7 +153,7 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
     }
 
     section footer {
-        height: 40px;
+        min-height: 40px;
         line-height: 30px;
         padding-left: 10px;
         padding-right: 10px;
