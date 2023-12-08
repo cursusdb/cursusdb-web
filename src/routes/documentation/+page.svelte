@@ -322,26 +322,6 @@ delete user USERNAME;
 </main>
 
 <style>
-    h1 {
-        font-size: 28px;
-        color: rgb(53, 41, 80);
-    }
-
-    h2 {
-        color: rgb(53, 41, 80);
-        font-size: 22px!important;
-        font-weight: lighter!important;
-    }
-
-    h3 {
-        color: rgb(53, 41, 80);
-        font-weight: lighter;
-        font-size: 18px;
-        padding-bottom: 10px;
-        margin-top: 10px;
-        margin-bottom: 5px;
-        border-bottom: 2px solid rgb(53, 41, 80);
-    }
 
     img {
         border: 4px solid rgba(255,255,255,0.1);
