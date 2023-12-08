@@ -92,10 +92,13 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
 
     }
 
+
+
     .end {
         padding: 10px;
         border: 1px solid lightgray;
         border-radius: 5px;
+        background: #fcfcfc;
         margin-top: 40px!important;
         overflow: hidden;
         width: 100%;
@@ -157,6 +160,7 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
         line-height: 30px;
         padding-left: 10px;
         padding-right: 10px;
+        background: #fcfcfc;
         overflow: hidden
     }
 
@@ -168,6 +172,13 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
 
     section footer div {
         display: inline-block;
+        border-radius: 5px;
+    }
+
+    section footer {
+        border: 1px solid #CDCDCD!important;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
     }
 
     @media only screen and (max-width: 500px) {
@@ -182,6 +193,16 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
 
         section footer div {
             font-size: 12px
+        }
+
+        section footer div {
+            display: block!important;
+            float: left!important;
+            border-bottom: 1px solid lightgray;
+            margin-bottom: -1px;
+            padding: 5px;
+            text-align: left;
+            width: 100%;
         }
     }
 </style>

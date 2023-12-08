@@ -14,6 +14,9 @@ a, a:visited {
     border-bottom: 2px solid rgb(96,45,208);
     text-decoration: none;
 }
+code, pre, .language-sql {
+    border-radius: 0!important;
+}
 
 a:hover {
     text-decoration: underline;
