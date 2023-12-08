@@ -32,7 +32,7 @@ select * from users where firstName == 'Alex' && age > 28;
 insert into users({"name": "John", "last": "Josh", "age": 28, "tags": ["tag1", "tag2"]});
 `}/>
     <footer>
-        <p>CursusDB takes JSON type document data which us easier, no?</p>
+        <p>CursusDB takes JSON type document data on insertion.</p>
     </footer>
 </section>
 
