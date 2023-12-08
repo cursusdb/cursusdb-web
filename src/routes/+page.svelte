@@ -13,7 +13,7 @@
 <br/><br/><figure>
     <h2>NoSQL At Scale </h2>
     <hr/>
-    <h1>CursusDB is </h1><RollingText time={2250} texts={['Distributed', 'SQL Like', 'Blazing Fast', 'Open Source', 'Secure by default', 'JSON friendly']}/>
+    <h1>CursusDB is </h1><RollingText time={2250} texts={['Document-oriented', 'Distributed', 'SQL like', 'Blazing Fast', 'Open Source', 'Secure by default', 'JSON friendly']}/>
 </figure>
 <br/>
 <section>
