@@ -71,10 +71,11 @@
 
     @media only screen and (max-width: 430px) {
         footer ul {
-            max-width: 268px;
+            max-width: 278px;
         }
         footer ul li {
-            font-size: 11px!important;
+            padding-right: 14px;
+            font-size: 10px!important;
         }
     }
 </style>

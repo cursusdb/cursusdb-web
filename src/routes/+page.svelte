@@ -1,6 +1,11 @@
 <script>
     import RollingText from "$lib/components/RollingText.svelte";
     import Prism from "$lib/components/Prism.svelte";
+    import {goto} from "$app/navigation";
+
+    async function navigate(path) {
+        await goto(path)
+    }
 </script>
 
 <svelte:head>
@@ -78,7 +83,7 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
 
 <div class="end">
     <p>Getting a cluster setup shouldn't<br/> take more than 20 minutes!</p>
-    <button>Read the docs!</button>
+    <button on:click={() => navigate('/documentation')}>Read the docs!</button>
 </div>
 
 
@@ -113,9 +118,14 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
         padding: 10px 30px;
         border-radius: 5px;
         outline: none;
+        cursor: pointer;
         border: none;
         margin-top: 10px;
         color: white;
+    }
+
+    .end button:hover {
+        background: #191821;
     }
 
     figure hr {
@@ -161,6 +171,10 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
         padding: 10px;
         background: #fcfcfc;
         overflow: hidden
+    }
+
+    section p {
+        padding: 10px;
     }
 
     section a, section a:visited {

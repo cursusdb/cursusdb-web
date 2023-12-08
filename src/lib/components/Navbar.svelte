@@ -7,7 +7,7 @@
 </script>
 
 <nav>
-    <img src="cursusv7-vec.png"/> <h2 on:click={() => navigate("./")} class="brand">CursusDB</h2>
+    <img on:click={() => navigate("./")} src="cursusv7-vec.png"/> <h2 on:click={() => navigate("./")} class="brand">CursusDB</h2>
 
     <ul>
         <li on:click={() => navigate("https://github.com/cursusdb")}>Git</li>
@@ -36,6 +36,7 @@
 
     nav img {
         float: left;
+        cursor: pointer;
         width: 42px;
         margin-top: 8px;
         margin-right: 10px;
