@@ -81,6 +81,7 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
     }
 
     figure h1 {
+
         margin-right: 10px;
         float: left;
     }
@@ -90,17 +91,19 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
         margin: 0 auto;
         width: 100%;
         max-width: 980px;
-        background: rgb(96,45,208);
-        background: linear-gradient(180deg, rgba(111,98,177,1) 0%, rgba(177,98,167,1) 100%);
+        background: rgb(63,144,175);
+        background: linear-gradient(90deg, rgba(63,144,175,1) 0%, rgba(103,202,239,1) 100%);
         text-shadow: 1px 1px rgba(0,0,0,0.4);
         border-radius: 5px;
         color: rgba(255,255,255,0.92)
     }
 
     section h1 {
-        height: 50px;
-        font-size: 16px;
-        line-height: 60px;
+        height: 30px;
+        font-family: Tenso-Slab, serif;
+        font-weight: lighter;
+        font-size: 18px;
+        line-height: 40px;
         padding-left: 10px;
         padding-right: 10px;
     }
@@ -114,8 +117,9 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
     }
 
     section a, section a:visited {
-        color: #ffd13b;
-        border-bottom-color: #ffd13b;;
+        color: #2C293B;
+        text-shadow: 1px 1px rgba(255,255,255,0.28);
+        border-bottom-color: #2C293B;;
     }
 
     section footer div {
