@@ -111,7 +111,11 @@ users:
         <p>Say I want to start a node locally.</p>
         <Prism language="yaml" code={`
 nodes:
-    - 0.0.0.0:7682
+    - host: 0.0.0.0
+      port: 7682
+      replicas: # if you want the node to have read replicas
+        - host: 0.0.0.0 # only if you want the node to have read replicas
+          port: 7683 # only if you want the node to have read replicas
 tls-cert: ""
 tls-key: ""
 tls: false
@@ -225,7 +229,8 @@ If you like Certbot, please consider supporting our work by:
         <p>Now with your cert and key ready you can setup your <strong>.cursusconfig</strong> and or <strong>.curodeconfig</strong></p>
         <Prism language="yaml" code={`
 nodes:
-    - 0.0.0.0:7682
+    - host: 0.0.0.0
+      port: 7682
 tls-cert: "/etc/letsencrypt/live/cluster-0.example.com/fullchain.pem"
 tls-key: "/etc/letsencrypt/live/cluster-0.example.com/privkey.pem"
 tls: true
@@ -274,7 +279,6 @@ insert into users({"name!": "John", "last": "Josh", "age": 28, "tags": ["tag1", 
 `}/><br/>
         <p>Now on insert CursusDB will check every node if there is a document within the users collection with a key of "name" and value of "John".  You can specify multiple unique keys, even within an array!</p>
 
-
         <h4>Selecting Documents</h4>
         <Prism language="sql" code={`
 select * from users;
@@ -299,6 +303,45 @@ update 1 in users where age >= 28 set name = 'Josie';
 update * in users where age > 24 && name == 'Alex' set name = 'Josie', age = 52;
 update n, n..
 ect..
+`}/><br/>
+
+        <h4>Pattern Matching</h4><br/>
+        <h4>LIKE</h4>
+        <p>Starts with 'A'</p>
+        <Prism language="sql" code={`
+select * from users where firstName like 'A%lex Padula'
+`}/><br/>
+
+        <p>Ends with 'la'</p>
+        <Prism language="sql" code={`
+ select * from users where firstName like 'Alex Padu%la'
+`}/><br/>
+
+        <p>Contains Pad</p>
+        <Prism language="sql" code={`
+select * from users where firstName like 'Alex %Pad%ula'
+`}/><br/>
+
+
+        <h4>NOT LIKE</h4>
+        <p>Starts with 'A'</p>
+        <Prism language="sql" code={`
+select * from users where firstName not like 'A%lex Padula'
+`}/><br/>
+
+        <p>Ends with 'la'</p>
+        <Prism language="sql" code={`
+select * from users where firstName not like 'Alex Padu%la'
+`}/><br/>
+
+        <p>Contains Pad</p>
+        <Prism language="sql" code={`
+select * from users where firstName not like 'Alex %Pad%ula'
+`}/><br/>
+
+        <h4>Sorting</h4>
+        <Prism language="sql" code={`
+select * from posts order by createdOn desc;
 `}/><br/>
 
         <br/><h3 id="adding-database-users">Adding Database Users</h3>
