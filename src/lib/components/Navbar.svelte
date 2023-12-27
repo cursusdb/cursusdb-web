@@ -5,7 +5,7 @@
         await goto(path)
     }
 </script>
-
+<header>Website is in progress.  Please check the GIT repository for latest documentation for CursusDB <a href="https://github.com/cursusdb/cursusdb">Here</a></header>
 <nav>
     <img on:click={() => navigate("./")} src="cursusv7-vec.png"/> <h2 on:click={() => navigate("./")} class="brand">CursusDB</h2>
 
@@ -18,10 +18,22 @@
 
 
 <style>
+    header {
+        top: 0;
+        height: 20px;
+        position: fixed;
+        line-height: 20px;
+        font-size: 12px;
+        text-align: center;
+        z-index: 1000;
+        width: 100%;
+        background: #ffb0b0;
+        color: #2a0c0c;
+    }
     nav {
         z-index: 1000;
         position: fixed;
-        top: 0;
+        top: 20px;
         height: 60px;
         width: calc(100% - 40px);
         background: white;
