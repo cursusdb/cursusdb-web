@@ -5,9 +5,9 @@
     import {currentVersionCursus, currentVersionCurode,currentVersionCurush} from '$lib/stores.js'
 
     onMount(function() {
-        currentVersionCursus.set("v1.9.95")
-        currentVersionCurode.set("v1.9.95")
-        currentVersionCurush.set("v1.1.0")
+        currentVersionCursus.set("v1.9.96")
+        currentVersionCurode.set("v1.9.96")
+        currentVersionCurush.set("v1.1.2")
     })
 </script>
 
