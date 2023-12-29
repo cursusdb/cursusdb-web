@@ -88,9 +88,9 @@
             <li> <strong>node-reader-size</strong> - the max size of a response from a node</li>
         <li><strong>join-responses</strong> - join all node responses and limit based on provided n</li>
         <li><strong>logging</strong> - start logging to file</li>
-        <li><strong>timezone</strong> - Default is Local but format allowed is for example America/Toronto</li>
-        <li><strong>log-query</strong> - Logs client ip and their query to logs and std out if enabled</li>
-        <li><strong>node-read-deadline</strong> - Amount of time in seconds to wait for a node to respond</li>
+        <li><strong>timezone</strong> - default is Local but format allowed is for example America/Toronto</li>
+        <li><strong>log-query</strong> - logs client ip and their query to logs and std out if enabled</li>
+        <li><strong>node-read-deadline</strong> - amount of time in seconds to wait for a node to respond</li>
         </ul><br/>
 
         <h4>Cluster node config .curodeconfig</h4><br/>
@@ -103,13 +103,13 @@
             <li><strong>key</strong> - encoded shared key</li>
             <li><strong>max-memory</strong> - max allowed memory for node,  default is 10gb</li>
             <li><strong>logging</strong> - start logging to file</li>
-            <li><strong>timezone</strong> - Default is Local but format allowed is for example America/Toronto</li>
-            <li><strong>replication-sync-time</strong> - how often to sync to read replica.  Default is 10 minutes
+            <li><strong>timezone</strong> - default is Local but format allowed is for example America/Toronto</li>
+            <li><strong>replication-sync-time</strong> - how often to sync to read replica;  default is 10 minutes
             <li><strong>tls-replication</strong> - connect to read replicas via tls</li>
-            <li><strong>automatic-backups</strong> - if enabled node will start backing up to /backups folder within executing location
+            <li><strong>automatic-backups</strong> - if enabled node will start backing up to backups folder within executing location
             <li><strong>automatic-backup-time</strong> - how often to backup default is 60 minutes</li>
             <li><strong>automatic-backup-cleanup</strong> - automatic backup clean up ever 12 hours by default if enabled</li>
-            <li><strong>automatic-backup-cleanup-hours</strong> - how often to clean backups directory of old backups.  Will remove everything older than specified hours</li>
+            <li><strong>automatic-backup-cleanup-hours</strong> - how often to clean backups directory of old backups.  will remove everything older than specified hours</li>
         </ul><br/>
 
         <p>If you set tls-node on the cluster to true the cluster will expect all nodes to be listening on tls.</p>
