@@ -13,7 +13,7 @@
 
 
     function searchKey(event) {
-        if (event.ctrlKey && event.key === 'f') {
+        if (event.ctrlKey && event.key === 'c') {
             event.preventDefault()
             searchInput.focus()
             return false
@@ -48,13 +48,12 @@
         <li><a href="#connecting-to-cluster">Connecting To Cluster</a></li>
         <li><a href="#tls-with-certbot">Setup TLS With Certbot</a></li>
         <li><a href="#query-language">Query Language</a></li>
-        <li><a href="#adding-database-users">Adding/Deleting Database Users</a></li>
-        <li><a href="#removing-database-users">Delete key within collection of documents</a></li>
-        <li><a href="#removing-database-users">Status Codes</a></li>
-        <li><a href="#removing-database-users">Logging</a></li>
-        <li><a href="#removing-database-users">Automatic Node Read Replicating/Synchronization</a></li>
-        <li><a href="#removing-database-users">Automatic Node Backups</a></li>
-        <li><a href="#removing-database-users">Automatic Node Backup Cleanup</a></li>
+        <li><a href="#automatic-node-rep">Automatic Node Read Replicating/Synchronization</a></li>
+        <li><a href="#automatic-node-backups">Automatic Node Backups</a></li>
+        <li><a href="#automatic-node-backup-cleanup">Automatic Node Backup Cleanup</a></li>
+        <li><a href="#logging">Logging</a></li>
+        <li><a href="#reserved-words">Reserved Words</a></li>
+        <li><a href="#status-codes">Status Codes</a></li>
     </ul>
 </aside>
 {/if}
@@ -249,7 +248,7 @@ users:
         <br/>
 
 
-        <h3 id="query-language">Query Language</h3><br/>
+        <h2 id="query-language">Query Language</h2><br/>
         <h4>CDQL - Cursus Document Query Language</h4><br/>
         <p>CursusDB's Query Language is very similar to that of SQL.</p>
 
@@ -425,7 +424,34 @@ curush>collections;
 `}/><br/>
 
 
+        <h2 id="automatic-node-rep">Automatic Node Read Replicating/Synchronization</h2><br/>
+        <p>When you configure a node you can configure a replica.  This configuration requires you to modify both cluster and node configuration files.</p>
+        <h5>.cursusconfig</h5>
+        <Prism language="bash" code={`
+nodes:
+- host: 0.0.0.0
+  port: 7682
+  replicas:
+  - host: 0.0.0.0
+    port: 7683
+....
+`}/>
+        <h5>.curodeconfig</h5>
+        <Prism language="bash" code={`
+replicas:
+  - host: 0.0.0.0
+    port: 7683
+tls-cert: ""
+tls-key: ""
+....
+`}/>
 
+        <p>With those configurations set your node will start to sync data every default time of 10 minutes(<code>replication-sync-time</code>).  The cluster will as well on read failure of main node will retry to up to any amount of set node read replicas.</p>
+
+        <h2 id="automatic-node-backups">Automatic Node Backups</h2><br/>
+        <p>A node can be configured to generate backups.  A backup by default is generated automatically every 60 minutes(<code>automatic-backup-time</code>) into a backup directory which is created on first run.</p>
+        <br/><h2 id="automatic-node-backup-cleanup">Automatic Node Backup Cleanup</h2><br/>
+        <p>A node can be configured to remove all old backups.  The default is every hour to delete all backups older than an hour.  This can be configured with <code>automatic-backup-cleanup-hours</code></p>
         <br/><h2 id="logging">Logging</h2>
 
         <p>Logs for the CursusDB cluster and node are found where you launch your binaries. Cluster: cursus.log Node: curode.log if logging is enabled.</p>
@@ -521,7 +547,7 @@ users:
  ./curush --host=X --port=X --tls=true
 `}/><br/>
 
-        <h3>Reserved Words</h3>
+        <h3 id="reserved-words">Reserved Words</h3>
         <ul class="rw">
             <li><code>count</code></li>
             <li><code>$id</code></li>
@@ -576,8 +602,8 @@ users:
         </ul>
 
 
-        <h3>Status Codes</h3>
-        <ul dir="auto">
+        <h3 id="status-codes">Status Codes</h3>
+        <ul class="statuscodes">
             <li><code>0</code> Authentication successful.</li>
             <li><code>1</code> Unable to read authentication header.</li>
             <li><code>2</code> Invalid authentication value.</li>
@@ -585,7 +611,7 @@ users:
             <li><code>4</code> User not authorized</li>
             <li><code>5</code> Failed node sync auth</li>
         </ul>
-        <ul dir="auto">
+        <ul class="statuscodes">
             <li><code>100</code> - Node is at peak allocation</li>
             <li><code>101</code> - Invalid permission</li>
             <li><code>102</code> - User does not exist</li>
@@ -622,7 +648,7 @@ users:
             <li><code>505</code> - Key cannot use reserved symbol</li>
         </ul>
 
-        <ul dir="auto">
+        <ul class="statuscodes">
             <li><code>2000</code> Document inserted/updated/deleted</li>
             <li><code>4000</code> Unmarsharable JSON insert</li>
             <li><code>4001</code> Missing action</li>
@@ -662,6 +688,19 @@ users:
     .rw li code {
         padding: 5px;
         background: #ffbdbd;
+        margin-bottom: 5px;
+        display: inline-block;
+        border-radius: 8px!important;
+    }
+
+    .statuscodes {
+        padding: 0;
+        list-style: none!important;
+    }
+
+    .statuscodes li code {
+        padding: 5px;
+        background: #f5f5f5;
         margin-bottom: 5px;
         display: inline-block;
         border-radius: 8px!important;
