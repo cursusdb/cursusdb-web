@@ -13,7 +13,7 @@
 
 
     function searchKey(event) {
-        if (event.ctrlKey && event.key === 'c') {
+        if (event.ctrlKey && event.key === 'f') {
             event.preventDefault()
             searchInput.focus()
             return false
@@ -34,7 +34,7 @@
 
 </svelte:head>
 
-<svelte:window bind:innerWidth={clientWidth} on:keydown={(e) => searchKey(e)} />
+<!--<svelte:window bind:innerWidth={clientWidth} on:keydown={(e) => searchKey(e)} />-->
 
 {#if clientWidth > 746 || showAside}
 <aside transition:slide={{ delay: 250, duration: 300, easing: quintOut, axis: 'x' }}>
@@ -67,7 +67,6 @@
         <h2 id="getting-started">Getting Started</h2><br/>
         <p>CursusDB was designed to be setup securely within a couple minutes.  Let's go through a couple thing's before you indulge.</p>
 
-        <br/>
         <p>There are no databases like MySQL let's say where you can have multiples. A cluster <strong>is your database</strong> that has many collections and that spreads data across many nodes.</p>
 
         <p>So what do you need to run the most basic CursusDB database?  A cluster and 1 node.  A cluster in these parts is called <strong>Cursus</strong> whilst the node is called <strong>Curode</strong>.  They are happy to meet you.</p>
@@ -107,10 +106,10 @@
             <li><strong>timezone</strong> - Default is Local but format allowed is for example America/Toronto</li>
             <li><strong>replication-sync-time</strong> - how often to sync to read replica.  Default is 10 minutes
             <li><strong>tls-replication</strong> - connect to read replicas via tls</li>
-            <li><strong>automatic-backups</strong> - If enabled node will start backing up to /backups folder within executing location
+            <li><strong>automatic-backups</strong> - if enabled node will start backing up to /backups folder within executing location
             <li><strong>automatic-backup-time</strong> - how often to backup default is 60 minutes</li>
-            <li><strong>automatic-backup-cleanup</strong> automatic backup clean up ever 12 hours by default if enabled</li>
-            <li><strong>automatic-backup-cleanup-hours</strong> how often to clean backups directory of old backups.  Will remove everything older than specified hours</li>
+            <li><strong>automatic-backup-cleanup</strong> - automatic backup clean up ever 12 hours by default if enabled</li>
+            <li><strong>automatic-backup-cleanup-hours</strong> - how often to clean backups directory of old backups.  Will remove everything older than specified hours</li>
         </ul><br/>
 
         <p>If you set tls-node on the cluster to true the cluster will expect all nodes to be listening on tls.</p>
@@ -154,18 +153,13 @@ tar -xzvf curode-${$currentVersionCurush}-amd64.tar.gz
         <Prism language="bash" code={`
 ./cursus
 `}/>
-        <img style="filter: invert(1);" src="docs/cluster-setup0.png" /><br/>
+        <img style="border-radius: 10px" src="docs1.png" /><br/>
 
         <p>Now you'll have a .cursusconfig yaml file.</p>
-        <Prism language="yaml" code={`
-nodes: []
-tls-cert: ""
-tls-key: ""
-tls: false
-port: 7681
-users:
-    - DX8EAQL/gAABDAEQAABO/4AAAwh1c2VybmFtZQZzdHJpbmcMBgAEYWxleAhwYXNzd29yZAZzdHJpbmcMCAAGcGFkdWxhCnBlcm1pc3Npb24Gc3RyaW5nDAQAAlJX
-`}/>
+
+        <img style="border-radius: 10px" src="docs2.png" /><br/>
+
+        <img style="border-radius: 10px" src="docs3.png" /><br/>
 
         <p>Your initial user has <strong>RW</strong> which is READWRITE permissions.  You can see in your .cursusconfig that you have a serialized user which is encoded to be stored securely and taking up little room.</p>
 
@@ -191,9 +185,13 @@ users:
     - DX8EAQL/gAABDAEQAABO/4AAAwh1c2VybmFtZQZzdHJpbmcMBgAEYWxleAhwYXNzd29yZAZzdHJpbmcMCAAGcGFkdWxhCnBlcm1pc3Npb24Gc3RyaW5nDAQAAlJX
 `} />
 
-        <p>You might be thinking ok, but what about the node I don't have it yet.</p>
-        <p>Not to worry.  You can download the <strong>curode</strong> which is the Cursus cluster node from <a href="/downloads">Here</a></p>
+        <img style="border-radius: 10px" src="docs4.png" /><br/>
 
+        <p>You might be thinking ok, but what about the node I don't have it yet.</p>
+        <p>Not to worry.  You can download the <strong>curode</strong> which is the Cursus cluster node from <a href="/downloads">Here</a> if you haven't already.</p>
+
+        <p>If you tried to run the cluster when any node is unavailable you will get the below result:</p>
+        <img style="border-radius: 10px" src="docs5.png" /><br/>
         <p>Once downloaded simply run</p>
         <Prism language="bash" code={`
 ./curode
@@ -202,6 +200,8 @@ users:
         <Prism language="bash" code={`
 ./curode -port=YOURPORT
 `}/>
+
+        <img style="border-radius: 10px" src="docs6.png" /><br/>
 
         <p>Once your node is running, now you can start your cluster.</p>
 
@@ -213,20 +213,10 @@ users:
 ./cursus -port=YOURPORT
 `}/><br/>
 
-        <br/><p>The <strong>--port</strong> flag goes for the cluster node as well.</p>
+        <img style="border-radius: 10px" src="docs7.png" /><br/>
 
 
-        <h3 id="setting-up-node">Setting up / Starting Node</h3>
-        <p>You can choose to start your node with a different port than whats in .curodeconfig using --port flag.</p>
-        <img style="filter: invert(1);" src="docs/cluster-setup3.png" /><br/>
-
-
-        <p>Then when we start cluster</p>
-        <img style="filter: invert(1);" src="docs/cluster-setup2.png" />
-        <p>Cursus is a parallel type database in regards to distribution.  What that means is you can add multiple nodes and Cursus will query them all simutanuously.</p>
-
-
-        <p>Now you will setup your node, run it, run your cluster and learn some CDQL(Cursus Document Query Language).</p>
+        <p>Fantastic!  Now it's time to learn some CDQL(Cursus Document Query Language) ✍️✍️</p>
 
 
         <h3 id="connecting-to-cluster">Connecting To Cluster</h3><br/>
@@ -498,6 +488,7 @@ sudo yum remove certbot
         <p>Then install certbox</p>
         <Prism language="bash" code={`
 sudo snap install --classic certbot
+sudo snap install --classic certbot
 `}/><br/>
         <p>Run the following in your command line to ensure that the certbot command can be run.</p>
         <Prism language="bash" code={`
@@ -721,6 +712,7 @@ users:
         font-size: 14px;
         font-weight: lighter;
         padding-left: 10px;
+        font-weight: bold;
         border-left: 4px dotted black!important;
     }
 
