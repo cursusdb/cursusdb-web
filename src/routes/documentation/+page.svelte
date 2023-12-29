@@ -75,9 +75,9 @@
 
         <p>When you download the binaries and run them succesfully for the first time you will get a <strong>.cursusconfig</strong> and a <strong>.curodeconfig</strong> which are your cluster and node configurations.  They are in yaml format and don't contain anything critical in plain sight.</p>
 
-        <h3>Configuration files</h3>
+        <h3>Configuration files</h3><br/>
 
-        <h4>Cluster config .cursusconfig</h4><br/><br/>
+        <h4>Cluster config .cursusconfig</h4><br/>
         <ul>
         <li><strong>nodes</strong> - database cluster nodes. i.e an ip/fqdn + port combination (host: cluster1.example.com port: 7682)</li>
         <li><strong>tls-node</strong> - whether the cluster will connect to nodes via tls</li>
@@ -114,7 +114,16 @@
             <li><strong>automatic-backup-cleanup-hours</strong> how often to clean backups directory of old backups.  Will remove everything older than specified hours</li>
         </ul><br/>
 
+        <p>If you set tls-node on the cluster to true the cluster will expect all nodes to be listening on tls.</p>
+        <p>If you set tls-replication on a cluster node to true the cluster node will expect all node replicas to be listening on tls.</p>
+
         <p>Now that you understand a bit of the configuration let's download the binaries and setup a database.</p>
+
+        <p>Remember default cluster port is 7681 and default cluster node port is 7682.<p></p>
+
+        <p>Also, whem inserting a document to a non-existent collection, the collection will be created on the node.</p>
+        <p>A collection is like a labeled cabinet where your documents are stored.</p>
+
 
         <h3 id="downloading">Downloading</h3><br/>
         <p>You can download the CursusDB cluster and node stable binaries from <a href="/downloads">Here</a></p>
@@ -237,22 +246,227 @@ users:
         <p><a href="https://github.com/cursusdb/cursusdb-go">https://github.com/cursusdb/cursusdb-go</a></p>
         <h4>C#</h4>
         <p><a href="https://github.com/cursusdb/cursusdb-cs">https://github.com/cursusdb/cursusdb-cs</a></p>
-        <br/><br/>
+        <br/>
+
+
+        <h3 id="query-language">Query Language</h3><br/>
+        <h4>CDQL - Cursus Document Query Language</h4><br/>
+        <p>CursusDB's Query Language is very similar to that of SQL.</p>
+
+        <p><strong>Pointers</strong></p>
+        <ul>
+            <li>End every query with a semi colon.</li>
+            <li>Nested objects are not part of CursusDB's search algorithms.</li><br/>
+        </ul>
+
+
+        <h4>Ping the cluster</h4>
+        <Prism language="sql" code={`
+ping;
+`}/><br/>
+        <h4>Inserting Documents</h4>
+        <p>Inserting documents is very easy.  CursusDB takes JSON within the insert's parenthesis like so:</p>
+        <Prism language="sql" code={`
+insert into users({"name": "Alex", "last": "Lee", "age": 28});
+`}/><br/>
+
+<Prism language="sql" code={`
+insert into pos({"x": 4, "y": 5});
+`}/><br/>
+
+        <p>The query above inserts the document into a users collection.  Documents within a collection on CursusDB are unstructured/schemaless meaning I could insert the next document like so:</p>
+        <Prism language="sql" code={`
+insert into users({"name": "John", "last": "Josh", "age": 28, "tags": ["tag1", "tag2"]});
+`}/><br/>
+
+        <p>Specifying new keys no problem!</p>
+
+        <p><strong>What about uniqueness across all nodes?</strong></p>
+        <p>CursusDB has this covered.  When inserting a document you can use an exclamation mark after your key name like so: </p>
+        <Prism language="sql" code={`
+insert into users({"name!": "John", "last": "Josh", "age": 28, "tags": ["tag1", "tag2"]});
+`}/><br/>
+        <p>Now on insert CursusDB will check every node if there is a document within the users collection with a key of "name" and value of "John".  You can specify multiple unique keys, even within an array!</p>
+
+        <h4>Selecting Documents</h4>
+        <Prism language="sql" code={`
+select * from users;
+select 0,2 from users;
+select 2,3 from users;
+select 4,5 from users;
+select 5,* from users;
+select 1 from users where name == 'Alex' || name == 'John';
+select * from users where name == 'Alex' && age == 28;
+select * from users where tags == "tag1";
+select * from users where name == 'Alex' && age == 28 && tags == 'tag1';
+`}/><br/>
+
+        <h4>Deleting Documents</h4>
+        <Prism language="sql" code={`
+delete * from users where age >= 28 || age < 32;
+delete 10,* from users where age > 28 && name == 'Alex';
+ect
+`}/><br/>
+        <h4>Updating Documents</h4>
+        <Prism language="sql" code={`
+update 1 in users where age >= 28 set name = 'Josie';
+update * in users where age > 24 && name == 'Alex' set name = 'Josie', age = 52;
+update n, n..
+ect..
+`}/><br/>
+
+        <h4>Counting</h4>
+
+       <p>Response not joined</p>
+        <Prism language="sql" code={`
+select count from users where $id == "099ade86-93a8-4703-abdd-d1ccc1078b1d";
+`}/><br/>
+        <Prism language="sql" code={`
+[{"127.0.0.1:7682": [{"count":1}]}]
+`}/><br/>
+
+        <p>Response joined if each node has 1 match and there is 5 nodes</p>
+        <Prism language="sql" code={`
+{"count":5}
+`}/><br/>
+
+
+
+        <h4>Pattern Matching</h4><br/>
+        <h5>LIKE</h5>
+        <p>Starts with 'A'</p>
+        <Prism language="sql" code={`
+select * from users where firstName like 'A%lex Padula'
+`}/><br/>
+
+        <p>Ends with 'la'</p>
+        <Prism language="sql" code={`
+ select * from users where firstName like 'Alex Padu%la'
+`}/><br/>
+
+        <p>Contains 'Pad'</p>
+        <Prism language="sql" code={`
+select * from users where firstName like 'Alex %Pad%ula'
+`}/><br/>
+
+
+        <h5>NOT LIKE</h5>
+        <p>Starts with 'A'</p>
+        <Prism language="sql" code={`
+select * from users where firstName not like 'A%lex Padula'
+`}/><br/>
+
+        <p>Ends with 'la'</p>
+        <Prism language="sql" code={`
+select * from users where firstName not like 'Alex Padu%la'
+`}/><br/>
+
+        <p>Contains 'Pad'</p>
+        <Prism language="sql" code={`
+select * from users where firstName not like 'Alex %Pad%ula'
+`}/><br/>
+
+        <h4>Sorting</h4>
+        <Prism language="sql" code={`
+select * from posts order by createdOn desc;
+`}/><br/>
+
+        <br/><h3 id="adding-database-users">Adding Database Users</h3>
+        <p>CursusDB has 2 permissions R(read) and (RW). RW can select, insert, delete, update and add new users whereas users with just R can only read.</p>
+        <Prism language="sql" code={`
+new user YOURUSERNAME, YOURPASSWORD, RW;
+`}/><br/>
+
+        <p>Using a client like curush the CursusDB Shell Program.</p>
+
+        <Prism language="bash" code={`
+curush> new user someusername, somepassword, RW;
+`}/><br/>
+
+        <br/><h3 id="removing-database-users">Removing Database Users</h3>
+       <p>RW permission is required and the username of the user you'd like to remove from accessing your CursusDB cluster.</p>
+        <Prism language="sql" code={`
+delete user USERNAME;
+`}/><br/>
+
+        <br/><h3 id="list-database-users">Listing database users</h3>
+        <p>RW permission is required and the username of the user you'd like to remove from accessing your CursusDB cluster.</p>
+        <Prism language="sql" code={`
+users;
+`}/><br/>
+
+
+        <br/><h3 id="list-collections">Listing collections</h3>
+        <Prism language="sql" code={`
+curush>collections;
+[{"127.0.0.1:7682": {"collections":["losers","winners","users"]}}]
+`}/><br/>
+
+        <br/><h3 id="deleting-key-within-coll-docs">Deleting a key within documents in a collection</h3>
+        <p>It's very simple to alter a collections documents. Say you want to remove the y key from a documents like below:</p>
+        <Prism language="sql" code={`
+[{"$id":"fcb773f6-2d77-45fe-a860-9dd94f5e7c07","x":5,"y":7},{"$id":"a567925e-dbb1-405e-b4ac-12522b33d07e","x":2,"y":4},{"$id":"4fa938f6-6813-4db9-9955-f5e3c81a9c0b","x":55,"y":9}]}]
+`}/><br/>
+       <p> Simple using a native client:</p>
+
+        <Prism language="sql" code={`
+curush>delete key y in example;
+[{"127.0.0.1:7682": {"message":"Document key removed from collection successfully.","statusCode":4021,"altered":3}}]
+
+`}/><br/>
+        <br/><h3 id="deleting-collections">Deleting collections</h3>
+
+        <p>When you remove every document from a collection the collection is removed i.e</p>
+        <Prism language="sql" code={`
+delete * from losers;
+..."1 Document(s) deleted successfully.","statusCode":2000}}]
+curush>collections;
+[{"127.0.0.1:7682": {"collections":["winners","users"]}}]
+`}/><br/>
+
+
+
+        <br/><h2 id="logging">Logging</h2>
+
+        <p>Logs for the CursusDB cluster and node are found where you launch your binaries. Cluster: cursus.log Node: curode.log if logging is enabled.</p>
+
+        <p>You can enable logging on either cluster or node enabling logging. This will log to file instead of stdout.</p>
+
+        <Prism language="bash" code={`
+logging: true
+`}/><br/>
+
+<p>Within your yaml configs you can set log-max-lines this option will tell either node or cluster when to truncate(clear up) the log file(s).</p>
+
+        <h5>How are logs are formatted?</h5>
+        <Prism language="bash" code={`
+[LEVEL][YOUR CONFIGURED TZ RFC822 DATE] DATA
+`}/><br/>
+
+
+        Logs can have either level:
+        <ul>
+            <li>ERROR</li>
+            <li>FATAL</li>
+            <li>INFO</li>
+            <li>WARN</li>
+        </ul>
+
 
         <br/><h2 id="tls-with-certbot">TLS with Certbot</h2>
         <p><strong>Ubuntu Example</strong></p>
         <p>If you have any Certbot packages installed using an OS package manager like apt, ect, you should remove them before installing the Certbot snap.  This ensures that when you run the command certbot the snap is used rather than the installation from your OS package manager.</p>
 
-<Prism language="bash" code={`
+        <Prism language="bash" code={`
 sudo apt-get remove certbot
 `}/><br/>
         <p>OR</p>
-<Prism language="bash" code={`
+        <Prism language="bash" code={`
 sudo dnf remove certbot
 `}/><br/>
         <p>OR</p>
 
-<Prism language="bash" code={`
+        <Prism language="bash" code={`
 sudo yum remove certbot
 `}/><br/>
         <p>Then install certbox</p>
@@ -307,144 +521,170 @@ users:
  ./curush --host=X --port=X --tls=true
 `}/><br/>
 
-        <br/><h3 id="query-language">Query Language</h3>
-        <h4>CDQL - Cursus Document Query Language</h4><br/>
-        <p>CursusDB's Query Language is very similar to that of SQL.</p>
-
-        <p><strong>Pointers</strong></p>
-        <ul>
-            <li>End every query with a semi colon.</li>
-            <li>Nested objects are not part of CursusDB's search algorithms.</li><br/>
+        <h3>Reserved Words</h3>
+        <ul class="rw">
+            <li><code>count</code></li>
+            <li><code>$id</code></li>
+            <li><code>$indx</code></li>
+            <li><code>in</code></li>
+            <li><code>not like</code></li>
+            <li><code>!like</code></li>
+            <li><code>where</code></li>
+            <li><code>chan</code></li>
+            <li><code>const</code></li>
+            <li><code>continue</code></li>
+            <li><code>defer</code></li>
+            <li><code>else</code></li>
+            <li><code>fallthrough</code></li>
+            <li><code>func</code></li>
+            <li><code>go</code></li>
+            <li><code>goto</code></li>
+            <li><code>if</code></li>
+            <li><code>interface</code></li>
+            <li><code>map</code></li>
+            <li><code>select</code></li>
+            <li><code>struct</code></li>
+            <li><code>switch</code></li>
+            <li><code>var</code></li>
+            <li><code>false</code></li>
+            <li><code>true</code></li>
+            <li><code>uint8</code></li>
+            <li><code>uint16</code></li>
+            <li><code>uint32</code></li>
+            <li><code>uint64</code></li>
+            <li><code>int8</code></li>
+            <li><code>int16</code></li>
+            <li><code>int32</code></li>
+            <li><code>int64</code></li>
+            <li><code>float32</code></li>
+            <li><code>float64</code></li>
+            <li><code>complex64</code></li>
+            <li><code>complex128</code></li>
+            <li><code>byte</code></li>
+            <li><code>rune</code></li>
+            <li><code>uint</code></li>
+            <li><code>int</code></li>
+            <li><code>uintptr</code></li>
+            <li><code>string</code></li>
+            <li><code>==</code></li>
+            <li><code>&amp;&amp;</code></li>
+            <li><code>||</code></li>
+            <li><code>&gt;</code></li>
+            <li><code>&lt;</code></li>
+            <li><code>=</code></li>
+            <li><code>*</code></li>
         </ul>
-        <h4>Collections</h4>
-        <p>When inserting a document to a non-existent collection, the collection will be created on the node.</p>
-        <p>A collection is like a labeled cabinet where your documents are stored.</p>
 
 
-        <h4>Inserting Documents</h4>
-        <p>Inserting documents is very easy.  CursusDB takes JSON within the insert's parenthesis like so:</p>
-        <Prism language="sql" code={`
-insert into users({"name": "Alex", "last": "Lee", "age": 28});
-`}/><br/>
+        <h3>Status Codes</h3>
+        <ul dir="auto">
+            <li><code>0</code> Authentication successful.</li>
+            <li><code>1</code> Unable to read authentication header.</li>
+            <li><code>2</code> Invalid authentication value.</li>
+            <li><code>3</code> No user exists</li>
+            <li><code>4</code> User not authorized</li>
+            <li><code>5</code> Failed node sync auth</li>
+        </ul>
+        <ul dir="auto">
+            <li><code>100</code> - Node is at peak allocation</li>
+            <li><code>101</code> - Invalid permission</li>
+            <li><code>102</code> - User does not exist</li>
+            <li><code>103</code> - Database user already exists</li>
+            <li><code>104</code> - No node was available for insert</li>
+            <li><code>105</code> - Node unavailable</li>
+            <li><code>106</code> - Node ready for sync</li>
+            <li><code>107</code> - Node replica synced successfully</li>
+            <li><code>108</code> - Could not decode serialized sync data into hashmap</li>
+            <li><code>200</code> - New database user created successfully</li>
+            <li><code>201</code> - Database user removed successfully</li>
+            <li><code>202</code> - Could not decode user username</li>
+            <li><code>203</code> - Could not marshal users list array</li>
+            <li><code>204</code> - There must always be one database user available</li>
+            <li><code>205</code> - Could not marshal user for creation</li>
+            <li><code>206</code> - Could not get node working directory for automatic backup (with description)</li>
+            <li><code>207</code> - Could not create automatic backups directory (with description)</li>
+            <li><code>208</code> - Could not read node backups directory  (with description)</li>
+            <li><code>209</code> - Could not remove .cdat backup FILE NAME (with description)</li>
+            <li><code>210</code> - Could not get node working directory for automatic recovery (with description)</li>
+            <li><code>211</code> - Node data backup was successful</li>
+            <li><code>213</code> - Delete key missing in</li>
+            <li><code>214</code> - Node was unrecoverable after all attempts</li>
+            <li><code>215</code> - Attempting automatic recovery with latest backup</li>
+            <li><code>216</code> - Starting to sync to with master node</li>
+            <li><code>217</code> - Synced up with master node (with addr)</li>
+            <li><code>500</code> - Unknown error (with description)</li>
+            <li><code>501</code> - Limit skip must be an integer (with description)</li>
+            <li><code>502</code> - Could not convert limit value to integer (with description)</li>
+            <li><code>503</code> - Invalid limiting slice value (with description)</li>
+            <li><code>504</code> - Invalid limiting value (with description)</li>
+            <li><code>505</code> - Key cannot use reserved word</li>
+            <li><code>506</code> - Where is missing values</li>
+            <li><code>505</code> - Key cannot use reserved symbol</li>
+        </ul>
 
-        <p>The query above inserts the document into a users collection.  Documents within a collection on CursusDB are unstructured/schemaless meaning I could insert the next document like so:</p>
-        <Prism language="sql" code={`
-insert into users({"name": "John", "last": "Josh", "age": 28, "tags": ["tag1", "tag2"]});
-`}/><br/>
-
-        <p>Specifying new keys no problem!</p>
-
-        <p><strong>What about uniqueness across all nodes?</strong></p>
-        <p>CursusDB has this covered.  When inserting a document you can use an exclamation mark after your key name like so: </p>
-        <Prism language="sql" code={`
-insert into users({"name!": "John", "last": "Josh", "age": 28, "tags": ["tag1", "tag2"]});
-`}/><br/>
-        <p>Now on insert CursusDB will check every node if there is a document within the users collection with a key of "name" and value of "John".  You can specify multiple unique keys, even within an array!</p>
-
-        <h4>Selecting Documents</h4>
-        <Prism language="sql" code={`
-select * from users;
-select 0,2 from users;
-select 2,3 from users;
-select 4,5 from users;
-select 5,* from users;
-select 1 from users where name == 'Alex' || name == 'John';
-select * from users where name == 'Alex' && age == 28;
-select * from users where tags == "tag1";
-select * from users where name == 'Alex' && age == 28 && tags == 'tag1';
-`}/><br/>
-        <h4>Deleting Documents</h4>
-        <Prism language="sql" code={`
-delete * from users where age >= 28 || age < 32;
-delete 10,* from users where age > 28 && name == 'Alex';
-ect
-`}/><br/>
-        <h4>Updating Documents</h4>
-        <Prism language="sql" code={`
-update 1 in users where age >= 28 set name = 'Josie';
-update * in users where age > 24 && name == 'Alex' set name = 'Josie', age = 52;
-update n, n..
-ect..
-`}/><br/>
-
-        <h4>Counting</h4>
-
-        select count from users where $id == "099ade86-93a8-4703-abdd-d1ccc1078b1d";
-        Response not joined
-        <Prism language="sql" code={`
- select count from users where $id == "099ade86-93a8-4703-abdd-d1ccc1078b1d";
-`}/><br/>
-        <Prism language="sql" code={`
-[{"127.0.0.1:7682": [{"count":1}]}]
-`}/><br/>
-
-        <Prism language="sql" code={`
-[{"127.0.0.1:7682": [{"count":1}]}]
-`}/><br/>
-        Response joined if each node has 1 match and there is 5 nodes
-
-
-
-        <h4>Pattern Matching</h4><br/>
-        <h4>LIKE</h4>
-        <p>Starts with 'A'</p>
-        <Prism language="sql" code={`
-select * from users where firstName like 'A%lex Padula'
-`}/><br/>
-
-        <p>Ends with 'la'</p>
-        <Prism language="sql" code={`
- select * from users where firstName like 'Alex Padu%la'
-`}/><br/>
-
-        <p>Contains 'Pad'</p>
-        <Prism language="sql" code={`
-select * from users where firstName like 'Alex %Pad%ula'
-`}/><br/>
-
-
-        <h4>NOT LIKE</h4>
-        <p>Starts with 'A'</p>
-        <Prism language="sql" code={`
-select * from users where firstName not like 'A%lex Padula'
-`}/><br/>
-
-        <p>Ends with 'la'</p>
-        <Prism language="sql" code={`
-select * from users where firstName not like 'Alex Padu%la'
-`}/><br/>
-
-        <p>Contains 'Pad'</p>
-        <Prism language="sql" code={`
-select * from users where firstName not like 'Alex %Pad%ula'
-`}/><br/>
-
-        <h4>Sorting</h4>
-        <Prism language="sql" code={`
-select * from posts order by createdOn desc;
-`}/><br/>
-
-        <br/><h3 id="adding-database-users">Adding Database Users</h3>
-        <p>CursusDB has 2 permissions R(read) and (RW). RW can select, insert, delete, update and add new users whereas users with just R can only read.</p>
-        <Prism language="sql" code={`
-new user YOURUSERNAME, YOURPASSWORD, RW;
-`}/><br/>
-
-        <p>Using a client like curush the CursusDB Shell Program.</p>
-
-        <Prism language="bash" code={`
-curush> new user someusername, somepassword, RW;
-`}/><br/>
-
-        <br/><h3 id="removing-database-users">Removing Database Users</h3>
-       <p>RW permission is required and the username of the user you'd like to remove from accessing your CursusDB cluster.</p>
-        <Prism language="sql" code={`
-delete user USERNAME;
-`}/><br/>
+        <ul dir="auto">
+            <li><code>2000</code> Document inserted/updated/deleted</li>
+            <li><code>4000</code> Unmarsharable JSON insert</li>
+            <li><code>4001</code> Missing action</li>
+            <li><code>4002</code> None existent action</li>
+            <li><code>4003</code> Nested JSON objects not permitted</li>
+            <li><code>4004</code> Document already exists</li>
+            <li><code>4005</code> Invalid command/query</li>
+            <li><code>4006</code> From is required</li>
+            <li><code>4007</code> Invalid query operator</li>
+            <li><code>4008</code> Set is missing =</li>
+            <li><code>4009</code> Invalid insert query missing 'insert into'</li>
+            <li><code>4010</code> Invalid insert query is missing parentheses</li>
+            <li><code>4011</code> Invalid update query missing set</li>
+            <li><code>4012</code> Could not marshal JSON</li>
+            <li><code>4013</code> Unparsable boolean value</li>
+            <li><code>4014</code> Unparsable float value</li>
+            <li><code>4015</code> Unparsable integer value</li>
+            <li><code>4016</code> Missing limit value</li>
+            <li><code>4017</code> Invalid query</li>
+            <li><code>4018</code> Unmarsharable JSON</li>
+            <li><code>4019</code> Update sets are missing</li>
+            <li><code>4020</code> In is required</li>
+            <li><code>4021</code> Document key removed from collection successfully</li>
+            <li><code>4022</code> No documents found to alter</li>
+            <li><code>4023</code> No unique $id could be found for insert</li>
+        </ul>
     </article>
 </main>
 
 <style>
+
+    .rw {
+        padding: 0;
+        list-style: none;
+    }
+
+    .rw li code {
+        padding: 5px;
+        background: #ffbdbd;
+        margin-bottom: 5px;
+        display: inline-block;
+        border-radius: 8px!important;
+    }
+
+    h4 {
+        margin-top: 5px;
+        margin-bottom: 5px;
+      font-size: 18px;
+        font-weight: lighter;
+        padding-left: 10px;
+        border-left: 4px solid black!important;
+    }
+
+    h5 {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: 14px;
+        font-weight: lighter;
+        padding-left: 10px;
+        border-left: 4px dotted black!important;
+    }
+
 
     img {
         border: 4px solid rgba(255,255,255,0.1);
