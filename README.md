@@ -1,5 +1,5 @@
 # CursusDB Web
-Sveltekit web application with express backend.
+Sveltekit web application with express backend and CursusDB as the database.
 
 ## Local Development
 Install

@@ -5,12 +5,11 @@
         await goto(path)
     }
 </script>
-<header>Website is in progress.  Please check the GIT repository for latest documentation for CursusDB <a href="https://github.com/cursusdb/cursusdb">Here</a></header>
 <nav>
-    <img on:click={() => navigate("./")} src="cursusv7-vec.png"/> <h2 on:click={() => navigate("./")} class="brand">CursusDB</h2>
+    <img on:click={() => navigate("./")} src="cursusv6.png"/> <h2 on:click={() => navigate("./")} class="brand">CursusDB</h2>
 
     <ul>
-        <li on:click={() => navigate("https://github.com/cursusdb")}>Git</li>
+        <li class="git" on:click={() => navigate("https://github.com/cursusdb")}><img style="filter: invert(0);margin-top: 22px" src="/GitHub_Logo.png"></li>
         <li on:click={() => navigate("/documentation")}>Documentation</li>
         <li on:click={() => navigate("/downloads")}>Downloads</li>
     </ul>
@@ -18,22 +17,29 @@
 
 
 <style>
-    header {
-        top: 0;
-        height: 20px;
-        position: fixed;
-        line-height: 20px;
-        font-size: 12px;
-        text-align: center;
-        z-index: 1000;
-        width: 100%;
-        background: #ffb0b0;
-        color: #2a0c0c;
+
+    .git {
+        border: 1px solid black;
+        border-radius: 10px;
+        margin: 15px 5px 0 0!important;
+        padding: 5px!important;
     }
+
+    .git:hover {
+        background: lightgray;
+    }
+
+    .git img {
+        margin: 0!important;
+        padding: 0!important;
+        width: 48px;
+        float: left;
+    }
+
     nav {
         z-index: 1000;
         position: fixed;
-        top: 20px;
+        top: 0px;
         height: 60px;
         width: calc(100% - 40px);
         background: white;
@@ -49,19 +55,21 @@
     nav img {
         float: left;
         cursor: pointer;
-        width: 42px;
-        margin-top: 8px;
+        width: 34px;
+        margin-top: 12px;
         margin-right: 10px;
         filter: invert(1);
     }
 
     nav h2 {
-        font-size: 22px;
+        font-size: 18px!important;
         cursor: pointer;
+        color: black;
         float: left;
     }
 
     nav ul {
+        list-style: none;
         float: right;
     }
 
@@ -70,7 +78,7 @@
         padding-left: 10px;
         padding-right: 10px;
         font-size: 14px;
-        display: inline-block;
+        float: left;
         cursor: pointer;
     }
 

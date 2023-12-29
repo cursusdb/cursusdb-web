@@ -24,10 +24,14 @@
 </script>
 
 <svelte:head>
-    <meta name="keywords" content="database, dbms, document type database, object database, document database, opensource database, distributed database, document dbms, sql like no-sql">
-    <meta name="author" content="CursusDB" />
-    <meta name="description" content="The CursusDB documentation.  Learn how to setup and starting using CursusDB.">
     <title>Documentation - CursusDB</title>
+    <meta name="author" content="CursusDB" />
+    <meta name="description" content="CursusDB is an open source scalable distributed in-memory document oriented database with SQL like queries.  Download CursusDB for free today!">
+    <meta name="og:title" content="Documentation - CursusDB"/>
+    <meta name="og:site_name" content="CursusDB"/>
+    <meta name="og:description" content="CursusDB is an open source scalable distributed in-memory document oriented database with SQL like queries.  Download CursusDB for free today!"/>
+    <meta name="keywords" content="database, dbms, document type database, object database, document database, opensource database, distributed database, document dbms, sql like no-sql, acid compliant, unstructured data">
+
 </svelte:head>
 
 <svelte:window bind:innerWidth={clientWidth} on:keydown={(e) => searchKey(e)} />
@@ -44,8 +48,13 @@
         <li><a href="#connecting-to-cluster">Connecting To Cluster</a></li>
         <li><a href="#tls-with-certbot">Setup TLS With Certbot</a></li>
         <li><a href="#query-language">Query Language</a></li>
-        <li><a href="#adding-database-users">Adding Database Users</a></li>
-        <li><a href="#removing-database-users">Removing Database Users</a></li>
+        <li><a href="#adding-database-users">Adding/Deleting Database Users</a></li>
+        <li><a href="#removing-database-users">Delete key within collection of documents</a></li>
+        <li><a href="#removing-database-users">Status Codes</a></li>
+        <li><a href="#removing-database-users">Logging</a></li>
+        <li><a href="#removing-database-users">Automatic Node Read Replicating/Synchronization</a></li>
+        <li><a href="#removing-database-users">Automatic Node Backups</a></li>
+        <li><a href="#removing-database-users">Automatic Node Backup Cleanup</a></li>
     </ul>
 </aside>
 {/if}
@@ -57,6 +66,56 @@
         {/if}
         <h1>CursusDB Documentation</h1><br/>
         <h2 id="getting-started">Getting Started</h2><br/>
+        <p>CursusDB was designed to be setup securely within a couple minutes.  Let's go through a couple thing's before you indulge.</p>
+
+        <br/>
+        <p>There are no databases like MySQL let's say where you can have multiples. A cluster <strong>is your database</strong> that has many collections and that spreads data across many nodes.</p>
+
+        <p>So what do you need to run the most basic CursusDB database?  A cluster and 1 node.  A cluster in these parts is called <strong>Cursus</strong> whilst the node is called <strong>Curode</strong>.  They are happy to meet you.</p>
+
+        <p>When you download the binaries and run them succesfully for the first time you will get a <strong>.cursusconfig</strong> and a <strong>.curodeconfig</strong> which are your cluster and node configurations.  They are in yaml format and don't contain anything critical in plain sight.</p>
+
+        <h3>Configuration files</h3>
+
+        <h4>Cluster config .cursusconfig</h4><br/><br/>
+        <ul>
+        <li><strong>nodes</strong> - database cluster nodes. i.e an ip/fqdn + port combination (host: cluster1.example.com port: 7682)</li>
+        <li><strong>tls-node</strong> - whether the cluster will connect to nodes via tls</li>
+        <li><strong>tls-cert</strong> - path to your tls cert for cluster</li>
+        <li><strong>tls-key</strong> - path to your tls key for cluster</li>
+        <li><strong>tls</strong> - enable or disable tls</li>
+       <li> <strong>port</strong> - cluster port</li>
+        <li><strong>key</strong> - encoded shared key</li>
+        <li><strong>users</strong> - array of database users serialized, and encoded.</li>
+            <li> <strong>node-reader-size</strong> - the max size of a response from a node</li>
+        <li><strong>join-responses</strong> - join all node responses and limit based on provided n</li>
+        <li><strong>logging</strong> - start logging to file</li>
+        <li><strong>timezone</strong> - Default is Local but format allowed is for example America/Toronto</li>
+        <li><strong>log-query</strong> - Logs client ip and their query to logs and std out if enabled</li>
+        <li><strong>node-read-deadline</strong> - Amount of time in seconds to wait for a node to respond</li>
+        </ul><br/>
+
+        <h4>Cluster node config .curodeconfig</h4><br/>
+        <ul>
+            <li><strong>replicas</strong> - node read replicas</li>
+            <li><strong>tls-cert</strong> - path to your tls cert for cluster</li>
+            <li><strong>tls-key</strong> - path to your tls key for cluster</li>
+            <li><strong>tls</strong> - enable or disable tls</li>
+            <li> <strong>port</strong> - cluster port</li>
+            <li><strong>key</strong> - encoded shared key</li>
+            <li><strong>max-memory</strong> - max allowed memory for node,  default is 10gb</li>
+            <li><strong>logging</strong> - start logging to file</li>
+            <li><strong>timezone</strong> - Default is Local but format allowed is for example America/Toronto</li>
+            <li><strong>replication-sync-time</strong> - how often to sync to read replica.  Default is 10 minutes
+            <li><strong>tls-replication</strong> - connect to read replicas via tls</li>
+            <li><strong>automatic-backups</strong> - If enabled node will start backing up to /backups folder within executing location
+            <li><strong>automatic-backup-time</strong> - how often to backup default is 60 minutes</li>
+            <li><strong>automatic-backup-cleanup</strong> automatic backup clean up ever 12 hours by default if enabled</li>
+            <li><strong>automatic-backup-cleanup-hours</strong> how often to clean backups directory of old backups.  Will remove everything older than specified hours</li>
+        </ul><br/>
+
+        <p>Now that you understand a bit of the configuration let's download the binaries and setup a database.</p>
+
         <h3 id="downloading">Downloading</h3><br/>
         <p>You can download the CursusDB cluster and node stable binaries from <a href="/downloads">Here</a></p>
 
@@ -146,6 +205,8 @@ users:
 ./cursus -port=YOURPORT
 `}/><br/>
 
+        <br/><p>The <strong>--port</strong> flag goes for the cluster node as well.</p>
+
 
         <h3 id="setting-up-node">Setting up / Starting Node</h3>
         <p>You can choose to start your node with a different port than whats in .curodeconfig using --port flag.</p>
@@ -157,6 +218,8 @@ users:
         <p>Cursus is a parallel type database in regards to distribution.  What that means is you can add multiple nodes and Cursus will query them all simutanuously.</p>
 
 
+        <p>Now you will setup your node, run it, run your cluster and learn some CDQL(Cursus Document Query Language).</p>
+
 
         <h3 id="connecting-to-cluster">Connecting To Cluster</h3><br/>
         <h4>Connect via curush (CursusDB Shell Program)</h4>
@@ -166,15 +229,14 @@ users:
 
         <h4>Node.js</h4>
         <p> <a href="https://www.npmjs.com/package/cursusdb-node">https://www.npmjs.com/package/cursusdb-node</a></p>
-        <br/><br/>
         <h4>Python</h4>
-        <p>coming soon.</p>
+        <p><a href="https://github.com/cursusdb/cursusdb-py">https://github.com/cursusdb/cursusdb-py</a></p>
         <h4>Java</h4>
-        <p>coming soon.</p>
+        <p><a href="https://github.com/cursusdb/cursusdb-java">https://github.com/cursusdb/cursusdb-java</a></p>
         <h4>GO</h4>
         <p><a href="https://github.com/cursusdb/cursusdb-go">https://github.com/cursusdb/cursusdb-go</a></p>
         <h4>C#</h4>
-        <p>coming soon.</p>
+        <p><a href="https://github.com/cursusdb/cursusdb-cs">https://github.com/cursusdb/cursusdb-cs</a></p>
         <br/><br/>
 
         <br/><h2 id="tls-with-certbot">TLS with Certbot</h2>
@@ -247,7 +309,7 @@ users:
 
         <br/><h3 id="query-language">Query Language</h3>
         <h4>CDQL - Cursus Document Query Language</h4><br/>
-        <p>CursusDB's Query Language is very similar to that of SQL but some slight modifications.</p>
+        <p>CursusDB's Query Language is very similar to that of SQL.</p>
 
         <p><strong>Pointers</strong></p>
         <ul>
@@ -305,6 +367,24 @@ update n, n..
 ect..
 `}/><br/>
 
+        <h4>Counting</h4>
+
+        select count from users where $id == "099ade86-93a8-4703-abdd-d1ccc1078b1d";
+        Response not joined
+        <Prism language="sql" code={`
+ select count from users where $id == "099ade86-93a8-4703-abdd-d1ccc1078b1d";
+`}/><br/>
+        <Prism language="sql" code={`
+[{"127.0.0.1:7682": [{"count":1}]}]
+`}/><br/>
+
+        <Prism language="sql" code={`
+[{"127.0.0.1:7682": [{"count":1}]}]
+`}/><br/>
+        Response joined if each node has 1 match and there is 5 nodes
+
+
+
         <h4>Pattern Matching</h4><br/>
         <h4>LIKE</h4>
         <p>Starts with 'A'</p>
@@ -317,7 +397,7 @@ select * from users where firstName like 'A%lex Padula'
  select * from users where firstName like 'Alex Padu%la'
 `}/><br/>
 
-        <p>Contains Pad</p>
+        <p>Contains 'Pad'</p>
         <Prism language="sql" code={`
 select * from users where firstName like 'Alex %Pad%ula'
 `}/><br/>
@@ -334,7 +414,7 @@ select * from users where firstName not like 'A%lex Padula'
 select * from users where firstName not like 'Alex Padu%la'
 `}/><br/>
 
-        <p>Contains Pad</p>
+        <p>Contains 'Pad'</p>
         <Prism language="sql" code={`
 select * from users where firstName not like 'Alex %Pad%ula'
 `}/><br/>
@@ -385,23 +465,24 @@ delete user USERNAME;
     }
 
     aside {
+        z-index: 2000;
         padding: 20px;
         width: 200px;
         height: calc(100vh - 80px);
         position: sticky;
         bottom: 0;
-        background: #f1f1f1;
         z-index: 999;
+        background: white;
         top: 60px;
         left: 0;
         margin-left: -20px;
         margin-right: 20px;
         margin-bottom: 20px;
         float: left;
-        border-right: 1px solid rgba(0,0,0,0.2);
     }
 
     aside ul {
+        z-index: 2000;
         list-style: none;
     }
 
@@ -425,6 +506,7 @@ delete user USERNAME;
     }
 
     aside ul li {
+        z-index: 2000;
         padding: 10px 5px;
         border-bottom: 1px solid #dcdcdc;
         cursor: pointer;

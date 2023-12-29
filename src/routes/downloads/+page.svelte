@@ -4,13 +4,14 @@
     let binaries = true; // viewing binary list
 </script>
 <svelte:head>
-    <meta name="keywords" content="database, dbms, json database, object database, document database, opensource database, distributed database">
+    <title>Downloads - CursusDB</title>
     <meta name="author" content="CursusDB" />
     <meta name="description" content="CursusDB is an open source scalable distributed in-memory document oriented database with SQL like queries.  Download CursusDB for free today!">
-    <title>Downloads - CursusDB</title>
-    <meta name="og:title" content="Download CursusDB"/>
+    <meta name="og:title" content="Downloads - CursusDB"/>
     <meta name="og:site_name" content="CursusDB"/>
     <meta name="og:description" content="CursusDB is an open source scalable distributed in-memory document oriented database with SQL like queries.  Download CursusDB for free today!"/>
+    <meta name="keywords" content="database, dbms, document type database, object database, document database, opensource database, distributed database, document dbms, sql like no-sql, acid compliant, unstructured data">
+
 </svelte:head>
 
 <section>
@@ -182,6 +183,7 @@
 
     ul.dl-tabs {
         list-style: none;
+        border-bottom: 1px solid lightgray;
         margin-bottom: 1px;
     }
 

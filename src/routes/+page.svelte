@@ -9,22 +9,29 @@
 </script>
 
 <svelte:head>
-    <meta name="keywords" content="database, dbms, document type database, object database, document database, opensource database, distributed database, document dbms, sql like no-sql">
+    <meta name="keywords" content="database, dbms, document type database, object database, document database, opensource database, distributed database, document dbms, sql like no-sql, acid compliant, unstructured data">
     <meta name="author" content="CursusDB" />
     <meta name="description" content="CursusDB is an open source scalable distributed in-memory document type database with SQL like queries.  Try CursusDB today!">
     <title>CursusDB - NoSQL At Scale</title>
+    <meta name="og:title" content="Downloads - CursusDB"/>
+    <meta name="og:site_name" content="CursusDB"/>
+    <meta name="og:description" content="CursusDB is an open source scalable distributed in-memory document oriented database with SQL like queries.  Download CursusDB for free today!"/>
 </svelte:head>
 
 <br/><br/><figure>
     <h2>NoSQL At Scale </h2>
     <hr/>
-    <h1>CursusDB is </h1><RollingText time={2250} texts={['Document-oriented', 'Distributed', 'SQL like', 'Blazing Fast', 'Open Source', 'Secure by default', 'JSON friendly']}/>
+    <h1>CursusDB is </h1><RollingText time={2250} texts={['Document-oriented', 'Distributed', 'SQL like', 'Fast', 'Open Source', 'Secure by default', 'JSON friendly']}/>
 </figure>
 <br/>
+<section style="background: none;">
+    <h3>CursusDB is a fast open source in-memory document oriented database offering security, persistence, distribution, availability and an SQL like query language.</h3>
+
+</section>
 <section>
     <h1>SQL Like</h1>
     <Prism language="sql" code={`
-select * from users where firstName == 'Alex' && age > 28;
+select * from users where firstName = 'Alex' && age > 28;
 `}/>
     <footer>
         <p>CursusDB has an SQL like query language called CDQL(Cursus Document Query Language)</p>
@@ -82,8 +89,12 @@ cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (c
 </section>
 
 <div class="end">
-    <p>Getting a cluster setup shouldn't<br/> take more than 20 minutes!</p>
+    <p>Getting a secure cluster setup shouldn't<br/> take more than 5 minutes!</p>
     <button on:click={() => navigate('/documentation')}>Read the docs!</button>
+
+    <br/><br/>
+    <p>Fully managed, secure, and reliable CursusDB cluster deployments on the cloud.</p>
+    <button on:click={() => navigate('./')}>CursusDB Cloud (COMING SOON)</button><br/><br/>
 </div>
 
 
