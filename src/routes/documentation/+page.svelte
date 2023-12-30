@@ -72,7 +72,7 @@
 
         <p>So what do you need to run the most basic CursusDB database?  A cluster and 1 node.  A cluster in these parts is called <strong>Cursus</strong> whilst the node is called <strong>Curode</strong>.  They are happy to meet you.</p>
 
-        <p>When you download the binaries and run them succesfully for the first time you will get a <strong>.cursusconfig</strong> and a <strong>.curodeconfig</strong> which are your cluster and node configurations.  They are in yaml format and don't contain anything critical in plain sight.</p>
+        <p>When you download the binaries and run them succesfully for the first time you will get a <strong>.cursusconfig</strong> and a <strong>.curodeconfig</strong> which are your cluster and node configurations.  They are in yaml format and don't contain anything critical in plain sight.  User details and key's are hashed and encoded within config files.</p>
 
         <h3>Configuration files</h3><br/>
 
