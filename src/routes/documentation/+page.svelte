@@ -34,28 +34,29 @@
 
 </svelte:head>
 
-<!--<svelte:window bind:innerWidth={clientWidth} on:keydown={(e) => searchKey(e)} />-->
+<svelte:window bind:innerWidth={clientWidth} on:keydown={(e) => searchKey(e)} />
 
 {#if clientWidth > 746 || showAside}
-<aside transition:slide={{ delay: 250, duration: 300, easing: quintOut, axis: 'x' }}>
-<!--    <input on:change|preventDefault={(e) => doSearch(e)} bind:this={searchInput} type="search" placeholder="search docs.. CTRL+f" />-->
-    <ul>
-        <li><a href="./">Home</a></li>
-        <li><a href="#getting-started">Getting Started</a></li>
-        <li><a href="#downloading">Downloading</a></li>
-        <li><a href="#setting-up-cluster">Setting Up Cluster</a></li>
-        <li><a href="#setting-up-node">Setting Up / Starting Node</a></li>
-        <li><a href="#connecting-to-cluster">Connecting To Cluster</a></li>
-        <li><a href="#tls-with-certbot">Setup TLS With Certbot</a></li>
-        <li><a href="#query-language">Query Language</a></li>
-        <li><a href="#automatic-node-rep">Automatic Node Read Replicating/Synchronization</a></li>
-        <li><a href="#automatic-node-backups">Automatic Node Backups</a></li>
-        <li><a href="#automatic-node-backup-cleanup">Automatic Node Backup Cleanup</a></li>
-        <li><a href="#logging">Logging</a></li>
-        <li><a href="#reserved-words">Reserved Words</a></li>
-        <li><a href="#status-codes">Status Codes</a></li>
-    </ul>
-</aside>
+    <aside transition:slide={{ delay: 250, duration: 300, easing: quintOut, axis: 'x' }}>
+        <!--    <input on:change|preventDefault={(e) => doSearch(e)} bind:this={searchInput} type="search" placeholder="search docs.. CTRL+f" />-->
+        <ul>
+            <li><a href="./">Home</a></li>
+            <li><a href="#getting-started">Getting Started</a></li>
+            <li><a href="#downloading">Downloading</a></li>
+            <li><a href="#setting-up-cluster">Setting Up Cluster</a></li>
+            <li><a href="#setting-up-node">Setting Up / Starting Node</a></li>
+            <li><a href="#connecting-to-cluster">Connecting To Cluster</a></li>
+            <li><a href="#tls-with-certbot">Setup TLS With Certbot</a></li>
+            <li><a href="#query-language">Query Language</a></li>
+            <li><a href="#adding-database-users">Adding/Deleting Database Users</a></li>
+            <li><a href="#removing-database-users">Delete key within collection of documents</a></li>
+            <li><a href="#removing-database-users">Status Codes</a></li>
+            <li><a href="#removing-database-users">Logging</a></li>
+            <li><a href="#removing-database-users">Automatic Node Read Replicating/Synchronization</a></li>
+            <li><a href="#removing-database-users">Automatic Node Backups</a></li>
+            <li><a href="#removing-database-users">Automatic Node Backup Cleanup</a></li>
+        </ul>
+    </aside>
 {/if}
 
 <main>
@@ -77,20 +78,20 @@
 
         <h4>Cluster config .cursusconfig</h4><br/>
         <ul>
-        <li><strong>nodes</strong> - database cluster nodes. i.e an ip/fqdn + port combination (host: cluster1.example.com port: 7682)</li>
-        <li><strong>tls-node</strong> - whether the cluster will connect to nodes via tls</li>
-        <li><strong>tls-cert</strong> - path to your tls cert for cluster</li>
-        <li><strong>tls-key</strong> - path to your tls key for cluster</li>
-        <li><strong>tls</strong> - enable or disable tls</li>
-       <li> <strong>port</strong> - cluster port</li>
-        <li><strong>key</strong> - encoded shared key</li>
-        <li><strong>users</strong> - array of database users serialized, and encoded.</li>
+            <li><strong>nodes</strong> - database cluster nodes. i.e an ip/fqdn + port combination (host: cluster1.example.com port: 7682)</li>
+            <li><strong>tls-node</strong> - whether the cluster will connect to nodes via tls</li>
+            <li><strong>tls-cert</strong> - path to your tls cert for cluster</li>
+            <li><strong>tls-key</strong> - path to your tls key for cluster</li>
+            <li><strong>tls</strong> - enable or disable tls</li>
+            <li> <strong>port</strong> - cluster port</li>
+            <li><strong>key</strong> - encoded shared key. (Key is hashed)</li>
+            <li><strong>users</strong> - array of database users serialized, and encoded.</li>
             <li> <strong>node-reader-size</strong> - the max size of a response from a node</li>
-        <li><strong>join-responses</strong> - join all node responses and limit based on provided n</li>
-        <li><strong>logging</strong> - start logging to file</li>
-        <li><strong>timezone</strong> - default is Local but format allowed is for example America/Toronto</li>
-        <li><strong>log-query</strong> - logs client ip and their query to logs and std out if enabled</li>
-        <li><strong>node-read-deadline</strong> - amount of time in seconds to wait for a node to respond</li>
+            <li><strong>join-responses</strong> - join all node responses and limit based on provided n</li>
+            <li><strong>logging</strong> - start logging to file</li>
+            <li><strong>timezone</strong> - default is Local but format allowed is for example America/Toronto</li>
+            <li><strong>log-query</strong> - logs client ip and their query to logs and std out if enabled</li>
+            <li><strong>node-read-deadline</strong> - amount of time in seconds to wait for a node to respond</li>
         </ul><br/>
 
         <h4>Cluster node config .curodeconfig</h4><br/>
@@ -100,7 +101,7 @@
             <li><strong>tls-key</strong> - path to your tls key for cluster</li>
             <li><strong>tls</strong> - enable or disable tls</li>
             <li> <strong>port</strong> - cluster port</li>
-            <li><strong>key</strong> - encoded shared key</li>
+            <li><strong>key</strong> - encoded shared key (Key is hashed)</li>
             <li><strong>max-memory</strong> - max allowed memory for node,  default is 10gb</li>
             <li><strong>logging</strong> - start logging to file</li>
             <li><strong>timezone</strong> - default is Local but format allowed is for example America/Toronto</li>
@@ -119,7 +120,7 @@
 
         <p>Remember default cluster port is 7681 and default cluster node port is 7682.<p></p>
 
-        <p>Also, whem inserting a document to a non-existent collection, the collection will be created on the node.</p>
+        <p>Also, when inserting a document to a non-existent collection, the collection will be created on the node.</p>
         <p>A collection is like a labeled cabinet where your documents are stored.</p>
 
 
@@ -259,7 +260,7 @@ ping;
 insert into users({"name": "Alex", "last": "Lee", "age": 28});
 `}/><br/>
 
-<Prism language="sql" code={`
+        <Prism language="sql" code={`
 insert into pos({"x": 4, "y": 5});
 `}/><br/>
 
@@ -306,7 +307,7 @@ ect..
 
         <h4>Counting</h4>
 
-       <p>Response not joined</p>
+        <p>Response not joined</p>
         <Prism language="sql" code={`
 select count from users where $id == "099ade86-93a8-4703-abdd-d1ccc1078b1d";
 `}/><br/>
@@ -373,7 +374,7 @@ curush> new user someusername, somepassword, RW;
 `}/><br/>
 
         <br/><h3 id="removing-database-users">Removing Database Users</h3>
-       <p>RW permission is required and the username of the user you'd like to remove from accessing your CursusDB cluster.</p>
+        <p>RW permission is required and the username of the user you'd like to remove from accessing your CursusDB cluster.</p>
         <Prism language="sql" code={`
 delete user USERNAME;
 `}/><br/>
@@ -396,7 +397,7 @@ curush>collections;
         <Prism language="sql" code={`
 [{"$id":"fcb773f6-2d77-45fe-a860-9dd94f5e7c07","x":5,"y":7},{"$id":"a567925e-dbb1-405e-b4ac-12522b33d07e","x":2,"y":4},{"$id":"4fa938f6-6813-4db9-9955-f5e3c81a9c0b","x":55,"y":9}]}]
 `}/><br/>
-       <p> Simple using a native client:</p>
+        <p> Simple using a native client:</p>
 
         <Prism language="sql" code={`
 curush>delete key y in example;
@@ -452,7 +453,7 @@ tls-key: ""
 logging: true
 `}/><br/>
 
-<p>Within your yaml configs you can set log-max-lines this option will tell either node or cluster when to truncate(clear up) the log file(s).</p>
+        <p>Within your yaml configs you can set log-max-lines this option will tell either node or cluster when to truncate(clear up) the log file(s).</p>
 
         <h5>How are logs are formatted?</h5>
         <Prism language="bash" code={`
@@ -460,12 +461,12 @@ logging: true
 `}/><br/>
 
 
-        Logs can have either level:
+       <h5>Logs can have either level:</h5>
         <ul>
-            <li>ERROR</li>
-            <li>FATAL</li>
-            <li>INFO</li>
-            <li>WARN</li>
+            <li style="color: red">ERROR</li>
+            <li style="color: red">FATAL</li>
+            <li style="color: blue">INFO</li>
+            <li style="color: purple">WARN</li>
         </ul>
 
 
@@ -684,23 +685,10 @@ users:
         border-radius: 8px!important;
     }
 
-    .statuscodes {
-        padding: 0;
-        list-style: none!important;
-    }
-
-    .statuscodes li code {
-        padding: 5px;
-        background: #f5f5f5;
-        margin-bottom: 5px;
-        display: inline-block;
-        border-radius: 8px!important;
-    }
-
     h4 {
         margin-top: 5px;
         margin-bottom: 5px;
-      font-size: 18px;
+        font-size: 18px;
         font-weight: lighter;
         padding-left: 10px;
         border-left: 4px solid black!important;
@@ -712,7 +700,6 @@ users:
         font-size: 14px;
         font-weight: lighter;
         padding-left: 10px;
-        font-weight: bold;
         border-left: 4px dotted black!important;
     }
 
