@@ -55,7 +55,7 @@
             <li><a href="#removing-database-users">Automatic Node Read Replicating/Synchronization</a></li>
             <li><a href="#removing-database-users">Automatic Node Backups</a></li>
             <li><a href="#removing-database-users">Automatic Node Backup Cleanup</a></li>
-            <li><a href="https://github.com/cursusdb/cursusdb-rest-api-template">REST API Boilerplate Node.JS</a></li>
+            <li><a target="_blank" href="https://github.com/cursusdb/cursusdb-rest-api-template">REST API Boilerplate Node.JS</a></li>
         </ul>
     </aside>
 {/if}
