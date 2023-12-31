@@ -143,8 +143,7 @@ tar -xzvf curode-${$currentVersionCursus}-amd64.tar.gz
         <p><strong>Curush</strong> - CursusDB Cluster Shell</p>
         <Prism language="bash" code={`
 wget https://downloads.cursusdb.com/curush/${$currentVersionCurush}/linux/amd64/curush-${$currentVersionCurush}-amd64.tar.gz
-tar -xzvf curode-${$currentVersionCurush}-amd64.tar.gz
-
+tar -xzvf curush-${$currentVersionCurush}-amd64.tar.gz
 `}/>
         <p><small>Whats shown above are latest stable versions of all software!</small></p>
         <p>On windows download the .exe's and run them through Powershell or CMD.</p>
@@ -488,7 +487,6 @@ sudo yum remove certbot
 `}/><br/>
         <p>Then install certbox</p>
         <Prism language="bash" code={`
-sudo snap install --classic certbot
 sudo snap install --classic certbot
 `}/><br/>
         <p>Run the following in your command line to ensure that the certbot command can be run.</p>
