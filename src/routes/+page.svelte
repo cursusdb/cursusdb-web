@@ -61,20 +61,23 @@ insert into users({"email!": "jdoe@example.com","firstName": "Doe", "lastName": 
 <section>
     <h1>Easily integratable</h1>
     <Prism language="javascript" code={`
-import cursusdb from 'cursusdb-node'
+import Client from 'cursusdb-node'
 
-// cluster host, cluster port, db user username, db user password, tls enabled
-cursusdb.Connect("0.0.0.0", "7681", "username", "password", false).then(async (cluster) => {
-    const results = await cursusdb.Query("select * from users;")
+(async function() {
+    // Cluster IP or FQDN, Cluster PORT, DB User Username, DB User Password, TLS ?
+    const client = new Client("0.0.0.0", "7681", "username", "password", false)
 
-    console.log(results)
+    client.Connect().then((res) => {
+        console.log(res)
 
-    // Close whenever
-    cursusdb.Close()
-
-}).catch((err) => {
-    console.log(err)
-})
+            client.Query(\`ping;\`).then((res) => {
+                console.log(res)
+                client.Close()
+            })
+    }).catch((err) => {
+        console.error(err)
+    })
+})()
 
 `}/>
     <footer>
