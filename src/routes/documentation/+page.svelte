@@ -50,11 +50,11 @@
             <li><a href="#query-language">Query Language</a></li>
             <li><a href="#adding-database-users">Adding/Deleting Database Users</a></li>
             <li><a href="#removing-database-users">Delete key within collection of documents</a></li>
-            <li><a href="#removing-database-users">Status Codes</a></li>
-            <li><a href="#removing-database-users">Logging</a></li>
-            <li><a href="#removing-database-users">Automatic Node Read Replicating/Synchronization</a></li>
-            <li><a href="#removing-database-users">Automatic Node Backups</a></li>
-            <li><a href="#removing-database-users">Automatic Node Backup Cleanup</a></li>
+            <li><a href="#status-codes">Status Codes</a></li>
+            <li><a href="#logging">Logging</a></li>
+            <li><a href="#automatic-node-rep">Automatic Node Read Replicating/Synchronization</a></li>
+            <li><a href="#automatic-node-backups">Automatic Node Backups</a></li>
+            <li><a href="#automatic-node-backup-cleanup">Automatic Node Backup Cleanup</a></li>
             <li><a target="_blank" href="https://github.com/cursusdb/cursusdb-rest-api-template">REST API Boilerplate Node.JS</a></li>
         </ul>
     </aside>
