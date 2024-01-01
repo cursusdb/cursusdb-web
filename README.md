@@ -26,7 +26,7 @@ node server.js
 Then deploy.  
 
 The CursusDB website is deployed on Cloud Run.
-So we command used is:
+So the command we use is:
 ```
 gcloud run deploy
 ```
