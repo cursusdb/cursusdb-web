@@ -107,6 +107,7 @@
             <li><strong>logging</strong> - start logging to file</li>
             <li><strong>timezone</strong> - default is Local but format allowed is for example America/Toronto</li>
             <li><strong>replication-sync-time</strong> - how often to sync to read replica;  default is 10 minutes
+            <li><strong>replication-sync-timeout</strong> - how long to give a node to node replica connection before timing out.  Default is 10 minutes.  Increase accordingly as your nodes grow in size.</li>
             <li><strong>tls-replication</strong> - connect to read replicas via tls</li>
             <li><strong>automatic-backups</strong> - if enabled node will start backing up to backups folder within executing location
             <li><strong>automatic-backup-time</strong> - how often to backup default is 60 minutes</li>
@@ -665,6 +666,7 @@ users:
             <li><code>4021</code> Document key removed from collection successfully</li>
             <li><code>4022</code> No documents found to alter</li>
             <li><code>4023</code> No unique $id could be found for insert</li>
+            <li><code>4024</code> Batch insertion is not supported</li>
         </ul>
     </article>
 </main>
