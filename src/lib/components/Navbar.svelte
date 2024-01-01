@@ -4,6 +4,7 @@
     async function navigate(path) {
         await goto(path)
     }
+
 </script>
 <nav>
     <img on:click={() => navigate("./")} src="cursusv6.png"/> <h2 on:click={() => navigate("./")} class="brand">CursusDB</h2>
@@ -12,6 +13,7 @@
         <li class="git" on:click={() => navigate("https://github.com/cursusdb")}><img style="filter: invert(0);margin-top: 22px" src="/GitHub_Logo.png"></li>
         <li on:click={() => navigate("/documentation")}>Documentation</li>
         <li on:click={() => navigate("/downloads")}>Downloads</li>
+
     </ul>
 </nav>
 

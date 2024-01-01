@@ -16,7 +16,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"cursusdb-node": "^0.0.3",
 		"express": "^4.18.2"
 	}
 }
