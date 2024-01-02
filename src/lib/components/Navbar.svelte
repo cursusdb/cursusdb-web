@@ -1,12 +1,26 @@
 <script>
     import { goto } from '$app/navigation';
 
+    let navBind
+    let scrollYBind
+
     async function navigate(path) {
         await goto(path)
     }
 
+
+    function isScrolling(e) {
+        console.log(e)
+        if (scrollYBind > 10) {
+            navBind.style.background = "white"
+        } else {
+            navBind.style.background = "none"
+        }
+    }
 </script>
-<nav>
+<svelte:window bind:scrollY={scrollYBind}  on:scroll={(e) => isScrolling(e)}></svelte:window>
+
+<nav bind:this={navBind}>
     <img on:click={() => navigate("./")} src="cursusv6.png"/> <h2 on:click={() => navigate("./")} class="brand">CursusDB</h2>
 
     <ul>
@@ -15,8 +29,9 @@
         <li on:click={() => navigate("/downloads")}>Downloads</li>
 
     </ul>
-</nav>
 
+
+</nav>
 
 <style>
 
@@ -44,7 +59,6 @@
         top: 0px;
         height: 60px;
         width: calc(100% - 40px);
-        background: white;
         color: rgb(33, 30, 49);
         line-height: 60px;
         padding-left: 20px;
@@ -76,7 +90,7 @@
     }
 
     nav ul li {
-        color: rgb(110, 106, 122) !important;
+        color: rgb(0,0,0,0.6);
         padding-left: 10px;
         padding-right: 10px;
         font-size: 14px;

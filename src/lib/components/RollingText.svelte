@@ -19,7 +19,7 @@
 </script>
 
 {#key index}
-    <h1 transition:slide>{texts[index]}</h1>
+    <h1 transition:slide style="font-size: 48px;">{texts[index]}</h1>
 {/key}
 
 <style>

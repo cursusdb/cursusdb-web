@@ -2,9 +2,15 @@
     import RollingText from "$lib/components/RollingText.svelte";
     import Prism from "$lib/components/Prism.svelte";
     import {goto} from "$app/navigation";
+    let scrollYBind;
 
     async function navigate(path) {
         await goto(path)
+    }
+
+    function isScrolling(e) {
+        console.log(scrollYBind)
+
     }
 </script>
 
@@ -17,10 +23,18 @@
     <meta name="og:site_name" content="CursusDB"/>
     <meta name="og:description" content="CursusDB is an open source scalable distributed in-memory document oriented database with SQL like queries.  Download CursusDB for free today!"/>
 </svelte:head>
+<svelte:window bind:scrollY={scrollYBind} on:scroll={(e) => isScrolling(e)}></svelte:window>
 
+
+<div class="abstract">
+    <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+        <path d={`M0.00,${scrollYBind * 10}.98 C216.98,80.06 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z`}
+              style="stroke: none; fill: #ecb9ff;">
+        </path>
+    </svg>
+</div>
 <br/><br/><figure>
     <h2>NoSQL At Scale </h2>
-    <hr/>
     <h1>CursusDB is </h1><RollingText time={2250} texts={['Document-oriented', 'Distributed', 'SQL like', 'Fast', 'Open Source', 'Secure by default', 'JSON friendly']}/>
 </figure>
 <br/>
@@ -105,13 +119,22 @@ import Client from 'cursusdb-node'
     figure {
         max-width: 980px;
         padding: 20px;
+        margin-top: 40px!important;
         margin: 0 auto;
         width: calc(100% - 40px);
         text-shadow: 1px 1px rgba(255,255,255,0.4);
 
     }
 
-
+    .abstract {
+        position: fixed!important;
+        z-index: -100;
+        top: -20px!important;
+        padding: 0;
+        margin-left: -20px;
+        width: 100%;
+        transform: rotate(180deg) scaleX(-1);
+    }
 
     .end {
         padding: 10px;
@@ -152,7 +175,7 @@ import Client from 'cursusdb-node'
     }
 
     figure h1 {
-
+        font-size: 48px!important;
         margin-right: 10px;
         float: left;
     }
@@ -163,7 +186,7 @@ import Client from 'cursusdb-node'
         margin: 0 auto;
         width: 100%;
         max-width: 980px;
-        background: #CDCDCD;
+        background: #ffdc9d;
         text-shadow: 1px 1px rgba(255,255,255,0.38);
         border-radius: 5px;
     }
@@ -183,7 +206,7 @@ import Client from 'cursusdb-node'
         min-height: 40px;
         line-height: 30px;
         padding: 10px;
-        background: #fcfcfc;
+        background: #ffffff;
         overflow: hidden
     }
 
@@ -204,14 +227,16 @@ import Client from 'cursusdb-node'
     }
 
     section footer {
-        border: 1px solid #CDCDCD!important;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
+        box-shadow: rgba(50, 50, 93, 0.10) 0px 30px 80px -102px, rgba(0, 0, 0, 0.2) 0px 18px 26px -24px;
     }
 
     @media only screen and (max-width: 500px) {
         figure h2 {
             font-size: 14px;
+        }
+
+        figure {
+            margin-top: 20px!important;
         }
 
         figure h1 {
