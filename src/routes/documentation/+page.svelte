@@ -774,8 +774,8 @@ tls-observers: false
         <p>The default port for an Observer is 7680 but can be configured.</p>
 
         <h3>CursusDB Observer Packages, Modules, Libraries</h3>
-        <ul>
-            <li>Node.JS - https://www.npmjs.com/package/cursusdb-observer-node</li>
+        <ul class="reg-list">
+            <li><span>Node.JS</span> <span class="right"><a href="https://www.npmjs.com/package/cursusdb-observer-node">https://www.npmjs.com/package/cursusdb-observer-node</a></span></li>
             <li>GO (COMING SOON)</li>
             <li>Python (COMING SOON)</li>
             <li>Java (COMING SOON)</li>
@@ -803,6 +803,24 @@ tls-observers: false
         padding: 0;
         list-style: none;
     }
+
+    .reg-list {
+        padding: 0;
+        list-style: none;
+    }
+
+    .reg-list li {
+        overflow: hidden;
+        border-bottom: 1px solid #e1e1e1;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .reg-list li span {
+        display: inline-block;
+    }
+
+
 
     code {
         padding: 3px;
