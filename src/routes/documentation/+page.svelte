@@ -717,6 +717,7 @@ users:
             <li><code>215</code> Attempting automatic recovery with latest backup</li>
             <li><code>216</code> Starting to sync to with master node</li>
             <li><code>217</code> Synced up with master node (with addr)</li>
+            <li><code>218</code> Observer HOST:PORT was unavailable during relay</li>
             <li><code>500</code> Unknown error (with description)</li>
             <li><code>501</code> Limit skip must be an integer (with description)</li>
             <li><code>502</code> Could not convert limit value to integer (with description)</li>
