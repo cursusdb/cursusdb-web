@@ -115,6 +115,7 @@
             <li><strong><span class="yaml-key">automatic-backup-cleanup-hours</span></strong>how often to clean backups directory of old backups.  will remove everything older than specified hours</li>
             <li><strong><span class="yaml-key">observers</span></strong>if configured your node will try to relay successful insert, update, and delete responses to your configured Observers</li>
             <li><strong><span class="yaml-key">tls-observers</span></strong>if configured your node will connect to your Observers via TLS instead of TCP</li>
+            <li><strong><span class="yaml-key"> backups-directory</span></strong>where your node backups are stored if <code>automatic-backups</code> is enabled</li>
 
         </ul><br/>
 
