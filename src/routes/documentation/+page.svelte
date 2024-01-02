@@ -119,7 +119,6 @@
         <ol>
             <li><p>There are no different configuration files for a replica. A node is a node and can be configured to be a replica or a main.</p></li>
             <li><p>If you set <code>tls-node</code> on the cluster to true the cluster will expect all nodes to be listening on tls.</p></li>
-            <li><p>If you set <code>tls-node</code> on the cluster to true the cluster will expect all nodes to be listening on tls.</p></li>
             <li><p>If you set <code>tls-replication</code> on a cluster node to true the cluster node will expect all node replicas to be listening on tls.</p></li>
             <li><p>When inserting a document to a non-existent collection, the collection will be created on the node.</p></li>
             <li><p>A collection is like a labeled cabinet where your documents are stored.</p></li>
