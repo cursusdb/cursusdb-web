@@ -54,6 +54,7 @@
             <li><a href="#automatic-node-rep">Automatic Node Read Replicating/Synchronization</a></li>
             <li><a href="#automatic-node-backups">Automatic Node Backups</a></li>
             <li><a href="#automatic-node-backup-cleanup">Automatic Node Backup Cleanup</a></li>
+            <li><a href="#realtime-observers">Realtime Observers</a></li>
             <li><a target="_blank" href="https://github.com/cursusdb/cursusdb-rest-api-template">REST API Boilerplate Node.JS</a></li>
         </ul>
     </aside>
@@ -112,6 +113,9 @@
             <li><strong><span class="yaml-key">automatic-backup-time</span></strong>how often to backup default is 60 minutes</li>
             <li><strong><span class="yaml-key">automatic-backup-cleanup</span></strong>automatic backup clean up ever 12 hours by default if enabled</li>
             <li><strong><span class="yaml-key">automatic-backup-cleanup-hours</span></strong>how often to clean backups directory of old backups.  will remove everything older than specified hours</li>
+            <li><strong><span class="yaml-key">observers</span></strong>if configured your node will try to relay successful insert, update, and delete responses to your configured Observers</li>
+            <li><strong><span class="yaml-key">tls-observers</span></strong>if configured your node will connect to your Observers via TLS instead of TCP</li>
+
         </ul><br/>
 
 
@@ -122,6 +126,8 @@
             <li><p>If you set <code>tls-replication</code> on a cluster node to true the cluster node will expect all node replicas to be listening on tls.</p></li>
             <li><p>When inserting a document to a non-existent collection, the collection will be created on the node.</p></li>
             <li><p>A collection is like a labeled cabinet where your documents are stored.</p></li>
+            <li><p>A cluster will reconnect <strong>automatically</strong> to any unavailable node.</p></li>
+            <li><p>A node will reconnect <strong>automatically</strong> to any unavailable observer (if configured).</p></li>
         </ol>
 
 
@@ -748,6 +754,31 @@ users:
             <li><code>4022</code> No documents found to alter</li>
             <li><code>4023</code> No unique $id could be found for insert</li>
             <li><code>4024</code> Batch insertion is not supported</li>
+        </ul><br/>
+
+        <h2 id="realtime-observers">Realtime Observers</h2>
+        <p>With CursusDB you can setup a <strong>Node Observer</strong> which is a TCP listener that authenticates with your nodes with your shared key.  Your nodes if configured with the correct observers will relay all successful (insert,update,delete) responses as messages to your Observers and the Observer emit them as events.  These events can be relayed to websockets/webtransports and so forth.</p>
+        <br/>
+        <p>To use observer(s) with your nodes make sure you configure them!</p>
+
+        <h5>.curodeconfig</h5>
+        <Prism language="bash" code={`
+...
+observers:
+    - host: 0.0.0.0
+      port: 7680
+tls-observers: false
+
+`}/><br/>
+        <p>The default port for an Observer is 7680 but can be configured.</p>
+
+        <h3>CursusDB Observer Packages, Modules, Libraries</h3>
+        <ul>
+            <li>Node.JS (COMING SOON)</li>
+            <li>GO (COMING SOON)</li>
+            <li>Python (COMING SOON)</li>
+            <li>Java (COMING SOON)</li>
+            <li>C# (COMING SOON)</li>
         </ul>
     </article>
 </main>
