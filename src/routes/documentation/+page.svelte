@@ -775,7 +775,7 @@ tls-observers: false
 
         <h3>CursusDB Observer Packages, Modules, Libraries</h3>
         <ul>
-            <li>Node.JS (COMING SOON)</li>
+            <li>Node.JS - https://www.npmjs.com/package/cursusdb-observer-node</li>
             <li>GO (COMING SOON)</li>
             <li>Python (COMING SOON)</li>
             <li>Java (COMING SOON)</li>
