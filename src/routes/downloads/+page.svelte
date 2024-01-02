@@ -29,7 +29,7 @@
         <div>
             <p>Files are hosted on our regional CDN for high availability and speed.</p><br/>
             <h2>Cursus - CursusDB Cluster</h2><br/>
-            <p>{$currentVersionCursus} Stable</p><br/><br/>
+            <p>{$currentVersionCursus} LATEST</p><br/><br/>
             <h3>Windows</h3><br/>
             <ul>
                 <li><a href={`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/windows/386/cursus-${$currentVersionCursus}-x86.zip`}>{`https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/windows/386/cursus-${$currentVersionCursus}-x86.zip`}</a></li>
@@ -64,7 +64,7 @@
        <div>
            <h2>Curode - CursusDB Cluster Node</h2><br/>
 <!--           only stable releases-->
-           <p>{$currentVersionCursus} Stable</p><br/><br/>
+           <p>{$currentVersionCursus} LATEST</p><br/><br/>
            <h3>Windows</h3><br/>
            <ul>
                <li><a href={`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/windows/386/curode-${$currentVersionCurode}-x86.zip`}>{`https://downloads.cursusdb.com/curode/${$currentVersionCurode}/windows/386/curode-${$currentVersionCurode}-x86.zip`}</a></li>
@@ -98,7 +98,7 @@
        </div>
        <div>
            <h2>Curush - CursusDB Cluster Shell</h2><br/>
-           <p>{$currentVersionCurush} Stable</p><br/><br/>
+           <p>{$currentVersionCurush} LATEST</p><br/><br/>
            <h3>Windows</h3><br/>
            <ul>
                <li><a href={`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/windows/386/curush-${$currentVersionCurush}-x86.zip`}>{`https://downloads.cursusdb.com/curush/${$currentVersionCurush}/windows/386/curush-${$currentVersionCurush}-x86.zip`}</a></li>
