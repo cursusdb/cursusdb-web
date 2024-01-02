@@ -49,6 +49,7 @@
             <li><a href="#tls-with-certbot">Setup TLS With Certbot</a></li>
             <li><a href="#query-language">Query Language</a></li>
             <li><a href="#status-codes">Status Codes</a></li>
+            <li><a href="#reserved-doc-keys">Reserved Document Keys</a></li>
             <li><a href="#logging">Logging</a></li>
             <li><a href="#automatic-node-rep">Automatic Node Read Replicating/Synchronization</a></li>
             <li><a href="#automatic-node-backups">Automatic Node Backups</a></li>
@@ -64,7 +65,7 @@
             <button class="aside-btn" on:click={() => showAside ? showAside = false : showAside = true}><img src="aside-toggle.png" /></button>
         {/if}
         <h1>CursusDB Documentation</h1><br/>
-        <h2 id="getting-started">Getting Started</h2><br/>
+        <h2 id="getting-started">Getting Started</h2>
         <p>CursusDB was designed to be setup securely within a couple minutes.  Let's go through a couple thing's before you indulge.</p>
 
         <p>There are no databases like MySQL let's say where you can have multiples. A cluster <strong>is your database</strong> that has many collections and that spreads data across many nodes.</p>
@@ -76,7 +77,7 @@
         <h3>Configuration files</h3><br/>
 
         <h4>Cluster config .cursusconfig</h4><br/>
-        <ul>
+        <ul class="yaml-configs">
             <li><strong><span class="yaml-key">nodes</span></strong>database cluster nodes. i.e an ip/fqdn + port combination (host: cluster1.example.com port: 7682)</li>
             <li><strong><span class="yaml-key">tls-node</span></strong>whether the cluster will connect to nodes via tls</li>
             <li><strong><span class="yaml-key">tls-cert</span></strong>path to your tls cert for cluster</li>
@@ -94,7 +95,7 @@
         </ul><br/>
 
         <h4>Cluster node config .curodeconfig</h4><br/>
-        <ul>
+        <ul class="yaml-configs">
             <li><strong><span class="yaml-key">replicas</span></strong>node read replicas</li>
             <li><strong><span class="yaml-key">tls-cert</span></strong>path to your tls cert for cluster</li>
             <li><strong><span class="yaml-key">tls-key</span></strong>path to your tls key for cluster</li>
@@ -117,9 +118,9 @@
         <h6>Couple things</h6>
         <ol>
             <li><p>There are no different configuration files for a replica. A node is a node and can be configured to be a replica or a main.</p></li>
-            <li><p>If you set tls-node on the cluster to true the cluster will expect all nodes to be listening on tls.</p></li>
-            <li><p>If you set tls-node on the cluster to true the cluster will expect all nodes to be listening on tls.</p></li>
-            <li><p>If you set tls-replication on a cluster node to true the cluster node will expect all node replicas to be listening on tls.</p></li>
+            <li><p>If you set <code>tls-node</code> on the cluster to true the cluster will expect all nodes to be listening on tls.</p></li>
+            <li><p>If you set <code>tls-node</code> on the cluster to true the cluster will expect all nodes to be listening on tls.</p></li>
+            <li><p>If you set <code>tls-replication</code> on a cluster node to true the cluster node will expect all node replicas to be listening on tls.</p></li>
             <li><p>When inserting a document to a non-existent collection, the collection will be created on the node.</p></li>
             <li><p>A collection is like a labeled cabinet where your documents are stored.</p></li>
         </ol>
@@ -127,9 +128,9 @@
 
         <p><span style="font-size: 22px">N</span>ow that you understand a bit of the configuration let's download the binaries and setup a database.</p>
 
-        <strong><p>Remember default cluster port is 7681 and default cluster node port is 7682 but can be configured on execution dynamically overriding what's configured with the <code>--port</code> flag.  Better know this ahead of time to set your firewall if need be.  Whitelist ingress connections to TCP port 7681 and 7682 if setting up cluster and nodes remotely. </p></strong>
+        <strong><p>Remember default cluster port is <code>7681</code> and default cluster node port is <code>7682</code> but can be configured on execution dynamically overriding what's configured with the <code>--port</code> flag.  Better know this ahead of time to set your firewall if need be.  Whitelist ingress connections to TCP port 7681 and 7682 if setting up cluster and nodes remotely. </p></strong>
 
-        <h3 id="downloading">Downloading</h3><br/>
+        <h3 id="downloading">Downloading</h3>
         <p>You can download the CursusDB cluster and node stable binaries from <a href="/downloads">Here</a></p>
 
         <h4>Debian based system amd64 example</h4><br/>
@@ -200,7 +201,9 @@ users:
 
         <p>If you tried to run the cluster when any node is unavailable you will get the below result:</p>
         <img style="border-radius: 10px" src="docs5.png" /><br/>
-        <p>Once downloaded simply run</p>
+
+        <h3 id="setting-up-node">Running Node</h3>
+        <p>To run your CursusDB node you simply run the command below</p>
         <Prism language="bash" code={`
 ./curode
 `}/>
@@ -210,6 +213,9 @@ users:
 `}/>
 
         <img style="border-radius: 10px" src="docs6.png" /><br/>
+
+        <p>A node can be configured in many ways so it's good to understand the config as stated previously in the getting started portion.</p>
+        <p>This example is the most basic setup!</p>
 
         <p>Once your node is running, now you can start your cluster.</p>
 
@@ -256,6 +262,30 @@ users:
             <li>Nested objects are not part of CursusDB's search algorithms.</li>
             <li>Keep it <strong>lowercase</strong> this is not SQL.</li>
         </ul><br/>
+
+        <h5>Operators</h5>
+        <ul class="clean-list">
+            <li><code>&gt;</code></li>
+            <li><code>&gt;=</code></li>
+            <li><code>&lt;</code></li>
+            <li><code>&gt;=</code></li>
+            <li><code>==</code></li>
+            <li><code>=</code></li>
+            <li><code>!=</code></li>
+        </ul>
+
+        <h5>Conditional symbols</h5>
+        <ul class="clean-list">
+            <li><code>&amp;&amp;</code></li>
+            <li><code>||</code></li>
+        </ul>
+
+        <h5>Actions</h5>
+        <ul class="clean-list">
+            <li><code>select</code></li>
+            <li><code>update</code></li>
+            <li><code>delete</code></li>
+        </ul>
 
 
         <h4>Ping the cluster</h4>
@@ -355,6 +385,14 @@ select count from users where $id == "099ade86-93a8-4703-abdd-d1ccc1078b1d";
 `}/><br/>
 
         <p>Response joined if each node has 1 match and there is 5 nodes</p>
+        <Prism language="sql" code={`
+{"count":1}
+`}/><br/>
+
+        <p>Response joined if each node has 1 match across all nodes and there are 5 nodes</p>
+        <Prism language="sql" code={`
+select count from users where firstName = "Alex";
+`}/><br/>
         <Prism language="sql" code={`
 {"count":5}
 `}/><br/>
@@ -456,10 +494,10 @@ delete * from losers;
 ..."1 Document(s) deleted successfully.","statusCode":2000}}]
 curush>collections;
 [{"127.0.0.1:7682": {"collections":["winners","users"]}}]
-`}/><br/>
+`}/><br/><br/>
 
 
-        <h2 id="automatic-node-rep">Automatic Node Read Replicating/Synchronization</h2><br/>
+        <h2 id="automatic-node-rep">Automatic Node Read Replicating/Synchronization</h2>
         <p>When you configure a node you can configure a replica.  This configuration requires you to modify both cluster and node configuration files.</p>
         <h5>.cursusconfig</h5>
         <Prism language="bash" code={`
@@ -482,11 +520,11 @@ tls-key: ""
 `}/>
 
         <p>With those configurations set your node will start to sync data every default time of 10 minutes(<code>replication-sync-time</code>).  The cluster will as well on read failure of main node will retry to up to any amount of set node read replicas.</p>
-
-        <h2 id="automatic-node-backups">Automatic Node Backups</h2><br/>
-        <p>A node can be configured to generate backups.  A backup by default is generated automatically every 60 minutes(<code>automatic-backup-time</code>) into a backup directory which is created on first run.</p>
-        <br/><h2 id="automatic-node-backup-cleanup">Automatic Node Backup Cleanup</h2><br/>
-        <p>A node can be configured to remove all old backups.  The default is every hour to delete all backups older than an hour.  This can be configured with <code>automatic-backup-cleanup-hours</code></p>
+        <br/>
+        <h2 id="automatic-node-backups">Automatic Node Backups</h2>
+        <p>A node can be configured to generate backups with config <code>automatic-backups</code> set to true. A backup by default is generated automatically every 60 minutes(<code>automatic-backup-time</code>) into a backup directory which is created on first run.</p>
+        <br/><h2 id="automatic-node-backup-cleanup">Automatic Node Backup Cleanup</h2>
+        <p>A node can be configured to remove all old backups with config <code>automatic-backup-cleanup</code> set to true.  The default is every hour to delete all backups older than an hour.  This can be configured with <code>automatic-backup-cleanup-hours</code> in minutes.</p>
         <br/><h2 id="logging">Logging</h2>
 
         <p>Logs for the CursusDB cluster and node are found where you launch your binaries. Cluster: cursus.log Node: curode.log if logging is enabled.</p>
@@ -511,11 +549,11 @@ logging: true
             <li style="color: red">FATAL</li>
             <li style="color: blue">INFO</li>
             <li style="color: purple">WARN</li>
-        </ul>
+        </ul><br/>
 
 
-        <br/><h2 id="tls-with-certbot">TLS with Certbot</h2>
-        <p><strong>Ubuntu Example</strong></p>
+        <br/><h2 id="tls-with-certbot">TLS with Certbot (Debian based system example)</h2>
+
         <p>If you have any Certbot packages installed using an OS package manager like apt, ect, you should remove them before installing the Certbot snap.  This ensures that when you run the command certbot the snap is used rather than the installation from your OS package manager.</p>
 
         <Prism language="bash" code={`
@@ -582,7 +620,8 @@ users:
  ./curush --host=X --port=X --tls=true
 `}/><br/>
 
-        <h3 id="reserved-words">Reserved Words</h3>
+        <h3 id="reserved-doc-keys">Reserved Document Keys</h3>
+        <p>These are a list of keys that cannot be used in your document structure i.e <code>{`{"not like": "bad"}`}</code>.</p>
         <ul class="rw">
             <li><code>count</code></li>
             <li><code>$id</code></li>
@@ -647,40 +686,40 @@ users:
             <li><code>5</code> Failed node sync auth</li>
         </ul>
         <ul class="statuscodes">
-            <li><code>100</code> - Node is at peak allocation</li>
-            <li><code>101</code> - Invalid permission</li>
-            <li><code>102</code> - User does not exist</li>
-            <li><code>103</code> - Database user already exists</li>
-            <li><code>104</code> - No node was available for insert</li>
-            <li><code>105</code> - Node unavailable</li>
-            <li><code>106</code> - Node ready for sync</li>
-            <li><code>107</code> - Node replica synced successfully</li>
-            <li><code>108</code> - Could not decode serialized sync data into hashmap</li>
-            <li><code>200</code> - New database user created successfully</li>
-            <li><code>201</code> - Database user removed successfully</li>
-            <li><code>202</code> - Could not decode user username</li>
-            <li><code>203</code> - Could not marshal users list array</li>
-            <li><code>204</code> - There must always be one database user available</li>
-            <li><code>205</code> - Could not marshal user for creation</li>
-            <li><code>206</code> - Could not get node working directory for automatic backup (with description)</li>
-            <li><code>207</code> - Could not create automatic backups directory (with description)</li>
-            <li><code>208</code> - Could not read node backups directory  (with description)</li>
-            <li><code>209</code> - Could not remove .cdat backup FILE NAME (with description)</li>
-            <li><code>210</code> - Could not get node working directory for automatic recovery (with description)</li>
-            <li><code>211</code> - Node data backup was successful</li>
-            <li><code>213</code> - Delete key missing in</li>
-            <li><code>214</code> - Node was unrecoverable after all attempts</li>
-            <li><code>215</code> - Attempting automatic recovery with latest backup</li>
-            <li><code>216</code> - Starting to sync to with master node</li>
-            <li><code>217</code> - Synced up with master node (with addr)</li>
-            <li><code>500</code> - Unknown error (with description)</li>
-            <li><code>501</code> - Limit skip must be an integer (with description)</li>
-            <li><code>502</code> - Could not convert limit value to integer (with description)</li>
-            <li><code>503</code> - Invalid limiting slice value (with description)</li>
-            <li><code>504</code> - Invalid limiting value (with description)</li>
-            <li><code>505</code> - Key cannot use reserved word</li>
-            <li><code>506</code> - Where is missing values</li>
-            <li><code>505</code> - Key cannot use reserved symbol</li>
+            <li><code>100</code> Node is at peak allocation</li>
+            <li><code>101</code> Invalid permission</li>
+            <li><code>102</code> User does not exist</li>
+            <li><code>103</code> Database user already exists</li>
+            <li><code>104</code> No node was available for insert</li>
+            <li><code>105</code> Node unavailable</li>
+            <li><code>106</code> Node ready for sync</li>
+            <li><code>107</code> Node replica synced successfully</li>
+            <li><code>108</code> Could not decode serialized sync data into hashmap</li>
+            <li><code>200</code> New database user created successfully</li>
+            <li><code>201</code> Database user removed successfully</li>
+            <li><code>202</code> Could not decode user username</li>
+            <li><code>203</code> Could not marshal users list array</li>
+            <li><code>204</code> There must always be one database user available</li>
+            <li><code>205</code> Could not marshal user for creation</li>
+            <li><code>206</code> Could not get node working directory for automatic backup (with description)</li>
+            <li><code>207</code> Could not create automatic backups directory (with description)</li>
+            <li><code>208</code> Could not read node backups directory  (with description)</li>
+            <li><code>209</code> Could not remove .cdat backup FILE NAME (with description)</li>
+            <li><code>210</code> Could not get node working directory for automatic recovery (with description)</li>
+            <li><code>211</code> Node data backup was successful</li>
+            <li><code>213</code> Delete key missing in</li>
+            <li><code>214</code> Node was unrecoverable after all attempts</li>
+            <li><code>215</code> Attempting automatic recovery with latest backup</li>
+            <li><code>216</code> Starting to sync to with master node</li>
+            <li><code>217</code> Synced up with master node (with addr)</li>
+            <li><code>500</code> Unknown error (with description)</li>
+            <li><code>501</code> Limit skip must be an integer (with description)</li>
+            <li><code>502</code> Could not convert limit value to integer (with description)</li>
+            <li><code>503</code> Invalid limiting slice value (with description)</li>
+            <li><code>504</code> Invalid limiting value (with description)</li>
+            <li><code>505</code> Key cannot use reserved word</li>
+            <li><code>506</code> Where is missing values</li>
+            <li><code>505</code> Key cannot use reserved symbol</li>
         </ul>
 
         <ul class="statuscodes">
@@ -729,6 +768,19 @@ users:
         border-radius: 8px!important;
     }
 
+    .statuscodes {
+        padding: 0;
+        list-style: none;
+    }
+
+    code {
+        padding: 3px;
+        background: #ffd980;
+        display: inline-block;
+        color: rgba(0,0,0,0.74);
+        border-radius: 8px!important;
+    }
+
     .statuscodes  code {
         padding: 5px;
         background: #f1f1f1;
@@ -762,6 +814,7 @@ users:
         font-size: 14px;
         font-weight: lighter;
         padding-left: 10px;
+        font-weight: bolder;
         border-left: 4px dotted black!important;
     }
 
@@ -820,6 +873,16 @@ users:
         outline: none;
     }
 
+    .yaml-configs {
+        padding: 0;
+        list-style: none;
+    }
+
+    .yaml-configs li {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
     img {
         width: 100%;
         max-width: 600px;
@@ -829,6 +892,23 @@ users:
         font-size: 16px;
         font-weight: lighter;
         color: #6e6e80;
+    }
+
+    .clean-list {
+        padding: 0;
+        list-style: none;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .clean-list code {
+        background: none;
+    }
+
+    .clean-list li {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-top: 1px solid #d7d7d7;
     }
 
     aside ul li {

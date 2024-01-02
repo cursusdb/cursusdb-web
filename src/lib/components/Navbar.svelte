@@ -9,6 +9,7 @@
     }
 
 
+
     function isScrolling(e) {
         console.log(e)
         if (scrollYBind > 10) {
