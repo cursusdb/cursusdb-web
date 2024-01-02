@@ -48,8 +48,6 @@
             <li><a href="#connecting-to-cluster">Connecting To Cluster</a></li>
             <li><a href="#tls-with-certbot">Setup TLS With Certbot</a></li>
             <li><a href="#query-language">Query Language</a></li>
-            <li><a href="#adding-database-users">Adding/Deleting Database Users</a></li>
-            <li><a href="#removing-database-users">Delete key within collection of documents</a></li>
             <li><a href="#status-codes">Status Codes</a></li>
             <li><a href="#logging">Logging</a></li>
             <li><a href="#automatic-node-rep">Automatic Node Read Replicating/Synchronization</a></li>
@@ -79,70 +77,78 @@
 
         <h4>Cluster config .cursusconfig</h4><br/>
         <ul>
-            <li><strong>nodes</strong> - database cluster nodes. i.e an ip/fqdn + port combination (host: cluster1.example.com port: 7682)</li>
-            <li><strong>tls-node</strong> - whether the cluster will connect to nodes via tls</li>
-            <li><strong>tls-cert</strong> - path to your tls cert for cluster</li>
-            <li><strong>tls-key</strong> - path to your tls key for cluster</li>
-            <li><strong>tls</strong> - enable or disable tls</li>
-            <li> <strong>port</strong> - cluster port</li>
-            <li><strong>key</strong> - encoded shared key. (Key is hashed)</li>
-            <li><strong>users</strong> - array of database users serialized, and encoded.</li>
-            <li> <strong>node-reader-size</strong> - the max size of a response from a node</li>
-            <li><strong>join-responses</strong> - join all node responses and limit based on provided n</li>
-            <li><strong>logging</strong> - start logging to file</li>
-            <li><strong>timezone</strong> - default is Local but format allowed is for example America/Toronto</li>
-            <li><strong>log-query</strong> - logs client ip and their query to logs and std out if enabled</li>
-            <li><strong>node-read-deadline</strong> - amount of time in seconds to wait for a node to respond</li>
+            <li><strong><span class="yaml-key">nodes</span></strong>database cluster nodes. i.e an ip/fqdn + port combination (host: cluster1.example.com port: 7682)</li>
+            <li><strong><span class="yaml-key">tls-node</span></strong>whether the cluster will connect to nodes via tls</li>
+            <li><strong><span class="yaml-key">tls-cert</span></strong>path to your tls cert for cluster</li>
+            <li><strong><span class="yaml-key">tls-key</span></strong>path to your tls key for cluster</li>
+            <li><strong><span class="yaml-key">tls</span></strong>enable or disable tls</li>
+            <li> <strong><span class="yaml-key">port</span></strong>cluster port</li>
+            <li><strong><span class="yaml-key">key</span></strong>encoded shared key. (Key is hashed)</li>
+            <li><strong><span class="yaml-key">users</span></strong>array of database users serialized, and encoded.</li>
+            <li> <strong><span class="yaml-key">node-reader-size</span></strong>the max size of a response from a node</li>
+            <li><strong><span class="yaml-key">join-responses</span></strong>join all node responses and limit based on provided n</li>
+            <li><strong><span class="yaml-key">logging</span></strong>start logging to file</li>
+            <li><strong><span class="yaml-key">timezone</span></strong>default is Local but format allowed is for example America/Toronto</li>
+            <li><strong><span class="yaml-key">log-query</span></strong>logs client ip and their query to logs and std out if enabled</li>
+            <li><strong><span class="yaml-key">node-read-deadline</span></strong>amount of time in seconds to wait for a node to respond</li>
         </ul><br/>
 
         <h4>Cluster node config .curodeconfig</h4><br/>
         <ul>
-            <li><strong>replicas</strong> - node read replicas</li>
-            <li><strong>tls-cert</strong> - path to your tls cert for cluster</li>
-            <li><strong>tls-key</strong> - path to your tls key for cluster</li>
-            <li><strong>tls</strong> - enable or disable tls</li>
-            <li> <strong>port</strong> - cluster port</li>
-            <li><strong>key</strong> - encoded shared key (Key is hashed)</li>
-            <li><strong>max-memory</strong> - max allowed memory for node,  default is 10gb</li>
-            <li><strong>logging</strong> - start logging to file</li>
-            <li><strong>timezone</strong> - default is Local but format allowed is for example America/Toronto</li>
-            <li><strong>replication-sync-time</strong> - how often to sync to read replica;  default is 10 minutes
-            <li><strong>replication-sync-timeout</strong> - how long to give a node to node replica connection before timing out.  Default is 10 minutes.  Increase accordingly as your nodes grow in size.</li>
-            <li><strong>tls-replication</strong> - connect to read replicas via tls</li>
-            <li><strong>automatic-backups</strong> - if enabled node will start backing up to backups folder within executing location
-            <li><strong>automatic-backup-time</strong> - how often to backup default is 60 minutes</li>
-            <li><strong>automatic-backup-cleanup</strong> - automatic backup clean up ever 12 hours by default if enabled</li>
-            <li><strong>automatic-backup-cleanup-hours</strong> - how often to clean backups directory of old backups.  will remove everything older than specified hours</li>
+            <li><strong><span class="yaml-key">replicas</span></strong>node read replicas</li>
+            <li><strong><span class="yaml-key">tls-cert</span></strong>path to your tls cert for cluster</li>
+            <li><strong><span class="yaml-key">tls-key</span></strong>path to your tls key for cluster</li>
+            <li><strong><span class="yaml-key">tls</span></strong>enable or disable tls</li>
+            <li><strong><span class="yaml-key">port</span></strong>cluster port</li>
+            <li><strong><span class="yaml-key">key</span></strong>encoded shared key (Key is hashed)</li>
+            <li><strong><span class="yaml-key">max-memory</span></strong>max allowed memory for node,  default is 10gb</li>
+            <li><strong><span class="yaml-key">logging</span></strong>start logging to file</li>
+            <li><strong><span class="yaml-key">timezone</span></strong>default is Local but format allowed is for example America/Toronto</li>
+            <li><strong><span class="yaml-key">replication-sync-time</span></strong>how often to sync to read replica;  default is 10 minutes
+            <li><strong><span class="yaml-key">replication-sync-timeout</span></strong>how long to give a node to node replica connection before timing out.  Default is 10 minutes.  Increase accordingly as your nodes grow in size.</li>
+            <li><strong><span class="yaml-key">tls-replication</span></strong>connect to read replicas via tls</li>
+            <li><strong><span class="yaml-key">automatic-backups</span></strong>if enabled node will start backing up to backups folder within executing location
+            <li><strong><span class="yaml-key">automatic-backup-time</span></strong>how often to backup default is 60 minutes</li>
+            <li><strong><span class="yaml-key">automatic-backup-cleanup</span></strong>automatic backup clean up ever 12 hours by default if enabled</li>
+            <li><strong><span class="yaml-key">automatic-backup-cleanup-hours</span></strong>how often to clean backups directory of old backups.  will remove everything older than specified hours</li>
         </ul><br/>
 
-        <p>If you set tls-node on the cluster to true the cluster will expect all nodes to be listening on tls.</p>
-        <p>If you set tls-replication on a cluster node to true the cluster node will expect all node replicas to be listening on tls.</p>
 
-        <p>Now that you understand a bit of the configuration let's download the binaries and setup a database.</p>
+        <h6>Couple things</h6>
+        <ol>
+            <li><p>There are no different configuration files for a replica. A node is a node and can be configured to be a replica or a main.</p></li>
+            <li><p>If you set tls-node on the cluster to true the cluster will expect all nodes to be listening on tls.</p></li>
+            <li><p>If you set tls-node on the cluster to true the cluster will expect all nodes to be listening on tls.</p></li>
+            <li><p>If you set tls-replication on a cluster node to true the cluster node will expect all node replicas to be listening on tls.</p></li>
+            <li><p>When inserting a document to a non-existent collection, the collection will be created on the node.</p></li>
+            <li><p>A collection is like a labeled cabinet where your documents are stored.</p></li>
+        </ol>
 
-        <p>Remember default cluster port is 7681 and default cluster node port is 7682.<p></p>
 
-        <p>Also, when inserting a document to a non-existent collection, the collection will be created on the node.</p>
-        <p>A collection is like a labeled cabinet where your documents are stored.</p>
+        <p><span style="font-size: 22px">N</span>ow that you understand a bit of the configuration let's download the binaries and setup a database.</p>
 
+        <strong><p>Remember default cluster port is 7681 and default cluster node port is 7682 but can be configured on execution dynamically overriding what's configured with the <code>--port</code> flag.  Better know this ahead of time to set your firewall if need be.  Whitelist ingress connections to TCP port 7681 and 7682 if setting up cluster and nodes remotely. </p></strong>
 
         <h3 id="downloading">Downloading</h3><br/>
         <p>You can download the CursusDB cluster and node stable binaries from <a href="/downloads">Here</a></p>
 
-        <h4>Ubuntu amd64 example</h4>
-        <p><strong>Cursus</strong> - CursusDB Cluster</p>
+        <h4>Debian based system amd64 example</h4><br/>
+        <h6><strong>Cursus</strong> - CursusDB Cluster</h6>
         <Prism language="bash" code={`
 wget https://downloads.cursusdb.com/cursus/${$currentVersionCursus}/linux/amd64/cursus-${$currentVersionCursus}-amd64.tar.gz
 tar -xzvf cursus-${$currentVersionCursus}-amd64.tar.gz
 `}/>
+        <br/>
 
-        <p><strong>Curode</strong> - CursusDB Cluster Node</p>
+        <h6><strong>Curode</strong> - CursusDB Cluster Node</h6>
         <Prism language="bash" code={`
 wget https://downloads.cursusdb.com/curode/${$currentVersionCurode}/linux/amd64/curode-${$currentVersionCurode}-amd64.tar.gz
 tar -xzvf curode-${$currentVersionCursus}-amd64.tar.gz
 `}/>
 
-        <p><strong>Curush</strong> - CursusDB Cluster Shell</p>
+        <br/>
+
+        <h6><strong>Curush</strong> - CursusDB Cluster Shell</h6>
         <Prism language="bash" code={`
 wget https://downloads.cursusdb.com/curush/${$currentVersionCurush}/linux/amd64/curush-${$currentVersionCurush}-amd64.tar.gz
 tar -xzvf curush-${$currentVersionCurush}-amd64.tar.gz
@@ -150,8 +156,8 @@ tar -xzvf curush-${$currentVersionCurush}-amd64.tar.gz
         <p><small>Whats shown above are latest stable versions of all software!</small></p>
         <p>On windows download the .exe's and run them through Powershell or CMD.</p>
         <h3 id="setting-up-cluster">Setting Up Cluster</h3>
-        <p>First download the latest version of the CursusDB cluster from <a href="/downloads">Here</a> for your operating system.</p>
-        <p>Once downloaded Cursus will expect an initial database user and key to be created upon first start up.</p>
+        <p>First download the latest version of the CursusDB cluster from <a href="/downloads">Here</a> for your operating system if you haven't already.</p>
+        <p>Once downloaded Cursus will expect an initial database user and shared cluster and node key to be created upon first start up.</p>
         <Prism language="bash" code={`
 ./cursus
 `}/>
@@ -163,13 +169,13 @@ tar -xzvf curush-${$currentVersionCurush}-amd64.tar.gz
 
         <img style="border-radius: 10px" src="docs3.png" /><br/>
 
-        <p>Your initial user has <strong>RW</strong> which is READWRITE permissions.  You can see in your .cursusconfig that you have a serialized user which is encoded to be stored securely and taking up little room.</p>
+        <p>Your initial user has <strong>RW</strong> which is READWRITE permissions.  You can see in your .cursusconfig that you have a hashed and encoded user which is done to be stored securely and take up little room.</p>
 
-        <p>You can choose to start your cluster with tls disabled but it is recommended for connections to be secure.</p>
+        <p>Your cluster will start without TLS enabled by default.  You can enable TLS within <code>.cursusconfig</code></p>
 
         <p>The <strong>tls-cert</strong> and <strong>tls-key</strong> values can be populated with the location of your tls key and cert.  You must also make sure to set <strong>tls</strong> to <strong>true</strong></p>
 
-        <p>As the cluster states you must setup at-least one node to use the database system.</p>
+        <p>As the cluster states you must setup at least one node to use the database system.</p>
         <p>To do that let's have a look below:</p>
         <p>Say I want to start a node locally.</p>
         <Prism language="yaml" code={`
@@ -247,8 +253,9 @@ users:
         <p><strong>Pointers</strong></p>
         <ul>
             <li>End every query with a semi colon.</li>
-            <li>Nested objects are not part of CursusDB's search algorithms.</li><br/>
-        </ul>
+            <li>Nested objects are not part of CursusDB's search algorithms.</li>
+            <li>Keep it <strong>lowercase</strong> this is not SQL.</li>
+        </ul><br/>
 
 
         <h4>Ping the cluster</h4>
@@ -260,52 +267,83 @@ ping;
         <Prism language="sql" code={`
 insert into users({"name": "Alex", "last": "Lee", "age": 28});
 `}/><br/>
+        <p>The query above inserts the document into a users collection.  Documents within a collection on CursusDB are unstructured/schemaless meaning I could insert the next document like so:</p>
 
         <Prism language="sql" code={`
-insert into pos({"x": 4, "y": 5});
+insert into users({"name": "Jane", "last": "Lee", "age": 28, "sex": "F"});
 `}/><br/>
 
-        <p>The query above inserts the document into a users collection.  Documents within a collection on CursusDB are unstructured/schemaless meaning I could insert the next document like so:</p>
+        <p>CQDL expects simple JSON documents so <strong>no nested objects.</strong></p>
+        <p>In the example below you can see a good example of an array within a document.  This array is searchable as you will see soon.</p>
         <Prism language="sql" code={`
 insert into users({"name": "John", "last": "Josh", "age": 28, "tags": ["tag1", "tag2"]});
 `}/><br/>
-
-        <p>Specifying new keys no problem!</p>
 
         <p><strong>What about uniqueness across all nodes?</strong></p>
         <p>CursusDB has this covered.  When inserting a document you can use an exclamation mark after your key name like so: </p>
         <Prism language="sql" code={`
 insert into users({"name!": "John", "last": "Josh", "age": 28, "tags": ["tag1", "tag2"]});
 `}/><br/>
-        <p>Now on insert CursusDB will check every node if there is a document within the users collection with a key of "name" and value of "John".  You can specify multiple unique keys, even within an array!</p>
+        <p>Now on insert CursusDB will check every node or node replica before inserting if there is a document within the users collection with a key of "name" and value of "John".  If there is you will get back a status code <code>4004</code> regarding a duplicate document.</p>
 
-        <h4>Selecting Documents</h4>
+        <br/>
+        <p>Say we want all values within the tags array to be unique you just write <code>"tags!"</code></p>
         <Prism language="sql" code={`
-select * from users;
-select 0,2 from users;
-select 2,3 from users;
-select 4,5 from users;
-select 5,* from users;
-select 1 from users where name == 'Alex' || name == 'John';
-select * from users where name == 'Alex' && age == 28;
-select * from users where tags == "tag1";
-select * from users where name == 'Alex' && age == 28 && tags == 'tag1';
+insert into users({"name!": "John", "last": "Josh", "age": 28, "tags!": ["tag1", "tag2"]});
 `}/><br/>
 
-        <h4>Deleting Documents</h4>
+        <p>The exclamation mark should be at the <strong>end</strong> of your keys.</p>
         <Prism language="sql" code={`
+"key!"
+`}/><br/>
+
+        <h4>Selecting Documents</h4>
+        <p>Selecting and deleting documents share the same logic.  What goes for select goes for delete in regards to CDQL.  The update action is a bit different.</p>
+        <Prism language="sql" code={`
+ACTION LIMIT-SKIP CONDITIONALS
+select * from collection; // * is all
+select * from collection where k = v && k != v || k >= v && k = true;
+`}/><br/>
+
+        <Prism language="sql" code={`
+select * from users; // select all from users
+select 0,2 from users; // select 2 from users skipping 0
+select 2,3 from users; // select 3 from users skipping 2
+select 4,5 from users; // select 5 from users skipping 4
+select 5,* from users; // select all skipping 5
+
+select 1 from users where name = 'Alex' || name = 'John'; // select 1 from users where name is Alex or name is John
+`}/><br/>
+
+<p>In CDQL you can search in an array very easily.  Remember that one insert we did?</p>
+        <Prism language="sql" code={`
+insert into users({"name!": "John", "last": "Josh", "age": 28, "tags": ["tag1", "tag2"]});
+`}/><br/>
+
+        <p>Let's select all from users that have <strong>"tag1"</strong> in their tags array.</p>
+        <Prism language="sql" code={`
+select * from users where tags = 'tag1';
+`}/><br/>
+
+
+        <h4>Deleting Documents</h4>
+        <p>Deleting is exactly like select but with delete as the action</p>
+        <Prism language="sql" code={`
+delete 1 from collection where k = v && k != v || k >= v && k = true;
 delete * from users where age >= 28 || age < 32;
 delete 10,* from users where age > 28 && name == 'Alex';
 ect
 `}/><br/>
         <h4>Updating Documents</h4>
+        <p>Updating is similar to select and delete, but instead of "from collection"  we write "in collection" and we add update set's as shown below.</p>
         <Prism language="sql" code={`
 update 1 in users where age >= 28 set name = 'Josie';
-update * in users where age > 24 && name == 'Alex' set name = 'Josie', age = 52;
-update n, n..
-ect..
+update * in users where age > 24 && name == 'Alex' set name = 'Josie';
 `}/><br/>
-
+        <p>You can have multiple sets!</p>
+        <Prism language="sql" code={`
+update * in users where age > 24 && name == 'Alex' set name = 'Josie' set age = 52;
+`}/><br/>
         <h4>Counting</h4>
 
         <p>Response not joined</p>
@@ -358,8 +396,13 @@ select * from users where firstName not like 'Alex %Pad%ula'
 `}/><br/>
 
         <h4>Sorting</h4>
+        <p>CursusDB nodes are smart enough to determine a letter or number.  Sorting in <strong>desc</strong> or <strong>asc</strong> will either sort alphabetically or sort the provided based on value(string, float, or int)</p>
         <Prism language="sql" code={`
 select * from posts order by createdOn desc;
+select * from posts order by createdOn asc;
+
+select * from users order by firstName desc;
+select * from users order by firstName asc;
 `}/><br/>
 
         <br/><h3 id="adding-database-users">Adding Database Users</h3>
@@ -686,6 +729,24 @@ users:
         border-radius: 8px!important;
     }
 
+    .statuscodes  code {
+        padding: 5px;
+        background: #f1f1f1;
+        margin-bottom: 5px;
+        display: inline-block;
+        border-radius: 8px!important;
+    }
+
+    .yaml-key {
+        padding: 5px;
+        background: #eef7f8;
+        margin-bottom: 5px;
+        margin-right: 10px;
+        display: inline-block;
+        border-radius: 8px!important;
+    }
+
+
     h4 {
         margin-top: 5px;
         margin-bottom: 5px;
@@ -762,6 +823,12 @@ users:
     img {
         width: 100%;
         max-width: 600px;
+    }
+
+    h6 {
+        font-size: 16px;
+        font-weight: lighter;
+        color: #6e6e80;
     }
 
     aside ul li {

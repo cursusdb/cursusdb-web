@@ -28,7 +28,7 @@
 
 <div class="abstract">
     <svg viewBox="0 0 500 150" preserveAspectRatio="none">
-        <path d={`M0.00,${scrollYBind * 10}.98 C216.98,80.06 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z`}
+        <path d={`M0.00,${scrollYBind * 10}.98 C216.98,80.06 349.20,-49.98 500.00,89.98 L500.00,180.00 L0.00,150.00 Z`}
               style="stroke: none; fill: #ecb9ff;">
         </path>
     </svg>
