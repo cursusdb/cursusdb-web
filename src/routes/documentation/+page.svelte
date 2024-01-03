@@ -414,7 +414,7 @@ select * from users where firstName like 'A%lex Padula'
 
         <p>Ends with 'la'</p>
         <Prism language="sql" code={`
- select * from users where firstName like 'Alex Padu%la'
+select * from users where firstName like 'Alex Padu%la'
 `}/><br/>
 
         <p>Contains 'Pad'</p>
@@ -625,7 +625,7 @@ users:
         <p>Now when your cluster is secured with TLS every attempt to connect with Curush or a native package you must make sure to enable TLS.</p>
 
         <Prism language="bash" code={`
- ./curush --host=X --port=X --tls=true
+./curush --host=X --port=X --tls=true
 `}/><br/>
 
         <h3 id="reserved-doc-keys">Reserved Document Keys</h3>
@@ -844,8 +844,6 @@ tls-observers: false
     .reg-list li span {
         display: inline-block;
     }
-
-
 
     code {
         padding: 3px;
