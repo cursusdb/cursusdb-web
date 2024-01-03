@@ -685,15 +685,29 @@ users:
 
 
         <h3 id="status-codes">Status Codes</h3>
+        <p>A CursusDB status code is a numerical value assigned to a specific message. The numerical values are used as a shorthand to the actual message. They are grouped by</p>
+        <ul dir="statuscodes">
+            <li><code>Other</code> signals, shutdowns,etc</li><br/>
+            <li><code>Authentication / Authorization</code> cluster and node auth</li><br/>
+            <li><code>Document &amp; CDQL</code> document and query language related</li><br/>
+        </ul>
+
+        <h4>Other</h4>
         <ul class="statuscodes">
             <li><code>-1</code> Received signal (with signal) -1 is just for the system it doesn't mean error in CursusDB's case.</li>
+        </ul><br/>
+
+        <h4>Authentication / Authorization</h4>
+        <ul class="statuscodes">
             <li><code>0</code> Authentication successful</li>
             <li><code>1</code> Unable to read authentication header</li>
             <li><code>2</code> Invalid authentication value</li>
             <li><code>3</code> No user exists</li>
             <li><code>4</code> User not authorized</li>
             <li><code>5</code> Failed node sync auth</li>
-        </ul>
+        </ul><br/>
+
+        <h4>Node / Cluster</h4>
         <ul class="statuscodes">
             <li><code>100</code> Node is at peak allocation</li>
             <li><code>101</code> Invalid permission</li>
@@ -741,15 +755,10 @@ users:
             <li><code>224</code> Observer connection established (with info)</li>
             <li><code>225</code> Node connection established (with info)</li>
             <li><code>500</code> Unknown error (with description)</li>
-            <li><code>501</code> Limit skip must be an integer (with description)</li>
-            <li><code>502</code> Could not convert limit value to integer (with description)</li>
-            <li><code>503</code> Invalid limiting slice value (with description)</li>
-            <li><code>504</code> Invalid limiting value (with description)</li>
-            <li><code>505</code> Key cannot use reserved word</li>
-            <li><code>506</code> Key cannot use reserved symbol</li>
             <li><code>507</code> Error loading X509 key pair (with description)</li>
-        </ul>
+        </ul><br/>
 
+        <h4>Document &amp; CDQL</h4>
         <ul class="statuscodes">
             <li><code>2000</code> Document inserted/updated/deleted</li>
             <li><code>4000</code> Unmarsharable JSON insert</li>
@@ -778,6 +787,12 @@ users:
             <li><code>4023</code> No unique $id could be found for insert</li>
             <li><code>4024</code> Batch insertion is not supported</li>
             <li><code>4025</code> Where is missing values</li>
+            <li><code>4026</code> Delete key missing in</li>
+                <li><code>4027</code> Limit skip must be an integer (with description)</li>
+                    <li><code>4028</code> Could not convert limit value to integer (with description)</li>
+                        <li><code>4029</code> Invalid limiting value (with description)</li>
+                            <li><code>4030</code> Key cannot use reserved word</li>
+                                <li><code>4031</code> Key cannot use reserved symbol</li>
         </ul><br/>
 
         <h2 id="realtime-observers">Realtime Observers</h2>
@@ -880,7 +895,7 @@ tls-observers: false
         font-size: 18px;
         font-weight: lighter;
         padding-left: 10px;
-        border-left: 4px solid black!important;
+        border-left: 4px solid rgb(236,185,255) !important;
     }
 
     h5 {
