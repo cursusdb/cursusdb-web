@@ -13,11 +13,11 @@
 
 
     function searchKey(event) {
-        if (event.ctrlKey && event.key === 'f') {
-            event.preventDefault()
-            searchInput.focus()
-            return false
-        }
+        // if (event.ctrlKey && event.key === 'f') {
+        //     event.preventDefault()
+        //     searchInput.focus()
+        //     return false
+        // }
     }
 
 
