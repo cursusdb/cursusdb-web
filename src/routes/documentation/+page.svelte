@@ -243,7 +243,7 @@ users:
         <h4>Connect via curush (CursusDB Shell Program)</h4>
         <p><a href="/downloads">Download curush</a></p>
 
-        <p><strong>Connect via native client package:</strong></p>
+        <p id="native-packages"><strong>Connect via native client package:</strong></p>
 
         <h4>Node.js</h4>
         <p> <a href="https://www.npmjs.com/package/cursusdb-node">https://www.npmjs.com/package/cursusdb-node</a></p>

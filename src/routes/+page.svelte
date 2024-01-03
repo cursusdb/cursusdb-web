@@ -100,7 +100,7 @@ import Client from 'cursusdb-node'
         </div>
 
         <div class="right">
-            <a href="https://cursusdb.com/downloads">More Native Client Packages</a>
+            <a href="/documentation#connecting-to-cluster">More Native Client Packages</a>
         </div>
     </footer>
 </section>
@@ -111,7 +111,23 @@ import Client from 'cursusdb-node'
 
     <br/><br/>
     <p>Fully managed, secure, and reliable CursusDB cluster deployments on the cloud.</p>
-    <button on:click={() => navigate('./')}>CursusDB Cloud (COMING SOON)</button><br/><br/>
+    <ul>
+        <li><span style="color: forestgreen">✓</span> Automatic daily backups of all nodes</li>
+        <li><span style="color: forestgreen">✓</span>  Always available and persistent </li>
+        <li><span style="color: forestgreen">✓</span>  Autoscale up or down based on size of database</li>
+        <li><span style="color: forestgreen">✓</span>  Pay base fee and for what:
+        <ul>
+            <li>Bandwidth</li>
+            <li>Compute</li>
+        </ul>
+            you use.
+        </li>
+        <li><span style="color: forestgreen">✓</span> Regional</li>
+        <li><span style="color: forestgreen">✓</span>  Premium Support</li>
+        <li></li>
+        <li>More info coming soon!</li>
+    </ul>
+    <button on:click={() => navigate('./')}>CursusDB Cloud</button><br/><br/>
 </div>
 
 
@@ -151,18 +167,32 @@ import Client from 'cursusdb-node'
     }
 
     .end button {
-        background: #2C293B;
+        background: #ECB9FF;
+        color: black;
         padding: 10px 30px;
         border-radius: 5px;
         outline: none;
         cursor: pointer;
         border: none;
         margin-top: 10px;
-        color: white;
     }
 
     .end button:hover {
+        color: #ECB9FF;
         background: #191821;
+    }
+
+    .end ul {
+        font-size: 14px;
+    }
+
+    .end ul li {
+        padding: 5px;
+    }
+
+    .end ul li ul {
+        list-style: none;
+        padding-left: 40px;
     }
 
     figure hr {
