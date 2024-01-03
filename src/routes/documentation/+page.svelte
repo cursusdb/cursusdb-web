@@ -282,8 +282,8 @@ users:
 
         <h5>Conditional symbols</h5>
         <ul class="clean-list">
-            <li><code>&amp;&amp;</code></li>
-            <li><code>||</code></li>
+            <li><code>&amp;&amp;</code> is AND</li>
+            <li><code>||</code> is OR</li>
         </ul>
 
         <h5>Actions</h5>
@@ -970,6 +970,7 @@ tls-observers: false
 
     .clean-list code {
         background: none;
+        margin-right: 14px;
     }
 
     .clean-list li {
