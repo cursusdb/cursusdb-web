@@ -156,6 +156,27 @@
                 <li><a href="https://github.com/cursusdb/cursusdb-go">https://github.com/cursusdb/cursusdb-go</a></li>
             </ul>
         </div>
+
+        <div>
+            <h3>CursusDB Python Native Client Github Repository</h3><br/>
+            <ul>
+                <li><a href="https://github.com/cursusdb/cursusdb-py">https://github.com/cursusdb/cursusdb-py</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>CursusDB C# Native Client Github Repository</h3><br/>
+            <ul>
+                <li><a href="https://github.com/cursusdb/cursusdb-cs">https://github.com/cursusdb/cursusdb-cs</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>CursusDB Java Native Client Github Repository</h3><br/>
+            <ul>
+                <li><a href="https://github.com/cursusdb/cursusdb-java">https://github.com/cursusdb/cursusdb-java</a></li>
+            </ul>
+        </div>
     {/if}
 </section>
 

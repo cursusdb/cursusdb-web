@@ -798,7 +798,12 @@ tls-observers: false
             <li>Python (COMING SOON)</li>
             <li>Java (COMING SOON)</li>
             <li>C# (COMING SOON)</li>
-        </ul>
+        </ul><br/>
+
+        <p>Here is an example of how you can use an Observer and Websockets for realtime node(s) relay on inserts, updates, and deletes!</p><br/>
+        <img src="docs/observer-ws.png" alt="CursusDB Observer and WS example Node.JS" /><br/>
+
+        <a href="https://github.com/cursusdb/cursusdb-observer-node-ws-example">https://github.com/cursusdb/cursusdb-observer-node-ws-example</a>
     </article>
 </main>
 
