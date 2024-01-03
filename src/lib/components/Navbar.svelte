@@ -22,7 +22,7 @@
 <svelte:window bind:scrollY={scrollYBind}  on:scroll={(e) => isScrolling(e)}></svelte:window>
 
 <nav bind:this={navBind}>
-    <img on:click={() => navigate("./")} src="cursusv6.png"/> <h2 on:click={() => navigate("./")} class="brand">CursusDB</h2>
+    <img on:click={() => navigate("./")} style="filter: invert(0)" src="cursusdb-vec-v39.png"/> <h2 on:click={() => navigate("./")} class="brand">CursusDB</h2>
 
     <ul>
         <li class="git" on:click={() => navigate("https://github.com/cursusdb")}><img style="filter: invert(0);margin-top: 22px" src="/GitHub_Logo.png"></li>
@@ -72,8 +72,8 @@
     nav img {
         float: left;
         cursor: pointer;
-        width: 34px;
-        margin-top: 12px;
+        width: 40px;
+        margin-top: 10px;
         margin-right: 10px;
         filter: invert(1);
     }

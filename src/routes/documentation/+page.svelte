@@ -1010,8 +1010,8 @@ tls-observers: false
 
     .aside-btn img {
         /*opacity: 0.90;*/
-        margin-top: 10px;
-        width: 16px;
+        margin-top: 8px;
+        width: 22px;
 
     }
 
