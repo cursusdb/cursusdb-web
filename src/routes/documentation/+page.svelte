@@ -687,17 +687,17 @@ users:
         <h3 id="status-codes">Status Codes</h3>
         <p>A CursusDB status code is a numerical value assigned to a specific message. The numerical values are used as a shorthand to the actual message. They are grouped by</p>
         <ul dir="statuscodes">
-            <li><code>Other</code> signals, shutdowns,etc</li><br/>
+            <li><code>Other</code> signals, shutdowns</li><br/>
             <li><code>Authentication / Authorization</code> cluster and node auth</li><br/>
-            <li><code>Document &amp; CDQL</code> document and query language related</li><br/>
+            <li><code>Document &amp; CDQL</code> document and query language</li><br/>
         </ul>
 
-        <h4>Other</h4>
+        <h4>Other</h4><br/>
         <ul class="statuscodes">
             <li><code>-1</code> Received signal (with signal) -1 is just for the system it doesn't mean error in CursusDB's case.</li>
         </ul><br/>
 
-        <h4>Authentication / Authorization</h4>
+        <h4>Authentication / Authorization</h4><br/>
         <ul class="statuscodes">
             <li><code>0</code> Authentication successful</li>
             <li><code>1</code> Unable to read authentication header</li>
@@ -707,7 +707,7 @@ users:
             <li><code>5</code> Failed node sync auth</li>
         </ul><br/>
 
-        <h4>Node / Cluster</h4>
+        <h4>Node / Cluster</h4><br/>
         <ul class="statuscodes">
             <li><code>100</code> Node is at peak allocation</li>
             <li><code>101</code> Invalid permission</li>
@@ -758,7 +758,7 @@ users:
             <li><code>507</code> Error loading X509 key pair (with description)</li>
         </ul><br/>
 
-        <h4>Document &amp; CDQL</h4>
+        <h4>Document &amp; CDQL</h4><br/>
         <ul class="statuscodes">
             <li><code>2000</code> Document inserted/updated/deleted</li>
             <li><code>4000</code> Unmarsharable JSON insert</li>
