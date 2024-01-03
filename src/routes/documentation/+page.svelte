@@ -472,7 +472,9 @@ delete user USERNAME;
         <Prism language="sql" code={`
 users;
 `}/><br/>
-
+        <Prism language="sql" code={`
+["alex","daniel"]
+`}/><br/>
 
         <br/><h3 id="list-collections">Listing collections</h3>
         <Prism language="sql" code={`
