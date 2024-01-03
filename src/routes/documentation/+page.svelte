@@ -747,7 +747,7 @@ users:
             <li><code>504</code> Invalid limiting value (with description)</li>
             <li><code>505</code> Key cannot use reserved word</li>
             <li><code>506</code> Key cannot use reserved symbol</li>
-            <li><code>507</code> Error loading X509 key pair</li>
+            <li><code>507</code> Error loading X509 key pair (with description)</li>
         </ul>
 
         <ul class="statuscodes">
