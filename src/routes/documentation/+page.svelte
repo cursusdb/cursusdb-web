@@ -684,9 +684,10 @@ users:
 
         <h3 id="status-codes">Status Codes</h3>
         <ul class="statuscodes">
-            <li><code>0</code> Authentication successful.</li>
-            <li><code>1</code> Unable to read authentication header.</li>
-            <li><code>2</code> Invalid authentication value.</li>
+            <li><code>-1</code> Received signal (with signal) -1 is just for the system it doesn't mean error in CursusDB's case.</li>
+            <li><code>0</code> Authentication successful</li>
+            <li><code>1</code> Unable to read authentication header</li>
+            <li><code>2</code> Invalid authentication value</li>
             <li><code>3</code> No user exists</li>
             <li><code>4</code> User not authorized</li>
             <li><code>5</code> Failed node sync auth</li>
@@ -701,6 +702,15 @@ users:
             <li><code>106</code> Node ready for sync</li>
             <li><code>107</code> Node replica synced successfully</li>
             <li><code>108</code> Could not decode serialized sync data into hashmap</li>
+            <li><code>109</code> No previous data to read.  Creating new .cdat file</li>
+            <li><code>110</code> Could not open log file to write to (with description)</li>
+            <li><code>111</code> Data file corrupt (with description) </li>
+            <li><code>112</code> Collection mutexes created</li>
+            <li><code>113</code> Could not unmarshal system yaml configuration (with description)</li>
+            <li><code>114</code> Could not marshal system yaml configuration (with description)</li>
+            <li><code>115</code> Could not decode configured shared key (with description)<li>
+            <li><code>116</code> Reconnected to lost connection (includes host:port)</li>
+            <li><code>117</code> Reconnected to lost observer connection (includes host:port)</li>
             <li><code>200</code> New database user created successfully</li>
             <li><code>201</code> Database user removed successfully</li>
             <li><code>202</code> Could not decode user username</li>
@@ -719,6 +729,13 @@ users:
             <li><code>216</code> Starting to sync to with master node</li>
             <li><code>217</code> Synced up with master node (with addr)</li>
             <li><code>218</code> Observer HOST:PORT was unavailable during relay</li>
+            <li><code>219</code> Could not encode data for sync (with description)</li>
+            <li><code>220</code> Starting to write node data to file</li>
+            <li><code>221</code> Starting to write node data to backup file</li>
+            <li><code>222</code> Node data written to file successfully</li>
+            <li><code>223</code> Node data written to backup file successfully</li>
+            <li><code>224</code> Observer connection established (with info)</li>
+            <li><code>225</code> Node connection established (with info)</li>
             <li><code>500</code> Unknown error (with description)</li>
             <li><code>501</code> Limit skip must be an integer (with description)</li>
             <li><code>502</code> Could not convert limit value to integer (with description)</li>
