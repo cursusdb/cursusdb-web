@@ -713,6 +713,8 @@ users:
             <li><code>115</code> Could not decode configured shared key (with description)<li>
             <li><code>116</code> Reconnected to lost connection (includes host:port)</li>
             <li><code>117</code> Reconnected to lost observer connection (includes host:port)</li>
+            <li><code>118</code> Could not open/create configuration file (with description)</li>
+            <li><code>118</code> Could not open/create data file (with description)</li>
             <li><code>200</code> New database user created successfully</li>
             <li><code>201</code> Database user removed successfully</li>
             <li><code>202</code> Could not decode user username</li>
@@ -724,7 +726,7 @@ users:
             <li><code>208</code> Could not read node backups directory  (with description)</li>
             <li><code>209</code> Could not remove .cdat backup FILE NAME (with description)</li>
             <li><code>210</code> Could not get node working directory for automatic recovery (with description)</li>
-            <li><code>211</code> Node data backup was successful</li>
+            <li><code>211</code> Node recovery from backup was successful</li>
             <li><code>213</code> Delete key missing in</li>
             <li><code>214</code> Node was unrecoverable after all attempts</li>
             <li><code>215</code> Attempting automatic recovery with latest backup</li>
@@ -744,8 +746,8 @@ users:
             <li><code>503</code> Invalid limiting slice value (with description)</li>
             <li><code>504</code> Invalid limiting value (with description)</li>
             <li><code>505</code> Key cannot use reserved word</li>
-            <li><code>506</code> Where is missing values</li>
-            <li><code>505</code> Key cannot use reserved symbol</li>
+            <li><code>506</code> Key cannot use reserved symbol</li>
+            <li><code>507</code> Error loading X509 key pair</li>
         </ul>
 
         <ul class="statuscodes">
@@ -775,6 +777,7 @@ users:
             <li><code>4022</code> No documents found to alter</li>
             <li><code>4023</code> No unique $id could be found for insert</li>
             <li><code>4024</code> Batch insertion is not supported</li>
+            <li><code>4025</code> Where is missing values</li>
         </ul><br/>
 
         <h2 id="realtime-observers">Realtime Observers</h2>
