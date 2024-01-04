@@ -35,7 +35,7 @@
 </div>
 <br/><br/><figure>
     <h2>NoSQL At Scale </h2>
-    <h1>CursusDB is </h1><RollingText time={2250} texts={['Document-oriented', 'Distributed', 'SQL like', 'Fast', 'Open Source', 'Secure by default', 'JSON friendly']}/>
+    <h1>CursusDB is </h1><RollingText time={2250} texts={['Document-oriented', 'Distributed', 'SQL like', 'Fast', 'Open Source', 'Secure by default', 'JSON friendly', 'Persistent']}/>
 </figure>
 <br/>
 <section style="background: none;">
