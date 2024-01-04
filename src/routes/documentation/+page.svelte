@@ -409,34 +409,34 @@ select count from users where firstName = "Alex";
         <h5>LIKE</h5>
         <p>Starts with 'A'</p>
         <Prism language="sql" code={`
-select * from users where firstName like 'A%lex Padula'
+select * from users where firstName like 'A%lex Padula';
 `}/><br/>
 
         <p>Ends with 'la'</p>
         <Prism language="sql" code={`
-select * from users where firstName like 'Alex Padu%la'
+select * from users where firstName like 'Alex Padu%la';
 `}/><br/>
 
         <p>Contains 'Pad'</p>
         <Prism language="sql" code={`
-select * from users where firstName like 'Alex %Pad%ula'
+select * from users where firstName like 'Alex %Pad%ula';
 `}/><br/>
 
 
         <h5>NOT LIKE</h5>
         <p>Starts with 'A'</p>
         <Prism language="sql" code={`
-select * from users where firstName not like 'A%lex Padula'
+select * from users where firstName not like 'A%lex Padula';
 `}/><br/>
 
         <p>Ends with 'la'</p>
         <Prism language="sql" code={`
-select * from users where firstName not like 'Alex Padu%la'
+select * from users where firstName not like 'Alex Padu%la';
 `}/><br/>
 
         <p>Contains 'Pad'</p>
         <Prism language="sql" code={`
-select * from users where firstName not like 'Alex %Pad%ula'
+select * from users where firstName not like 'Alex %Pad%ula';
 `}/><br/>
 
         <h4>Sorting</h4>
