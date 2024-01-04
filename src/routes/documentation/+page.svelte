@@ -940,8 +940,23 @@ tls-observers: false
         left: 0;
         margin-left: -20px;
         margin-right: 20px;
+        overflow: scroll;
         margin-bottom: 20px;
         float: left;
+    }
+
+    aside::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    aside::-webkit-scrollbar-track {
+        background: #ffffff;
+    }
+
+    aside::-webkit-scrollbar-thumb {
+        background-color: #e3e3e3;
+        border-radius: 20px;
+        border: 3px solid #ffffff;
     }
 
     aside ul {
