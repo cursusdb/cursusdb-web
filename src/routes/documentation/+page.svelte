@@ -868,6 +868,7 @@ tls-observers: false
         background: #ffd980;
         display: inline-block;
         color: rgba(0,0,0,0.74);
+        margin-bottom: 5px;
         border-radius: 8px!important;
     }
 
@@ -1061,4 +1062,5 @@ tls-observers: false
         text-decoration: none;
         border: none;
     }
+
 </style>
