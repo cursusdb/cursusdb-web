@@ -729,7 +729,7 @@ users:
             <li><code>117</code> Reconnected to lost observer connection (includes host:port)</li>
             <li><code>118</code> Could not open/create configuration file (with description)</li>
             <li><code>119</code> Could not open/create data file (with description)</li>
-            <li><code>120</code> Could not open/create query queue file (with description)</li>
+            <li><code>120</code> No .qqueue file found.  Possibly first run, if so the node will create the .qqueue file after run of this method (after first run you will normally see a ..<code>505 0 recovered and processed from .qqueue.</code> 0 being what was left on the query queue)</li>
             <li><code>200</code> New database user created successfully</li>
             <li><code>201</code> Database user removed successfully</li>
             <li><code>202</code> Could not decode user username</li>
