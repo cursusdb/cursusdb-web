@@ -728,7 +728,8 @@ users:
             <li><code>116</code> Reconnected to lost connection (includes host:port)</li>
             <li><code>117</code> Reconnected to lost observer connection (includes host:port)</li>
             <li><code>118</code> Could not open/create configuration file (with description)</li>
-            <li><code>118</code> Could not open/create data file (with description)</li>
+            <li><code>119</code> Could not open/create data file (with description)</li>
+            <li><code>120</code> Could not open/create query queue file (with description)</li>
             <li><code>200</code> New database user created successfully</li>
             <li><code>201</code> Database user removed successfully</li>
             <li><code>202</code> Could not decode user username</li>
@@ -755,6 +756,10 @@ users:
             <li><code>224</code> Observer connection established (with info)</li>
             <li><code>225</code> Node connection established (with info)</li>
             <li><code>500</code> Unknown error (with description)</li>
+            <li><code>502</code> Node could not recover query queue</li>
+            <li><code>503</code> Could not dial self to requeue queries (with description)</li>
+            <li><code>504</code> Could not commit to queued query/transaction</li>
+            <li><code>505</code> n recovered and processed from .qqueue</li>
             <li><code>507</code> Error loading X509 key pair (with description)</li>
         </ul><br/>
 
