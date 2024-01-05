@@ -80,35 +80,35 @@
         <h4>Cluster config .cursusconfig</h4><br/>
         <ul class="yaml-configs">
             <li><strong><span class="yaml-key">nodes</span></strong>database cluster nodes. i.e an ip/fqdn + port combination (host: cluster1.example.com port: 7682)</li>
-            <li><strong><span class="yaml-key">tls-node</span></strong>whether the cluster will connect to nodes via tls</li>
+            <li><strong><span class="yaml-key">tls-node</span></strong>whether the cluster will connect to all nodes via tls</li>
             <li><strong><span class="yaml-key">tls-cert</span></strong>path to your tls cert for cluster</li>
             <li><strong><span class="yaml-key">tls-key</span></strong>path to your tls key for cluster</li>
-            <li><strong><span class="yaml-key">tls</span></strong>enable or disable tls</li>
+            <li><strong><span class="yaml-key">tls</span></strong>enable or disable tls for cluster listener</li>
             <li> <strong><span class="yaml-key">port</span></strong>cluster port</li>
             <li><strong><span class="yaml-key">key</span></strong>encoded shared key. (Key is hashed)</li>
-            <li><strong><span class="yaml-key">users</span></strong>array of database users serialized, and encoded.</li>
-            <li> <strong><span class="yaml-key">node-reader-size</span></strong>the max size of a response from a node</li>
+            <li><strong><span class="yaml-key">users</span></strong>array of database users serialized, encrypted and encoded.</li>
+            <li> <strong><span class="yaml-key">node-reader-size</span></strong>the max size of a response from a node in bytes</li>
             <li><strong><span class="yaml-key">join-responses</span></strong>join all node responses and limit based on provided n</li>
             <li><strong><span class="yaml-key">logging</span></strong>start logging to file</li>
             <li><strong><span class="yaml-key">timezone</span></strong>default is Local but format allowed is for example America/Toronto</li>
-            <li><strong><span class="yaml-key">log-query</span></strong>logs client ip and their query to logs and std out if enabled</li>
+            <li><strong><span class="yaml-key">log-query</span></strong>logs client ip and their query to logs and or std out if enabled</li>
             <li><strong><span class="yaml-key">node-read-deadline</span></strong>amount of time in seconds to wait for a node to respond</li>
         </ul><br/>
 
         <h4>Cluster node config .curodeconfig</h4><br/>
         <ul class="yaml-configs">
             <li><strong><span class="yaml-key">replicas</span></strong>node read replicas</li>
-            <li><strong><span class="yaml-key">tls-cert</span></strong>path to your tls cert for cluster</li>
-            <li><strong><span class="yaml-key">tls-key</span></strong>path to your tls key for cluster</li>
-            <li><strong><span class="yaml-key">tls</span></strong>enable or disable tls</li>
-            <li><strong><span class="yaml-key">port</span></strong>cluster port</li>
+            <li><strong><span class="yaml-key">tls-cert</span></strong>path to your tls cert for cluster node</li>
+            <li><strong><span class="yaml-key">tls-key</span></strong>path to your tls key for cluster node</li>
+            <li><strong><span class="yaml-key">tls</span></strong>enable or disable tls for cluster node</li>
+            <li><strong><span class="yaml-key">port</span></strong>node port</li>
             <li><strong><span class="yaml-key">key</span></strong>encoded shared key (Key is hashed)</li>
-            <li><strong><span class="yaml-key">max-memory</span></strong>max allowed memory for node,  default is 10gb</li>
+            <li><strong><span class="yaml-key">max-memory</span></strong>max allowed memory for node,  default is 10gb and in bytes</li>
             <li><strong><span class="yaml-key">logging</span></strong>start logging to file</li>
             <li><strong><span class="yaml-key">timezone</span></strong>default is Local but format allowed is for example America/Toronto</li>
             <li><strong><span class="yaml-key">replication-sync-time</span></strong>how often to sync to read replica;  default is 10 minutes
             <li><strong><span class="yaml-key">replication-sync-timeout</span></strong>how long to give a node to node replica connection before timing out.  Default is 10 minutes.  Increase accordingly as your nodes grow in size.</li>
-            <li><strong><span class="yaml-key">tls-replication</span></strong>connect to read replicas via tls</li>
+            <li><strong><span class="yaml-key">tls-replication</span></strong>connect to all read replicas via tls</li>
             <li><strong><span class="yaml-key">automatic-backups</span></strong>if enabled node will start backing up to backups folder within executing location
             <li><strong><span class="yaml-key">automatic-backup-time</span></strong>how often to backup default is 60 minutes</li>
             <li><strong><span class="yaml-key">automatic-backup-cleanup</span></strong>automatic backup clean up ever 12 hours by default if enabled</li>
