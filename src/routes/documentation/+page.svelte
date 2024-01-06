@@ -335,10 +335,11 @@ insert into users({"name!": "John", "last": "Josh", "age": 28, "tags!": ["tag1",
 
         <h4>Selecting Documents</h4>
         <p>Selecting and deleting documents share the same logic.  What goes for select goes for delete in regards to CDQL.  The update action is a bit different.</p>
+        <p>When you search for a string literal you can use single or double quotes</p>
         <Prism language="sql" code={`
 ACTION LIMIT-SKIP CONDITIONALS
 select * from collection; // * is all
-select * from collection where k = v && k != v || k >= v && k = true;
+select * from collection where k = v && k != 'v' || k >= v && k = true && k = "v";
 `}/><br/>
 
         <Prism language="sql" code={`
