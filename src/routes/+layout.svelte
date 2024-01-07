@@ -7,7 +7,7 @@
     onMount(function() {
         currentVersionCursus.set("v2.3.2")
         currentVersionCurode.set("v2.3.2")
-        currentVersionCurush.set("v1.1.3")
+        currentVersionCurush.set("v1.2.3")
     })
 </script>
 
