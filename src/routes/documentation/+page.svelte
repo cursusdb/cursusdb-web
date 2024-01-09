@@ -794,11 +794,12 @@ users:
             <li><code>4024</code> Batch insertion is not supported</li>
             <li><code>4025</code> Where is missing values</li>
             <li><code>4026</code> Delete key missing in</li>
-                <li><code>4027</code> Limit skip must be an integer (with description)</li>
-                    <li><code>4028</code> Could not convert limit value to integer (with description)</li>
-                        <li><code>4029</code> Invalid limiting value (with description)</li>
-                            <li><code>4030</code> Key cannot use reserved word</li>
-                                <li><code>4031</code> Key cannot use reserved symbol</li>
+            <li><code>4027</code> Limit skip must be an integer (with description)</li>
+            <li><code>4028</code> Could not convert limit value to integer (with description)</li>
+            <li><code>4029</code> Invalid limiting value (with description)</li>
+            <li><code>4030</code> Key cannot use reserved word</li>
+            <li><code>4031</code> Key cannot use reserved symbol</li>
+            <li><code>4032</code> Invalid set array values (with description)</li>
         </ul><br/>
 
         <h2 id="realtime-observers">Realtime Observers</h2>
