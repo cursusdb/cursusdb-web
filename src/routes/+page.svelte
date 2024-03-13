@@ -109,25 +109,25 @@ import Client from 'cursusdb-node'
     <p>Getting a secure cluster setup shouldn't<br/> take more than 5 minutes!</p>
     <button on:click={() => navigate('/documentation')}>Read the docs!</button>
 
-    <br/><br/>
-    <p>Fully managed, secure, and reliable CursusDB cluster deployments on the cloud.</p>
-    <ul>
-        <li><span style="color: forestgreen">✓</span> Automatic daily backups of all nodes</li>
-        <li><span style="color: forestgreen">✓</span>  Always available and persistent </li>
-        <li><span style="color: forestgreen">✓</span>  Autoscale up or down based on size of database</li>
-        <li><span style="color: forestgreen">✓</span>  Pay base fee and for what:
-        <ul>
-            <li>Bandwidth</li>
-            <li>Compute</li>
-        </ul>
-            you use.
-        </li>
-        <li><span style="color: forestgreen">✓</span> Regional</li>
-        <li><span style="color: forestgreen">✓</span>  Premium Support</li>
-        <li></li>
-        <li>More info coming soon!</li>
-    </ul>
-    <button on:click={() => navigate('./')}>CursusDB Cloud</button><br/><br/>
+<!--    <br/><br/>-->
+<!--    <p>Fully managed, secure, and reliable CursusDB cluster deployments on the cloud.</p>-->
+<!--    <ul>-->
+<!--        <li><span style="color: forestgreen">✓</span> Automatic daily backups of all nodes</li>-->
+<!--        <li><span style="color: forestgreen">✓</span>  Always available and persistent </li>-->
+<!--        <li><span style="color: forestgreen">✓</span>  Autoscale up or down based on size of database</li>-->
+<!--        <li><span style="color: forestgreen">✓</span>  Pay base fee and for what:-->
+<!--        <ul>-->
+<!--            <li>Bandwidth</li>-->
+<!--            <li>Compute</li>-->
+<!--        </ul>-->
+<!--            you use.-->
+<!--        </li>-->
+<!--        <li><span style="color: forestgreen">✓</span> Regional</li>-->
+<!--        <li><span style="color: forestgreen">✓</span>  Premium Support</li>-->
+<!--        <li></li>-->
+<!--        <li>More info coming soon!</li>-->
+<!--    </ul>-->
+<!--    <button on:click={() => navigate('./')}>CursusDB Cloud</button><br/><br/>-->
 </div>
 
 
